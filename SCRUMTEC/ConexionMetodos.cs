@@ -11,6 +11,35 @@ namespace SCRUMTEC
     class ConexionMetodos
     {
         /*
+         * Nombre:Autentificar
+         * Propósito:Permitir el ingreso al sistema con un usuario y una contraseña válida por medio de un store procedure
+         * Entrada:El usuario y la contraseña
+         * Salida: un entero con el resultado de la operacion
+         * Creado por: Cristian Araya
+         * Fecha de Creacion: 01/06/2014
+         * Ultima Modificacion Hecha por:
+         * Fecha Ultima Modificacion:
+         */
+        public static int Autentificar(String pUsuario, String pContraseña)
+        {
+            int resultado = -1;
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("autentificacion", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@usuario", pUsuario);
+                Comando.Parameters.AddWithValue("@contraseña", pContraseña);
+                SqlDataReader lector = Comando.ExecuteReader();
+                while (lector.Read())
+                {
+                    resultado = lector.GetInt32(1);
+                }
+                Conn.Close();
+                return resultado;
+            }
+        }
+
+        /*
          * Nombre: insertarUsuario
          * Propósito:Permitir el ingreso de un usuario al sistema
          * Entrada: usuario, contrasena,proyecto, rol

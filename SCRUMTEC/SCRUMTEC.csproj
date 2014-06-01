@@ -44,6 +44,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActualizarEsfuerzoTarea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActualizarEsfuerzoTarea.Designer.cs">
+      <DependentUpon>ActualizarEsfuerzoTarea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActualizarSprint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActualizarSprint.Designer.cs">
+      <DependentUpon>ActualizarSprint.cs</DependentUpon>
+    </Compile>
     <Compile Include="Conexion.cs" />
     <Compile Include="ConexionMetodos.cs" />
     <Compile Include="CreaUsuario.cs">
@@ -52,16 +64,31 @@
     <Compile Include="CreaUsuario.Designer.cs">
       <DependentUpon>CreaUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="DefinirDuracionSprint.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="DefinirDuracionSprint.Designer.cs">
+      <DependentUpon>DefinirDuracionSprint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DefinirSprints.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DefinirSprints.Designer.cs">
+      <DependentUpon>DefinirSprints.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Identificacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Identificacion.Designer.cs">
+      <DependentUpon>Identificacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CreaUsuario.resx">
       <DependentUpon>CreaUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Identificacion.resx">
+      <DependentUpon>Identificacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

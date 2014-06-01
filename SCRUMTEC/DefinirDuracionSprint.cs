@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SCRUMTEC
 {
-    public partial class Form1 : Form
+    public partial class DefinirDuracionSprint : Form
     {
-        public Form1()
+        public DefinirDuracionSprint()
         {
             InitializeComponent();
         }
