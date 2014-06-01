@@ -20,9 +20,11 @@ namespace SCRUMTEC
          * Ultima Modificacion Hecha por:
          * Fecha Ultima Modificacion:
          */
-        public static int Autentificar(String pUsuario, String pContraseña)
+        public static List<int> Autentificar(String pUsuario, String pContraseña)
         {
+            List<int> Lista = new List<int>();
             int resultado = -1;
+            int id = 0;
             using (SqlConnection Conn = Conexion.ObtenerConexion())
             {
                 SqlCommand Comando = new SqlCommand("autentificacion", Conn);
@@ -32,10 +34,13 @@ namespace SCRUMTEC
                 SqlDataReader lector = Comando.ExecuteReader();
                 while (lector.Read())
                 {
+                    id = lector.GetInt32(0);
                     resultado = lector.GetInt32(1);
+                    Lista.Add(id);
+                    Lista.Add(resultado);
                 }
                 Conn.Close();
-                return resultado;
+                return Lista;
             }
         }
 

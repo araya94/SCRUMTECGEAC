@@ -12,9 +12,13 @@ namespace SCRUMTEC
 {
     public partial class CreaUsuario : Form
     {
-        public CreaUsuario()
+        int rol;
+        int idUsuario;
+        public CreaUsuario(int rolP,int idUsuarioP)
         {
             InitializeComponent();
+            rol =rolP;
+            idUsuario = idUsuarioP;
             ConexionMetodos ConexionDocumentos = new ConexionMetodos();
             List<String> Proyectos = ConexionMetodos.BuscarProyectos();
             for (int x = 0; x < Proyectos.Count; x++)
