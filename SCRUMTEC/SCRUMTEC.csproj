@@ -114,6 +114,9 @@
     <EmbeddedResource Include="DefinirDuracionSprint.resx">
       <DependentUpon>DefinirDuracionSprint.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DefinirSprints.resx">
+      <DependentUpon>DefinirSprints.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Identificacion.resx">
       <DependentUpon>Identificacion.cs</DependentUpon>
     </EmbeddedResource>
