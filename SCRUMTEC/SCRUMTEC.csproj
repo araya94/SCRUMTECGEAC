@@ -111,6 +111,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="xxxPrueba.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="xxxPrueba.Designer.cs">
+      <DependentUpon>xxxPrueba.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CrearProyecto.resx">
       <DependentUpon>CrearProyecto.cs</DependentUpon>
     </EmbeddedResource>
@@ -135,6 +141,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="xxxPrueba.resx">
+      <DependentUpon>xxxPrueba.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
