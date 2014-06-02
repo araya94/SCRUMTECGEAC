@@ -62,5 +62,16 @@ namespace SCRUMTEC
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (panel2.Visible == true) panel2.Visible = false;
+            else panel2.Visible = true; 
+        }
+
+        private void menuStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }
