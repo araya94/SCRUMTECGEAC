@@ -23,6 +23,9 @@ namespace SCRUMTEC
         public static SqlConnection ObtenerConexion()
         {
             SqlConnection Connec = new SqlConnection("Data source = CRIS; Initial Catalog = ScrumProyecto; Integrated Security=True"); //User Id=mono; Password=123"
+            // NO BORREN ESTO ES PARA NADA MAS COPIAR Y PEGAR A LA HORA DE HACER PRUEBAS...
+            // Data Source=GUILLERMOPC\\SQL_GUILLERMO;
+            // Data source = CRIS; 
             Connec.Open();
             return Connec;
         }

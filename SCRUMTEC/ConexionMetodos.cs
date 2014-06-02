@@ -73,7 +73,7 @@ namespace SCRUMTEC
                 return resultado;
             }
         }
-
+        
         /*
          * Nombre:BuscarProyectos
          * Propósito:Permitir la busqueda de todos los proyectos que existen por medio de un store procedure
