@@ -99,10 +99,32 @@ namespace SCRUMTEC
                     String Documento = lector.GetString(1);
                     Lista.Add(Documento);
                 }
+                
+
                 Conn.Close();
                 return Lista;
             }
         }
+
+
+        public static DataSet CargarProyectos()
+        {
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("buscarProyectos", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+
+               
+                DataSet ds1 = new DataSet();
+                SqlDataAdapter da1 = new SqlDataAdapter(Comando);
+                da1.Fill(ds1, "dbo.Proyecto");
+
+                Conn.Close();
+                return ds1;
+            }
+        }
+
 
         /*
         * Nombre:BuscarRoles
