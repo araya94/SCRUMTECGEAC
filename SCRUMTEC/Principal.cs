@@ -77,12 +77,11 @@ namespace SCRUMTEC
 
         private void button2_Click(object sender, EventArgs e)
         {
-            DataSet Proyectos = ConexionMetodos.CargarProyectos();
+            DataSet Proyectos = ConexionMetodos.CargarProyectosxUsuario(idUsuario);
 
             listBox1.DataSource = Proyectos.Tables[0].DefaultView;
             listBox1.ValueMember = "Nombre";
-            
-            
+
             
         }
     }

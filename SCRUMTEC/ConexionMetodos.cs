@@ -106,22 +106,56 @@ namespace SCRUMTEC
             }
         }
 
-
-        public static DataSet CargarProyectos()
+        /*
+        * Nombre:CargarProyectos
+        * Propósito:Permitir la busqueda de los proyectos que pertenecen a un Usuario especifico
+        * Entrada:Id del usuario
+        * Salida: Un DataSet con los proyectos pertenecientes a el Usuario 
+        * Creado por: Guillermo Arce
+        * Fecha de Creacion: 03/06/2014
+        * Ultima Modificacion Hecha por:
+        * Fecha Ultima Modificacion:
+        */
+        public static DataSet CargarProyectosxUsuario(int ID_Usuario)
         {
             using (SqlConnection Conn = Conexion.ObtenerConexion())
             {
-                SqlCommand Comando = new SqlCommand("buscarProyectos", Conn);
+                SqlCommand Comando = new SqlCommand("CargarProyectosUsuario", Conn);
                 Comando.CommandType = CommandType.StoredProcedure;
-
+                Comando.Parameters.AddWithValue("@IDUsuario", ID_Usuario);
 
                
-                DataSet ds1 = new DataSet();
-                SqlDataAdapter da1 = new SqlDataAdapter(Comando);
-                da1.Fill(ds1, "dbo.Proyecto");
+                DataSet DataSet1 = new DataSet();
+                SqlDataAdapter DataAdapter1 = new SqlDataAdapter(Comando);
+                DataAdapter1.Fill(DataSet1, "dbo.Proyecto");
 
                 Conn.Close();
-                return ds1;
+                return DataSet1;
+
+                /* ESTE ES EL STORED PROCEDURE DE CARGAR PROYECTOS X USUARIO PARA QUE LO APUNTEN POR AHI...
+                 
+                create procedure CargarProyectosUsuario
+                @IDUsuario int
+                as
+                begin
+                begin try
+		            begin transaction
+
+			            Select * from dbo.Proyecto P
+				            inner join dbo.Usuario_Proyecto UP on UP.FKUsuario = @IDUsuario
+					            where P.id = UP.FKProyecto
+
+		            commit transaction
+	            end try
+	            begin catch
+		            select ERROR_NUMBER() as ErrorNumber;
+		            return -1;
+		            rollback transaction
+	            end catch 
+            end
+              
+            */
+            
             }
         }
 

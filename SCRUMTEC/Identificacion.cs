@@ -20,8 +20,8 @@ namespace SCRUMTEC
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             List<int> Lista = ConexionMetodos.Autentificar(txtUsuario.Text, txtContraseña.Text);
-            int rol = Lista.ElementAt(0);
-            int idUsuario = Lista.ElementAt(1);
+            int idUsuario = Lista.ElementAt(0);
+            int rol = Lista.ElementAt(1);
             String rolS = null;
             if ((rol > 0) & (txtUsuario.Text != ""))
             {//Verifica que el usuario y la contraseña sean válidos
