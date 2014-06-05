@@ -189,5 +189,107 @@ namespace SCRUMTEC
                 return Lista;
             }
         }
+
+        /*--------------------------- ESTEBAN ----------------------------------------------------------*/
+        /*
+         * Nombre: editarUserStoriE
+         * Propósito:Permitir editar un UserStorie
+         * Entrada: id, nombre, prioridad
+         * Salida: un entero con el resultado de la operacion
+         * Creado por: Esteban Segura Benavides
+         * Fecha de Creacion: 1/06/2013
+         * Ultima Modificacion Hecha por:
+         * Fecha Ultima Modificacion:
+         */
+        public static int actualizarUserStorie(int id, string nombre, string prioridad)
+        {
+            int resultado = -1;
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("SP_ACTUALIZAR_USERSTORIE", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@ID", id);
+                Comando.Parameters.AddWithValue("@NOMBRE", nombre);
+                Comando.Parameters.AddWithValue("@PRIORIDAD", prioridad);
+                SqlDataReader lector = Comando.ExecuteReader();
+                resultado = 1;
+                Conn.Close();
+                return resultado;
+            }
+        }
+
+
+        /*
+             * Nombre: eliminarUserStoriE
+             * Propósito:Permitir eliminar un UserStorie
+             * Entrada: id
+             * Salida: un entero con el resultado de la operacion
+             * Creado por: Esteban Segura Benavides
+             * Fecha de Creacion: 1/06/2013
+             * Ultima Modificacion Hecha por:
+             * Fecha Ultima Modificacion:
+             */
+        public static int eliminarUserStorie(int id)
+        {
+            int resultado = -1;
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("SP_ELIMINAR_USERSTORIE", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@ID", id);
+
+                SqlDataReader lector = Comando.ExecuteReader();
+                resultado = 1;
+                Conn.Close();
+                return resultado;
+            }
+        }
+
+
+        /*
+            * Nombre: insertarCriterio
+            * Propósito:Permitir insertar criterio a un UserStorie
+            * Entrada: id, nombre, prioridad
+            * Salida: un entero con el resultado de la operacion
+            * Creado por: Esteban Segura Benavides
+            * Fecha de Creacion: 4/06/2013
+            * Ultima Modificacion Hecha por:
+            * Fecha Ultima Modificacion:
+            */
+        public static int insertarCriterio(int fk_userstory, string nombre, string descripcion, int estado)
+        {
+            int resultado = -1;
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("SP_INGRESAR_CRITERIO", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@FK_USERSTORY", fk_userstory);
+                Comando.Parameters.AddWithValue("@NOMBRE", nombre);
+                Comando.Parameters.AddWithValue("@DESCRIPCION", descripcion);
+                Comando.Parameters.AddWithValue("@ESTADO", estado);
+                SqlDataReader lector = Comando.ExecuteReader();
+                resultado = 1;
+                Conn.Close();
+                return resultado;
+            }
+        }
+
+        public static int insertarTarea(int fk_userstory, string nombre, string descripcion, string duracion)
+        {
+            int resultado = -1;
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("SP_INGRESAR_TAREA", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@FK_USERSTORY", fk_userstory);
+                Comando.Parameters.AddWithValue("@NOMBRE", nombre);
+                Comando.Parameters.AddWithValue("@DESCRIPCION", descripcion);
+                Comando.Parameters.AddWithValue("@DURACION", duracion);
+                SqlDataReader lector = Comando.ExecuteReader();
+                resultado = 1;
+                Conn.Close();
+                return resultado;
+            }
+        }
     }
 }

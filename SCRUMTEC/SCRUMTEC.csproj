@@ -71,6 +71,18 @@
     <Compile Include="ActualizarSprint.Designer.cs">
       <DependentUpon>ActualizarSprint.cs</DependentUpon>
     </Compile>
+    <Compile Include="AgregarCriterio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarCriterio.Designer.cs">
+      <DependentUpon>AgregarCriterio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AgregarTarea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarTarea.Designer.cs">
+      <DependentUpon>AgregarTarea.cs</DependentUpon>
+    </Compile>
     <Compile Include="Conexion.cs" />
     <Compile Include="ConexionMetodos.cs" />
     <Compile Include="CrearProyecto.cs">
@@ -103,6 +115,12 @@
     <Compile Include="DefinirSprints.Designer.cs">
       <DependentUpon>DefinirSprints.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditarUserStory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditarUserStory.Designer.cs">
+      <DependentUpon>EditarUserStory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +133,12 @@
     <Compile Include="Identificacion.Designer.cs">
       <DependentUpon>Identificacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="NuevoRelease.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevoRelease.Designer.cs">
+      <DependentUpon>NuevoRelease.cs</DependentUpon>
+    </Compile>
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +147,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AgregarCriterio.resx">
+      <DependentUpon>AgregarCriterio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AgregarTarea.resx">
+      <DependentUpon>AgregarTarea.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrearProyecto.resx">
       <DependentUpon>CrearProyecto.cs</DependentUpon>
     </EmbeddedResource>
@@ -135,8 +165,14 @@
     <EmbeddedResource Include="DefinirDuracionSprint.resx">
       <DependentUpon>DefinirDuracionSprint.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EditarUserStory.resx">
+      <DependentUpon>EditarUserStory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NuevoRelease.resx">
+      <DependentUpon>NuevoRelease.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
