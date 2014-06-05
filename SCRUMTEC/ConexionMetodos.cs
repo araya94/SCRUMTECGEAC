@@ -133,7 +133,7 @@ namespace SCRUMTEC
                 return DataSet1;
 
                 /* ESTE ES EL STORED PROCEDURE DE CARGAR PROYECTOS X USUARIO PARA QUE LO APUNTEN POR AHI...
-                 
+                 * 
                 create procedure CargarProyectosUsuario
                 @IDUsuario int
                 as
@@ -143,8 +143,7 @@ namespace SCRUMTEC
 
 			            Select * from dbo.Proyecto P
 				            inner join dbo.Usuario_Proyecto UP on UP.FKUsuario = @IDUsuario
-					            where P.id = UP.FKProyecto
-
+					            where P.id = UP.FKProyectosSS
 		            commit transaction
 	            end try
 	            begin catch
