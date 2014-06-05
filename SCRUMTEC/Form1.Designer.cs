@@ -37,7 +37,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(184, 143);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Soy Esteban";
+            this.button1.Text = "ola k ace? probando o k ace?";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
