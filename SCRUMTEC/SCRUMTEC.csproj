@@ -153,6 +153,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ActualizarEsfuerzoTarea.resx">
+      <DependentUpon>ActualizarEsfuerzoTarea.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ActualizarSprintReview.resx">
       <DependentUpon>ActualizarSprintReview.cs</DependentUpon>
     </EmbeddedResource>

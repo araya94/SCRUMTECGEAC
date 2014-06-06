@@ -12,9 +12,33 @@ namespace SCRUMTEC
 {
     public partial class ActualizarEsfuerzoTarea : Form
     {
-        public ActualizarEsfuerzoTarea()
+        int idSprint;
+        public ActualizarEsfuerzoTarea(int idTarea)
         {
+            idSprint = idTarea;
             InitializeComponent();
+
+            txtDuracion.Text = ConexionMetodos.GetEsfuerzoTarea(idSprint);
+        }
+
+        private void btnDefinir_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtDuracion.Text))
+            {
+                if (ConexionMetodos.ActualizarEsfuerzo(Convert.ToInt32(txtDuracion.Text), idSprint) > 0)
+                {
+                    MessageBox.Show("Esfuerzo Actualizado", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Ha ocurrido un error,intentelo de nuevo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Tiene que llenar los campos correspondientes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }

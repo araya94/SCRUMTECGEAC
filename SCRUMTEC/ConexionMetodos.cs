@@ -134,6 +134,24 @@ namespace SCRUMTEC
             }
         }
 
+        public static String GetEsfuerzoTarea(int idTarea)
+        {
+            int Documento = 0;
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("SP_BUSCARESFUERZO_TAREA", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@tarea", idTarea);
+                SqlDataReader lector = Comando.ExecuteReader();
+
+                while (lector.Read())
+                {
+                    Documento = lector.GetInt32(1);
+                }
+                Conn.Close();
+                return Documento + "";
+            }
+        }
         
                /*
          * Nombre: insertarDuracion
@@ -160,6 +178,23 @@ namespace SCRUMTEC
                 return resultado;
             }
         }
+
+        public static int ActualizarEsfuerzo(int tiempo, int sprint)
+        {
+            int resultado = -1;
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("SP_ACTUALIZARESFUERZO_TAREA", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@tiempo", tiempo);
+                Comando.Parameters.AddWithValue("@sprint", sprint);
+                SqlDataReader lector = Comando.ExecuteReader();
+                resultado = 1;
+                Conn.Close();
+                return resultado;
+            }
+        }
+
 
         public static int insertarSprint(string descripcion, int sprint)
         {
