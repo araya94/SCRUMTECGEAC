@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SCRUMTEC
 {
-    public partial class EditarUserStory : Form
+    public partial class frmEditarUserStory : Form
     {
-        public EditarUserStory()
+        public frmEditarUserStory()
         {
             InitializeComponent();
         }

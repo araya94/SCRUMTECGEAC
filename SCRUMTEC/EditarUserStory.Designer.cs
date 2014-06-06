@@ -1,6 +1,6 @@
 ﻿namespace SCRUMTEC
 {
-    partial class EditarUserStory
+    partial class frmEditarUserStory
     {
         /// <summary>
         /// Required designer variable.
@@ -189,7 +189,7 @@
             this.txtNombreUserStorie.Size = new System.Drawing.Size(259, 20);
             this.txtNombreUserStorie.TabIndex = 17;
             // 
-            // EditarUserStory
+            // frmEditarUserStory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -210,7 +210,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtNombreUserStorie);
-            this.Name = "EditarUserStory";
+            this.Name = "frmEditarUserStory";
             this.Text = "EditarUserStory";
             this.Load += new System.EventHandler(this.EditarUserStory_Load);
             this.ResumeLayout(false);

@@ -139,6 +139,12 @@
     <Compile Include="Identificacion.Designer.cs">
       <DependentUpon>Identificacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Index_UserStory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Index_UserStory.Designer.cs">
+      <DependentUpon>Index_UserStory.cs</DependentUpon>
+    </Compile>
     <Compile Include="NuevoRelease.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Index_UserStory.resx">
+      <DependentUpon>Index_UserStory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NuevoRelease.resx">
       <DependentUpon>NuevoRelease.cs</DependentUpon>

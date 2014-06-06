@@ -390,15 +390,15 @@ namespace SCRUMTEC
 
 
         /*
-             * Nombre: eliminarUserStoriE
-             * Propósito:Permitir eliminar un UserStorie
-             * Entrada: id
-             * Salida: un entero con el resultado de la operacion
-             * Creado por: Esteban Segura Benavides
-             * Fecha de Creacion: 1/06/2013
-             * Ultima Modificacion Hecha por:
-             * Fecha Ultima Modificacion:
-             */
+        * Nombre: eliminarUserStoriE
+        * Propósito:Permitir eliminar un UserStorie
+        * Entrada: id
+        * Salida: un entero con el resultado de la operacion
+        * Creado por: Esteban Segura Benavides
+        * Fecha de Creacion: 1/06/2013
+        * Ultima Modificacion Hecha por:
+        * Fecha Ultima Modificacion:
+        */
         public static int eliminarUserStorie(int id)
         {
             int resultado = -1;
@@ -459,6 +459,34 @@ namespace SCRUMTEC
                 resultado = 1;
                 Conn.Close();
                 return resultado;
+            }
+        }
+
+        /*
+            * Nombre: obtenerUserStory_IDSpring
+            * Propósito:Obtener UserStorie por Spring
+            * Entrada: id_spring
+            * Salida: Data Source
+            * Creado por: Esteban Segura Benavides
+            * Fecha de Creacion: 6/06/2013
+            * Ultima Modificacion Hecha por:
+            * Fecha Ultima Modificacion:
+            */
+        public static DataSet obtenerUserStory_IDSpring(int id_spring)
+        {
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("SP_OBTENER_USERSORY_x_ID_SPRING", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@ID_SPRING", id_spring);
+                SqlDataReader lector = Comando.ExecuteReader();
+
+                DataSet DataSet1 = new DataSet();
+                SqlDataAdapter DataAdapter1 = new SqlDataAdapter(Comando);
+                DataAdapter1.Fill(DataSet1, "dbo.UserStory");
+
+                Conn.Close();
+                return DataSet1;
             }
         }
     }
