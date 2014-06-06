@@ -73,23 +73,143 @@ namespace SCRUMTEC
                 return resultado;
             }
         }
-        
+
+        //insertarSprint(txtNombre.Text, txtDescri.Text, idRelease);
         /*
-         * Nombre:BuscarProyectos
-         * Propósito:Permitir la busqueda de todos los proyectos que existen por medio de un store procedure
-         * Entrada:Ninguna
-         * Salida: Lista con los proyectos
+         * Nombre: insertarSprint
+         * Propósito:Permitir el ingreso de un sprint al sistema
+         * Entrada: nombre,descripcion, id del Release seleccionado
+         * Salida: un entero con el id del sprint creado
+         * Creado por: Cristian Araya
+         * Fecha de Creacion: 05/06/2013
+         * Ultima Modificacion Hecha por:
+         * Fecha Ultima Modificacion:
+         */
+        public static int insertarSprint(String nombre, String descripcion,int release)
+        {
+            int resultado = -1;
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("SP_INSERTAR_SPRINT", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@nombre", nombre);
+                Comando.Parameters.AddWithValue("@email", descripcion);
+                Comando.Parameters.AddWithValue("@rol", release);
+                SqlDataReader lector = Comando.ExecuteReader();
+                while (lector.Read())
+                {
+                    resultado = lector.GetInt32(0);
+                }
+                Conn.Close();
+                return resultado;
+            }
+        }
+
+        /*
+         * Nombre:BuscarNombreProyecto
+         * Propósito:Retorna el nombre de un proyecto dado su id
+         * Entrada: id del proyecto
+         * Salida: Nombre del proyecto
          * Creado por: Cristian Araya
          * Fecha de Creacion: 22/05/2014
          * Ultima Modificacion Hecha por:
          * Fecha Ultima Modificacion:
          */
-        public static List<String> BuscarProyectos()
+        public static String BuscarNombreProyecto(int idProyecto)
+        {
+            String Documento = "";
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("SP_BUSCARNOMBRE_PROYECTO", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@proyecto", idProyecto);
+                SqlDataReader lector = Comando.ExecuteReader();
+
+                while (lector.Read())
+                {
+                    Documento = lector.GetString(1);
+                }
+                Conn.Close();
+                return Documento;
+            }
+        }
+
+        
+               /*
+         * Nombre: insertarDuracion
+         * Propósito:Permitir el ingreso de la duracion de los sprints de un proyecto
+         * Entrada: Tiempo correspondiente y el id del proyecto
+         * Salida: un entero con el resultado de la operacion
+         * Creado por: Cristian Araya
+         * Fecha de Creacion: 05/06/2013
+         * Ultima Modificacion Hecha por:
+         * Fecha Ultima Modificacion:
+         */
+        public static int insertarDuracion(int tiempo, int proyecto)
+        {
+            int resultado = -1;
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("SP_ACTUALIZARTIEMPOSPRINT_PROYECTO", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@tiempo", tiempo);
+                Comando.Parameters.AddWithValue("@proyecto", proyecto);
+                SqlDataReader lector = Comando.ExecuteReader();
+                resultado = 1;
+                Conn.Close();
+                return resultado;
+            }
+        }
+
+        public static int insertarSprint(string descripcion, int sprint)
+        {
+            int resultado = -1;
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("SP_ACTUALIZARREVIEW_SPRINT", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@descrip", descripcion);
+                Comando.Parameters.AddWithValue("@idSprint",sprint);
+                SqlDataReader lector = Comando.ExecuteReader();
+                resultado = 1;
+                Conn.Close();
+                return resultado;
+            }
+        }
+
+
+        public static int AsociaUser(int idSprint,int idUser)
+        {
+            int resultado = -1;
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("SP_ACTUALIZARFKSPRI_USER", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@sprint", idSprint);
+                Comando.Parameters.AddWithValue("@user", idUser);
+                SqlDataReader lector = Comando.ExecuteReader();
+                resultado = 1;
+                Conn.Close();
+                return resultado;
+            }
+        }
+
+        /*
+        * Nombre:BuscarRoles
+        * Propósito:Permitir la busqueda de los roles disponibles
+        * Entrada:Ninguna
+        * Salida: Lista con los roles
+        * Creado por: Cristian Araya
+        * Fecha de Creacion: 22/05/2014
+        * Ultima Modificacion Hecha por:
+        * Fecha Ultima Modificacion:
+        */
+        public static List<String> BuscarRoles()
         {
             List<String> Lista = new List<String>();
             using (SqlConnection Conn = Conexion.ObtenerConexion())
             {
-                SqlCommand Comando = new SqlCommand("buscarProyectos", Conn);
+                SqlCommand Comando = new SqlCommand("buscarRoles", Conn);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 SqlDataReader lector = Comando.ExecuteReader();
@@ -99,12 +219,57 @@ namespace SCRUMTEC
                     String Documento = lector.GetString(1);
                     Lista.Add(Documento);
                 }
-                
+                Conn.Close();
+                Lista.RemoveAt(0);
+                return Lista;
+            }
+        }
 
+        public static List<int> GetListaUserSId(int idSprint)
+        {
+            List<int> Lista = new List<int>();
+            int Documento=0;
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("SP_BUSCAR_USER_SPRINT", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@sprint", idSprint);
+                SqlDataReader lector = Comando.ExecuteReader();
+
+                while (lector.Read())
+                {
+                    Documento = lector.GetInt32(0);
+                    Lista.Add(Documento);
+                }
                 Conn.Close();
                 return Lista;
             }
         }
+
+        public static List<String> GetListaUserSNombre(int idSprint)
+        {
+            String Documento = "";
+            List<String> Lista = new List<String>();
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("SP_BUSCAR_USER_SPRINT", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@sprint", idSprint);
+                SqlDataReader lector = Comando.ExecuteReader();
+
+                while (lector.Read())
+                {
+                    Documento = lector.GetString(1);
+                    Lista.Add(Documento);
+                }
+                Conn.Close();
+                return Lista;
+            }
+        }
+        //-------------------------------------------------------------------------------
+
+
+
 
         /*
         * Nombre:CargarProyectos
@@ -159,36 +324,6 @@ namespace SCRUMTEC
         }
 
 
-        /*
-        * Nombre:BuscarRoles
-        * Propósito:Permitir la busqueda de los roles disponibles
-        * Entrada:Ninguna
-        * Salida: Lista con los roles
-        * Creado por: Cristian Araya
-        * Fecha de Creacion: 22/05/2014
-        * Ultima Modificacion Hecha por:
-        * Fecha Ultima Modificacion:
-        */
-        public static List<String> BuscarRoles()
-        {
-            List<String> Lista = new List<String>();
-            using (SqlConnection Conn = Conexion.ObtenerConexion())
-            {
-                SqlCommand Comando = new SqlCommand("buscarRoles", Conn);
-                Comando.CommandType = CommandType.StoredProcedure;
-
-                SqlDataReader lector = Comando.ExecuteReader();
-
-                while (lector.Read())
-                {
-                    String Documento = lector.GetString(1);
-                    Lista.Add(Documento);
-                }
-                Conn.Close();
-                Lista.RemoveAt(0);
-                return Lista;
-            }
-        }
 
         /*--------------------------- ESTEBAN ----------------------------------------------------------*/
         /*

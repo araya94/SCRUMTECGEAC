@@ -12,8 +12,10 @@ namespace SCRUMTEC
 {
     public partial class DefinirDuracionSprint : Form
     {
-        public DefinirDuracionSprint()
+        int idProyecto;
+        public DefinirDuracionSprint(int idP)
         {
+            idProyecto = idP;
             InitializeComponent();
         }
 
@@ -29,16 +31,12 @@ namespace SCRUMTEC
 
         private void btnDefinir_Click(object sender, EventArgs e)
         {
-            if (txtDuracion.Text. =! null )
+            if (String.IsNullOrEmpty(txtDuracion.Text))
             {
-                //insertarUsuario(String nombre, String usuario, String contrasena, String email, int proyecto, int rol);
-                if (ConexionMetodos.insertarUsuario(txtNombre.Text, txtUsuario.Text, txtContraseña.Text, txtEmail.Text, (cBProyecto.SelectedIndex + 1), (cBRol.SelectedIndex + 1)) > 0)
+                if (ConexionMetodos.insertarDuracion(Convert.ToInt32(txtDuracion.Text), idProyecto) > 0)
                 {
-                    MessageBox.Show("Usuario Creado con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                    this.Dispose();
-                    //MenuPrincipal Menu = new MenuPrincipal();
-                    //Menu.ShowDialog();
+                    MessageBox.Show("Duración Cambiada", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Hide();
                 }
                 else
                 {
@@ -47,8 +45,13 @@ namespace SCRUMTEC
             }
             else
             {
-                MessageBox.Show("Las contraseñas deben de ser igual", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Tiene que llenar los campos correspondientes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

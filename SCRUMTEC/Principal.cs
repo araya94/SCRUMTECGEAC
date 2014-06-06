@@ -84,5 +84,11 @@ namespace SCRUMTEC
 
             
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            AsociarUserASprint ventana = new AsociarUserASprint(1);
+            ventana.ShowDialog();
+        }
     }
 }

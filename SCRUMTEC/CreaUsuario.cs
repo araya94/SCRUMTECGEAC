@@ -12,19 +12,16 @@ namespace SCRUMTEC
 {
     public partial class CreaUsuario : Form
     {
-        int rol;
+        int iDProyecto;
         int idUsuario;
-        public CreaUsuario(int rolP,int idUsuarioP)
+        public CreaUsuario(int idProyectoP,int idUsuarioP)
         {
             InitializeComponent();
-            rol =rolP;
+            iDProyecto =idProyectoP;
             idUsuario = idUsuarioP;
             ConexionMetodos ConexionDocumentos = new ConexionMetodos();
-            List<String> Proyectos = ConexionMetodos.BuscarProyectos();
-            for (int x = 0; x < Proyectos.Count; x++)
-            {
-                cBProyecto.Items.Add(Proyectos.ElementAt(x));
-            }
+            String ProyectoN = ConexionMetodos.BuscarNombreProyecto(iDProyecto);
+            cBProyecto.Items.Add(ProyectoN);
             List<String> Roles = ConexionMetodos.BuscarRoles();
             for (int x = 0; x < Roles.Count; x++)
             {
@@ -82,11 +79,10 @@ namespace SCRUMTEC
             if (txtContraseña.Text == txtConfirmarcionContraseña.Text)
             {
                 //insertarUsuario(String nombre, String usuario, String contrasena, String email, int proyecto, int rol);
-                if (ConexionMetodos.insertarUsuario(txtNombre.Text, txtUsuario.Text, txtContraseña.Text, txtEmail.Text, (cBProyecto.SelectedIndex + 1), (cBRol.SelectedIndex + 1)) > 0)
+                if (ConexionMetodos.insertarUsuario(txtNombre.Text, txtUsuario.Text, txtContraseña.Text, txtEmail.Text, iDProyecto, (cBRol.SelectedIndex + 1)) > 0)
                 {
                     MessageBox.Show("Usuario Creado con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                    this.Dispose();
+                    this.Hide();
                     //MenuPrincipal Menu = new MenuPrincipal();
                     //Menu.ShowDialog();
                 }
@@ -104,6 +100,11 @@ namespace SCRUMTEC
         private void txtConfirmarcionContraseña_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

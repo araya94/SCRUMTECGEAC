@@ -78,6 +78,7 @@
             // 
             // cBProyecto
             // 
+            this.cBProyecto.Enabled = false;
             this.cBProyecto.FormattingEnabled = true;
             this.cBProyecto.Location = new System.Drawing.Point(208, 102);
             this.cBProyecto.Name = "cBProyecto";
@@ -125,6 +126,7 @@
             // 
             this.txtContraseña.Location = new System.Drawing.Point(208, 183);
             this.txtContraseña.Name = "txtContraseña";
+            this.txtContraseña.PasswordChar = '*';
             this.txtContraseña.Size = new System.Drawing.Size(147, 20);
             this.txtContraseña.TabIndex = 23;
             // 
@@ -184,6 +186,7 @@
             this.btnCancelar.TabIndex = 29;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnCrear
             // 
@@ -199,6 +202,7 @@
             // 
             this.txtConfirmarcionContraseña.Location = new System.Drawing.Point(208, 218);
             this.txtConfirmarcionContraseña.Name = "txtConfirmarcionContraseña";
+            this.txtConfirmarcionContraseña.PasswordChar = '*';
             this.txtConfirmarcionContraseña.Size = new System.Drawing.Size(147, 20);
             this.txtConfirmarcionContraseña.TabIndex = 31;
             this.txtConfirmarcionContraseña.TextChanged += new System.EventHandler(this.txtConfirmarcionContraseña_TextChanged);
