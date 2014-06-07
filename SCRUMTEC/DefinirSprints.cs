@@ -47,8 +47,8 @@ namespace SCRUMTEC
                     if (dialogResult == DialogResult.Yes)
                     {
                         this.Hide();
-                        //AsociarUserASprint ventana = new AsociarUserASprint(idSprint);
-                        //ventana.ShowDialog();
+                        AsociarUserASprint ventana = new AsociarUserASprint(idSprint);
+                        ventana.ShowDialog();
                     }
                     else if (dialogResult == DialogResult.No)
                     {

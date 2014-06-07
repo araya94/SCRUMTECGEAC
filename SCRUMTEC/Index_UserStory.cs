@@ -19,7 +19,7 @@ namespace SCRUMTEC
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            frmEditarUserStory editar_userstory = new frmEditarUserStory();
+            frmEditarUserStory editar_userstory = new frmEditarUserStory;
             editar_userstory.Show();
         }
 

@@ -93,8 +93,8 @@ namespace SCRUMTEC
                 SqlCommand Comando = new SqlCommand("SP_INSERTAR_SPRINT", Conn);
                 Comando.CommandType = CommandType.StoredProcedure;
                 Comando.Parameters.AddWithValue("@nombre", nombre);
-                Comando.Parameters.AddWithValue("@descripcion", descripcion);
-                Comando.Parameters.AddWithValue("@releas", release);
+                Comando.Parameters.AddWithValue("@email", descripcion);
+                Comando.Parameters.AddWithValue("@rol", release);
                 SqlDataReader lector = Comando.ExecuteReader();
                 while (lector.Read())
                 {
