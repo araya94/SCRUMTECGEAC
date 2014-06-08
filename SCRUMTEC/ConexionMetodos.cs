@@ -25,7 +25,8 @@ namespace SCRUMTEC
             List<int> Lista = new List<int>();
             int resultado = -1;
             int id = 0;
-            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            SqlConnection Conn = Conexion.ObtenerConexion();
+            if (Conn != null)
             {
                 SqlCommand Comando = new SqlCommand("autentificacion", Conn);
                 Comando.CommandType = CommandType.StoredProcedure;
@@ -42,6 +43,11 @@ namespace SCRUMTEC
                 Conn.Close();
                 return Lista;
             }
+            else 
+            {
+                Console.WriteLine("No se puede conectar a la base de datos");
+                return null;
+            } 
         }
 
         /*
