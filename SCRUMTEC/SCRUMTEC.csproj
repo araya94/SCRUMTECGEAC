@@ -127,12 +127,6 @@
     <Compile Include="EditarUserStory.Designer.cs">
       <DependentUpon>EditarUserStory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Identificacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,9 +186,6 @@
     <EmbeddedResource Include="EditarUserStory.resx">
       <DependentUpon>EditarUserStory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Identificacion.resx">
       <DependentUpon>Identificacion.cs</DependentUpon>
     </EmbeddedResource>
@@ -248,6 +239,11 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="procedimientos.sql">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

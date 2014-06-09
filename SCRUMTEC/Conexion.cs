@@ -29,6 +29,7 @@ namespace SCRUMTEC
                 // Data Source=GUILLERMOPC\\SQL_GUILLERMO;
                 // Data source = CRIS; 
                 //Data Source = ESTEBAN-PC
+                //Data Source = EQUIPO-ADRIAN
                 Connec.Open();
                 return Connec;
             }
