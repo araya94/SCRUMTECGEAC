@@ -25,7 +25,8 @@ namespace SCRUMTEC
             List<int> Lista = new List<int>();
             int resultado = -1;
             int id = 0;
-            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            SqlConnection Conn = Conexion.ObtenerConexion();
+            if (Conn != null)
             {
                 SqlCommand Comando = new SqlCommand("autentificacion", Conn);
                 Comando.CommandType = CommandType.StoredProcedure;
@@ -42,6 +43,11 @@ namespace SCRUMTEC
                 Conn.Close();
                 return Lista;
             }
+            else 
+            {
+                Console.WriteLine("No se puede conectar a la base de datos");
+                return null;
+            } 
         }
 
         /*
@@ -93,8 +99,8 @@ namespace SCRUMTEC
                 SqlCommand Comando = new SqlCommand("SP_INSERTAR_SPRINT", Conn);
                 Comando.CommandType = CommandType.StoredProcedure;
                 Comando.Parameters.AddWithValue("@nombre", nombre);
-                Comando.Parameters.AddWithValue("@descripcion", descripcion);
-                Comando.Parameters.AddWithValue("@releas", release);
+                Comando.Parameters.AddWithValue("@email", descripcion);
+                Comando.Parameters.AddWithValue("@rol", release);
                 SqlDataReader lector = Comando.ExecuteReader();
                 while (lector.Read())
                 {

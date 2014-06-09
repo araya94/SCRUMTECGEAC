@@ -20,26 +20,31 @@ namespace SCRUMTEC
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             List<int> Lista = ConexionMetodos.Autentificar(txtUsuario.Text, txtContraseña.Text);
-            if (Lista.Count == 0) { MessageBox.Show("Datos Inválidos"); }
-            else
+            if (Lista != null)
             {
-                int idUsuario = Lista.ElementAt(0);
-                int rol = Lista.ElementAt(1);
-                String rolS = null;
-                if ((rol > 0) & (txtUsuario.Text != ""))
-                {//Verifica que el usuario y la contraseña sean válidos
-                    if (rol == 1) rolS = "SysAdmin";
-                    if (rol == 2) rolS = "Product Owner";
-                    if (rol == 3) rolS = "Scrum Master";
-                    if (rol == 4) rolS = "Developer";
-                    if (rol == 5) rolS = "Tester";
-                    MessageBox.Show("Sesión Iniciada - " + rolS);
-                    this.Hide();
-                    Principal Menu = new Principal(rol, idUsuario);
-                    Menu.ShowDialog();
+                if (Lista.Count() == 0) MessageBox.Show("Datos Inválidos");
+                else
+                {
+
+                    int idUsuario = Lista.ElementAt(0);
+                    int rol = Lista.ElementAt(1);
+                    String rolS = null;
+                    if ((rol > 0) & (txtUsuario.Text != ""))
+                    {//Verifica que el usuario y la contraseña sean válidos
+                        if (rol == 1) rolS = "SysAdmin";
+                        if (rol == 2) rolS = "Product Owner";
+                        if (rol == 3) rolS = "Scrum Master";
+                        if (rol == 4) rolS = "Developer";
+                        if (rol == 5) rolS = "Tester";
+                        MessageBox.Show("Sesión Iniciada - " + rolS);
+                        this.Hide();
+                        Principal Menu = new Principal(rol, idUsuario);
+                        Menu.ShowDialog();
+                    }
+                    else MessageBox.Show("Datos Inválidos");
                 }
-                else MessageBox.Show("Datos Inválidos");
             }
+            else MessageBox.Show("No se pudo establecer una conexión con la base de datos");
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -52,6 +57,13 @@ namespace SCRUMTEC
         private void Identificacion_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSalir_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose();
+            Application.Exit();
         }
     }
 }
