@@ -44,6 +44,7 @@
             this.button_CrearProyecto.TabIndex = 11;
             this.button_CrearProyecto.Text = "Crear";
             this.button_CrearProyecto.UseVisualStyleBackColor = true;
+            this.button_CrearProyecto.Click += new System.EventHandler(this.button_CrearProyecto_Click_1);
             // 
             // button_cancelarCrearProyecto
             // 
