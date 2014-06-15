@@ -1,4 +1,4 @@
-create procedure buscarRoles
+/*create procedure buscarRoles
 as
 begin
 	begin try
@@ -187,3 +187,22 @@ begin
 	end catch
 end
 
+create procedure CargarProyectosUsuario
+                @IDUsuario int
+                as
+                begin
+                begin try
+		            begin transaction
+
+			            Select * from dbo.Proyecto P
+				            inner join dbo.Usuario_Proyecto UP on UP.FKUsuario = @IDUsuario
+					            where P.id = UP.FKProyecto
+		            commit transaction
+	            end try
+	            begin catch
+		            select ERROR_NUMBER() as ErrorNumber;
+		            return -1;
+		            rollback transaction
+	            end catch 
+            end
+*/

@@ -15,11 +15,37 @@ namespace SCRUMTEC
     {
         int rol;
         int idUsuario;
+        Button NuevoBoton = new Button();
         public Principal(int rolP,int idUsuarioP)
         {
             InitializeComponent();
-            rol =rolP;
+
+            rol = rolP;
             idUsuario = idUsuarioP;
+            DataSet Proyectos = ConexionMetodos.CargarProyectosxUsuario(idUsuario);
+            List<String> ListaNombres = new List<String>();
+            List<String> ListaId = new List<String>();
+            List<String> ListaDescripcion = new List<String>();
+            
+            foreach (DataRow dr in Proyectos.Tables[0].Rows)
+            {
+                ListaNombres.Add(Convert.ToString(dr["Nombre"]));
+            }
+            for (int i = 0; i < ListaNombres.Count; i++)
+            {
+                NuevoBoton = new Button();
+                NuevoBoton.Name = "Boton" + i.ToString();
+                NuevoBoton.Text = ListaNombres[i].ToString();
+                NuevoBoton.Location = new System.Drawing.Point(50, 150 * i + 30);
+                NuevoBoton.Size = new System.Drawing.Size(300, 120);
+                NuevoBoton.BackColor = System.Drawing.Color.Silver;
+                //btn.Click += new System.EventHandler(btn_click);
+                panel1.Controls.Add(NuevoBoton);          
+                
+            }
+            panel2.Visible = false;
+            
+            
         }
 
         private void agregarHistoriasDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
@@ -77,18 +103,25 @@ namespace SCRUMTEC
 
         private void button2_Click(object sender, EventArgs e)
         {
-            DataSet Proyectos = ConexionMetodos.CargarProyectosxUsuario(idUsuario);
 
-            listBox1.DataSource = Proyectos.Tables[0].DefaultView;
-            listBox1.ValueMember = "Nombre";
 
-            
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             //AsociarUserASprint ventana = new AsociarUserASprint(1);
             //ventana.ShowDialog();
+        }
+
+        public void NuevoBoton_click(Object sender, System.EventArgs e)
+        {
+            MessageBox.Show("Click");
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
