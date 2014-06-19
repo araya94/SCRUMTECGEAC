@@ -22,11 +22,6 @@ namespace SCRUMTEC
             idUsuario = idUsuarioP;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button_cancelarCrearProyecto_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -34,14 +29,30 @@ namespace SCRUMTEC
 
         private void button_CrearProyecto_Click(object sender, EventArgs e)
         {
-            validarNombreProyecto(this.textBox_nombreProyecto.Text);
-            this.Close();
+            String nombre_proyecto = this.textBox_nombreProyecto.Text.Trim(); // Trim() elimina los espacios en blanco del principio y el final
+            String descripcion_proyecto = this.textBox_descripcionProyecto.Text.Trim();
+
+            if (nombre_proyecto.Length >= 5 & nombre_proyecto.Length <= 25)
+            {
+
+                ConexionMetodos ConexionDocumentos = new ConexionMetodos();
+                if (ConexionMetodos.insertarProyecto(nombre_proyecto, descripcion_proyecto) > 0)
+                {
+                    MessageBox.Show("Proyecto creado con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Hide();
+
+                }
+                else
+                {
+                    MessageBox.Show("Ya existe un proyecto con ese nombre", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Hide();
+                }
+
+                this.Close();
+            }
         }
 
-        //Valida que el nombre del proyecto introducido sea un 
-        private void validarNombreProyecto(String nombre_proyecto)
-        {
-        }
+
 
     }
 }
