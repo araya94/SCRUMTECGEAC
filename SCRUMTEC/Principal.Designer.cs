@@ -38,7 +38,13 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.opcion1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.opcion2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -116,6 +122,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel2.Controls.Add(this.menuStrip2);
             this.panel2.Location = new System.Drawing.Point(0, 74);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(810, 412);
@@ -142,6 +149,38 @@
             this.lineShape1.Y1 = 26;
             this.lineShape1.Y2 = 27;
             // 
+            // menuStrip2
+            // 
+            this.menuStrip2.BackColor = System.Drawing.Color.LightGray;
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.opcionesToolStripMenuItem});
+            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(810, 24);
+            this.menuStrip2.TabIndex = 0;
+            this.menuStrip2.Text = "menuStrip2";
+            // 
+            // opcionesToolStripMenuItem
+            // 
+            this.opcionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.opcion1ToolStripMenuItem,
+            this.opcion2ToolStripMenuItem});
+            this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
+            this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.opcionesToolStripMenuItem.Text = "Opciones";
+            // 
+            // opcion1ToolStripMenuItem
+            // 
+            this.opcion1ToolStripMenuItem.Name = "opcion1ToolStripMenuItem";
+            this.opcion1ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.opcion1ToolStripMenuItem.Text = "Opcion 1";
+            // 
+            // opcion2ToolStripMenuItem
+            // 
+            this.opcion2ToolStripMenuItem.Name = "opcion2ToolStripMenuItem";
+            this.opcion2ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.opcion2ToolStripMenuItem.Text = "Opcion 2";
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -164,6 +203,10 @@
             this.Load += new System.EventHandler(this.Principal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.menuStrip2.ResumeLayout(false);
+            this.menuStrip2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,5 +224,9 @@
         private System.Windows.Forms.Panel panel2;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
+        private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem opcionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem opcion1ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem opcion2ToolStripMenuItem;
     }
 }

@@ -15,14 +15,16 @@ namespace SCRUMTEC
     {
         int rol;
         int idUsuario;
-        Button NuevoBoton = new Button();
+        Button BotonProyecto;
+        DataSet Proyectos;
+
         public Principal(int rolP,int idUsuarioP)
         {
             InitializeComponent();
 
             rol = rolP;
             idUsuario = idUsuarioP;
-            DataSet Proyectos = ConexionMetodos.CargarProyectosxUsuario(idUsuario);
+            Proyectos = ConexionMetodos.CargarProyectosxUsuario(idUsuario);
             List<String> ListaNombres = new List<String>();
             List<String> ListaId = new List<String>();
             List<String> ListaDescripcion = new List<String>();
@@ -33,14 +35,14 @@ namespace SCRUMTEC
             }
             for (int i = 0; i < ListaNombres.Count; i++)
             {
-                NuevoBoton = new Button();
-                NuevoBoton.Name = "Boton" + i.ToString();
-                NuevoBoton.Text = ListaNombres[i].ToString();
-                NuevoBoton.Location = new System.Drawing.Point(255, 150 * i + 30);
-                NuevoBoton.Size = new System.Drawing.Size(300, 120);
-                NuevoBoton.BackColor = System.Drawing.Color.Silver;
-                //btn.Click += new System.EventHandler(btn_click);
-                panel1.Controls.Add(NuevoBoton);          
+                BotonProyecto = new Button();
+                BotonProyecto.Name = "Boton" + i.ToString();
+                BotonProyecto.Text = ListaNombres[i].ToString();
+                BotonProyecto.Location = new System.Drawing.Point(255, 150 * i + 30);
+                BotonProyecto.Size = new System.Drawing.Size(300, 120);
+                BotonProyecto.BackColor = System.Drawing.Color.Silver;
+                BotonProyecto.Click += new System.EventHandler(BotonProyecto_click);
+                panel1.Controls.Add(BotonProyecto);          
                 
             }
             panel2.Visible = false;
@@ -113,15 +115,55 @@ namespace SCRUMTEC
             //ventana.ShowDialog();
         }
 
-        public void NuevoBoton_click(Object sender, System.EventArgs e)
+        public void BotonProyecto_click(Object sender, System.EventArgs e)
         {
-            MessageBox.Show("Click");
+            label1.Text = "Seleccione un Release para continuar";
+            Button B = (Button)sender;
+            String NumeroBoton = B.Name;
+            NumeroBoton = NumeroBoton.Remove(0,5);
+            int ID_Boton = Convert.ToInt32(NumeroBoton);
+            DataRow ID_Proyecto = Proyectos.Tables[0].Rows[ID_Boton];
+            String Hola = ID_Proyecto["Nombre"].ToString();
+            int ID = Convert.ToInt32(ID_Proyecto["id"].ToString());
+
+            //panel2.Visible = true;
+            //panel1.Visible = false;
+            MessageBox.Show(Hola + "  " + ID);
 
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        public void Cargar_Panel_Releases()
+        {
+            
+            /*
+            rol = rolP;
+            idUsuario = idUsuarioP;
+            DataSet Proyectos = ConexionMetodos.CargarProyectosxUsuario(idUsuario);
+            List<String> ListaNombres = new List<String>();
+            List<String> ListaId = new List<String>();
+            List<String> ListaDescripcion = new List<String>();
+
+            foreach (DataRow dr in Proyectos.Tables[0].Rows)
+            {
+                ListaNombres.Add(Convert.ToString(dr["Nombre"]));
+            }
+            for (int i = 0; i < ListaNombres.Count; i++)
+            {
+                NuevoBoton = new Button();
+                NuevoBoton.Name = "Boton" + i.ToString();
+                NuevoBoton.Text = ListaNombres[i].ToString();
+                NuevoBoton.Location = new System.Drawing.Point(255, 150 * i + 30);
+                NuevoBoton.Size = new System.Drawing.Size(300, 120);
+                NuevoBoton.BackColor = System.Drawing.Color.Silver;
+                NuevoBoton.Click += new System.EventHandler(NuevoBoton_click);
+                panel2.Controls.Add(NuevoBoton);
+
+            }*/
         }
     }
 }
