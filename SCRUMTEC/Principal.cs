@@ -36,7 +36,7 @@ namespace SCRUMTEC
                 NuevoBoton = new Button();
                 NuevoBoton.Name = "Boton" + i.ToString();
                 NuevoBoton.Text = ListaNombres[i].ToString();
-                NuevoBoton.Location = new System.Drawing.Point(50, 150 * i + 30);
+                NuevoBoton.Location = new System.Drawing.Point(255, 150 * i + 30);
                 NuevoBoton.Size = new System.Drawing.Size(300, 120);
                 NuevoBoton.BackColor = System.Drawing.Color.Silver;
                 //btn.Click += new System.EventHandler(btn_click);
@@ -92,8 +92,8 @@ namespace SCRUMTEC
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (panel2.Visible == true) panel2.Visible = false;
-            else panel2.Visible = true; 
+            if (panel1.Visible == true) { panel1.Visible = false; panel2.Visible = true; }
+            else { panel1.Visible = true;  panel2.Visible = false; }
         }
 
         private void menuStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
