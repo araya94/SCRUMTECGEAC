@@ -10,6 +10,24 @@ begin
 	end catch
 end
 
+create procedure SP_INSERTAR_ASOCIACIONUSER
+@userS int,
+@usuario int
+as
+begin 
+begin try
+		begin transaction
+			insert User_Usuario(FKUserStory,FKUsuarioP)
+			values(@userS,@usuario)
+		commit transaction
+	end try
+	begin catch
+		select ERROR_NUMBER() as ErrorNumber;
+		return -1;
+		rollback transaction
+	end catch 
+end
+
 create procedure insertarUsuario
 @usuario varchar(100),
 @contrasena varchar(100),
