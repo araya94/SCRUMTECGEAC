@@ -337,8 +337,6 @@ namespace SCRUMTEC
 
                 Conn.Close();
                 return DataSet1;
-
-              
             
             }
         }
@@ -370,6 +368,35 @@ namespace SCRUMTEC
                 resultado = 1;
                 Conn.Close();
                 return resultado;
+            }
+        }
+
+        /*
+        * Nombre:CargarProyectos
+        * Propósito:Permitir la busqueda de los proyectos que pertenecen a un Usuario especifico
+        * Entrada:Id del usuario
+        * Salida: Un DataSet con los proyectos pertenecientes a el Usuario 
+        * Creado por: Guillermo Arce
+        * Fecha de Creacion: 03/06/2014
+        * Ultima Modificacion Hecha por:
+        * Fecha Ultima Modificacion:
+        */
+        public static DataSet CargarReleases(int ID_Proyecto)
+        {
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("CargarReleases", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@IDProyecto", ID_Proyecto);
+
+
+                DataSet DataSet1 = new DataSet();
+                SqlDataAdapter DataAdapter1 = new SqlDataAdapter(Comando);
+                DataAdapter1.Fill(DataSet1, "dbo.Release");
+
+                Conn.Close();
+                return DataSet1;
+
             }
         }
 
