@@ -20,14 +20,17 @@ namespace SCRUMTEC
 
         public Principal(int rolP,int idUsuarioP)
         {
-            InitializeComponent();
 
             rol = rolP;
             idUsuario = idUsuarioP;
+
+           // if (rol == 1) { menuStrip1.}
+            InitializeComponent();
+
+            
             Proyectos = ConexionMetodos.CargarProyectosxUsuario(idUsuario);
             List<String> ListaNombres = new List<String>();
-            List<String> ListaId = new List<String>();
-            List<String> ListaDescripcion = new List<String>();
+            
             
             foreach (DataRow dr in Proyectos.Tables[0].Rows)
             {
@@ -49,6 +52,8 @@ namespace SCRUMTEC
             
             
         }
+
+
 
         private void agregarHistoriasDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
