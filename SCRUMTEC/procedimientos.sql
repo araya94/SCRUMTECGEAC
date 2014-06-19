@@ -208,7 +208,8 @@ create procedure CargarProyectosUsuario
 
 create procedure insertarProyecto
 @nombre varchar(100),
-@descripcion varchar(100)
+@descripcion varchar(100),
+@id_usuario int
 as
 BEGIN 
    IF NOT EXISTS (SELECT nombre FROM Proyecto
@@ -216,9 +217,12 @@ BEGIN
    BEGIN
        insert Proyecto(nombre,descripcion)
 	   values(@nombre,@descripcion)
+
+	   insert Usuario_Proyecto(FKUsuario, FKProyecto)
+	   values(@id_usuario,(select max(Id) from Proyecto))
    END
    ELSE return -1;
-END
+END 
 
 
 create procedure insertarUserStory

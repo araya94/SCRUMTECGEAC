@@ -478,7 +478,7 @@ namespace SCRUMTEC
 
 
         //-----------------------------------------------------------------------------------------
-        public static int insertarProyecto(String nombre_proyecto, String descripcion_proyecto)
+        public static int insertarProyecto(String nombre_proyecto, String descripcion_proyecto, int id_SysAdmin)
         {
 
             int resultado;

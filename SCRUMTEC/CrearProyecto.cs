@@ -36,16 +36,19 @@ namespace SCRUMTEC
             {
 
                 ConexionMetodos ConexionDocumentos = new ConexionMetodos();
-                if (ConexionMetodos.insertarProyecto(nombre_proyecto, descripcion_proyecto) > 0)
+                if (rol == 1)
                 {
-                    MessageBox.Show("Proyecto creado con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Hide();
+                    if (ConexionMetodos.insertarProyecto(nombre_proyecto, descripcion_proyecto, idUsuario) > 0)
+                    {
+                        MessageBox.Show("Proyecto creado con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Hide();
 
-                }
-                else
-                {
-                    MessageBox.Show("Ya existe un proyecto con ese nombre", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ya existe un proyecto con ese nombre", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Hide();
+                    }
                 }
 
                 this.Close();
