@@ -16,12 +16,23 @@ namespace ScrumTEC
         int id_proyecto;
         int id_sprint;
 
+        
+
         public CrearUserStory(int id_proyectoP, int id_sprintP)
         {
             this.id_proyecto = id_proyectoP;
             this.id_sprint = id_sprintP;
-            this.radioButton.Checked = true;
             InitializeComponent();
+            this.radioButton.Checked = true;
+            
+        }
+
+        public CrearUserStory(int id_proyectoP)
+        {
+            this.id_proyecto = id_proyectoP;
+            
+            InitializeComponent();
+            this.radioButton.Checked = true;
         }
 
         private void CrearUserStory_Load(object sender, EventArgs e)
