@@ -219,4 +219,21 @@ BEGIN
    END
    ELSE return -1;
 END
+
+
+create procedure insertarUserStory
+@FKProyecto int,
+@FKSprint int,
+@nombre varchar(100),
+@prioridad varchar(100)
+as
+BEGIN 
+   IF NOT EXISTS (SELECT nombre FROM UserStory
+                   WHERE nombre = @nombre)
+   BEGIN
+       insert UserStory(FKProyecto,FKSprint,nombre,prioridad)
+	   values(@FKProyecto, @FKSprint, @nombre,@prioridad)
+   END
+   ELSE return -1;
+END 
 */
