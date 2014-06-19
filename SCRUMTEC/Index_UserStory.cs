@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ScrumTEC;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -46,7 +47,7 @@ namespace SCRUMTEC
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CrearUserStory nuevoUser = new CrearUserStory();
+            CrearUserStory nuevoUser = new CrearUserStory(ID_Proyecto, ID_Sprint);
         }
     }
 }

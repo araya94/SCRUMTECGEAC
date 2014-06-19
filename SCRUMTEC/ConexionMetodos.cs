@@ -559,7 +559,7 @@ namespace SCRUMTEC
                 SqlCommand Comando = new SqlCommand("insertarUserStory", Conn);
                 Comando.CommandType = CommandType.StoredProcedure;
                 Comando.Parameters.AddWithValue("@nombre", nombre_user_story);
-                // Comando.Parameters.AddWithValue("@descripcion", descripcion_user_story);  //no esta en la base de datos
+                Comando.Parameters.AddWithValue("@descripcion", descripcion_user_story);  
                 Comando.Parameters.AddWithValue("@prioridad", prioridad);
                 Comando.Parameters.AddWithValue("@FKProyecto", id_proyecto);
                 Comando.Parameters.AddWithValue("@FKSprint", id_sprint);

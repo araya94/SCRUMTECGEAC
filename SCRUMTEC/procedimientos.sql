@@ -260,6 +260,24 @@ BEGIN
 END 
 */
 
+/**
+create procedure insertarUserStory
+@FKProyecto int,
+@nombre varchar(100),
+@descripcion varchar(500),
+@prioridad varchar(100)
+as
+BEGIN 
+   IF NOT EXISTS (SELECT nombre FROM UserStory
+                   WHERE nombre = @nombre)
+   BEGIN
+       insert UserStory(FKProyecto,nombre, descripcion ,prioridad)
+	   values(@FKProyecto, @nombre, @descripcion ,@prioridad)
+   END
+   ELSE return -1;
+END 
+*/
+
 /*--------------------------------------------- ESTEBAN -----------------------------------------------------------
 
 create procedure SP_ACTUALIZAR_USERSTORIE
