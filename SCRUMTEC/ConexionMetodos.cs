@@ -80,6 +80,33 @@ namespace SCRUMTEC
             }
         }
 
+
+        /*
+         * Nombre: insertarAsociacionUserS
+         * Propósito:Permitir el ingreso de una asociacion de una tarea con un usuario del proyecto
+         * Entrada: id del user Storie y id del usuario
+         * Salida: un entero con el resultado de la operacion
+         * Creado por: Cristian Araya
+         * Fecha de Creacion: 21/05/2013
+         * Ultima Modificacion Hecha por:
+         * Fecha Ultima Modificacion:
+         */
+        public static int insertarAsociacionUserS(int userS, int usuario)
+        {
+            int resultado = -1;
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("SP_INSERTAR_ASOCIACIONUSER", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@userS", userS);
+                Comando.Parameters.AddWithValue("@usuario", usuario);
+                SqlDataReader lector = Comando.ExecuteReader();
+                resultado = 1;
+                Conn.Close();
+                return resultado;
+            }
+        }
+
         //insertarSprint(txtNombre.Text, txtDescri.Text, idRelease);
         /*
          * Nombre: insertarSprint
