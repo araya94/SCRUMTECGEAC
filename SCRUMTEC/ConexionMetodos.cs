@@ -474,5 +474,47 @@ namespace SCRUMTEC
                 return DataSet1;
             }
         }
+
+
+
+        //-----------------------------------------------------------------------------------------
+        public static int insertarProyecto(String nombre_proyecto, String descripcion_proyecto)
+        {
+
+            int resultado;
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("insertarProyecto", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@nombre", nombre_proyecto);
+                Comando.Parameters.AddWithValue("@descripcion", descripcion_proyecto);
+                resultado = Comando.ExecuteNonQuery();
+                Conn.Close();
+                return resultado;
+            }
+        }
+
+
+        //-----------------------------------------------------------------------------------
+        public static int insertarUserStory(String nombre_user_story, String descripcion_user_story, String prioridad, int id_proyecto, int id_sprint)
+        {
+            int resultado;
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("insertarUserStory", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@nombre", nombre_user_story);
+                // Comando.Parameters.AddWithValue("@descripcion", descripcion_user_story);  //no esta en la base de datos
+                Comando.Parameters.AddWithValue("@prioridad", prioridad);
+                Comando.Parameters.AddWithValue("@FKProyecto", id_proyecto);
+                Comando.Parameters.AddWithValue("@FKSprint", id_sprint);
+
+                resultado = Comando.ExecuteNonQuery();
+                Conn.Close();
+                return resultado;
+            }
+        }
     }
+
+
 }

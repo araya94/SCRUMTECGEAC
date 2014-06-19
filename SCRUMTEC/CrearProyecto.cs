@@ -43,10 +43,5 @@ namespace SCRUMTEC
         {
         }
 
-        private void button_CrearProyecto_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }
