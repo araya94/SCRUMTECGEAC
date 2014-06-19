@@ -1,4 +1,4 @@
-﻿using ScrumTEC.Conexión;
+﻿using SCRUMTEC;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,8 +13,13 @@ namespace ScrumTEC
 {
     public partial class CrearUserStory : Form
     {
-        public CrearUserStory()
+        int id_proyecto;
+        int id_sprint;
+
+        public CrearUserStory(int id_proyectoP, int id_sprintP)
         {
+            this.id_proyecto = id_proyectoP;
+            this.id_sprint = id_sprintP;
             InitializeComponent();
         }
 
@@ -23,6 +28,7 @@ namespace ScrumTEC
 
         }
 
+        //Cancelar
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -30,14 +36,13 @@ namespace ScrumTEC
 
         }
 
+        //Insertar User Story
         private void button2_Click(object sender, EventArgs e)
         {
 
             String nombre_user_story = this.textBox1.Text.Trim(); 
             String descripcion_user_story = this.textBox2.Text.Trim();
             String prioridad = "";
-            int id_proyecto = 0;
-            int id_sprint = 0;
 
             if (nombre_user_story.Length >= 5 & nombre_user_story.Length <= 25)
             {
