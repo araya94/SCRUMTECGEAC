@@ -20,14 +20,17 @@ namespace SCRUMTEC
 
         public Principal(int rolP,int idUsuarioP)
         {
-            InitializeComponent();
 
             rol = rolP;
             idUsuario = idUsuarioP;
+
+           // if (rol == 1) { menuStrip1.}
+            InitializeComponent();
+
+            
             Proyectos = ConexionMetodos.CargarProyectosxUsuario(idUsuario);
             List<String> ListaNombres = new List<String>();
-            List<String> ListaId = new List<String>();
-            List<String> ListaDescripcion = new List<String>();
+            
             
             foreach (DataRow dr in Proyectos.Tables[0].Rows)
             {
@@ -50,6 +53,8 @@ namespace SCRUMTEC
             
         }
 
+
+
         private void agregarHistoriasDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -57,6 +62,7 @@ namespace SCRUMTEC
 
         private void nuevoProyectoToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
+            this.Hide();
             CrearProyecto ventana = new CrearProyecto(rol,idUsuario);
             ventana.ShowDialog();
         }
@@ -123,12 +129,10 @@ namespace SCRUMTEC
             NumeroBoton = NumeroBoton.Remove(0,5);
             int ID_Boton = Convert.ToInt32(NumeroBoton);
             DataRow ID_Proyecto = Proyectos.Tables[0].Rows[ID_Boton];
-            String Hola = ID_Proyecto["Nombre"].ToString();
             int ID = Convert.ToInt32(ID_Proyecto["id"].ToString());
-
-            //panel2.Visible = true;
-            //panel1.Visible = false;
-            MessageBox.Show(Hola + "  " + ID);
+            Cargar_Panel_Releases(ID);
+            panel2.Visible = true;
+            panel1.Visible = false;
 
         }
 
@@ -137,33 +141,30 @@ namespace SCRUMTEC
 
         }
 
-        public void Cargar_Panel_Releases()
+        public void Cargar_Panel_Releases(int idProyeto)
         {
-            
-            /*
-            rol = rolP;
-            idUsuario = idUsuarioP;
-            DataSet Proyectos = ConexionMetodos.CargarProyectosxUsuario(idUsuario);
+
+            DataSet Releases = ConexionMetodos.CargarReleases(idProyeto);
             List<String> ListaNombres = new List<String>();
             List<String> ListaId = new List<String>();
             List<String> ListaDescripcion = new List<String>();
 
-            foreach (DataRow dr in Proyectos.Tables[0].Rows)
+            foreach (DataRow dr in Releases.Tables[0].Rows)
             {
                 ListaNombres.Add(Convert.ToString(dr["Nombre"]));
             }
             for (int i = 0; i < ListaNombres.Count; i++)
             {
-                NuevoBoton = new Button();
+                Button NuevoBoton = new Button();
                 NuevoBoton.Name = "Boton" + i.ToString();
                 NuevoBoton.Text = ListaNombres[i].ToString();
                 NuevoBoton.Location = new System.Drawing.Point(255, 150 * i + 30);
                 NuevoBoton.Size = new System.Drawing.Size(300, 120);
                 NuevoBoton.BackColor = System.Drawing.Color.Silver;
-                NuevoBoton.Click += new System.EventHandler(NuevoBoton_click);
+               // NuevoBoton.Click += new System.EventHandler(NuevoBoton_click);
                 panel2.Controls.Add(NuevoBoton);
 
-            }*/
+            }
         }
     }
 }
