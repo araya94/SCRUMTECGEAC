@@ -42,7 +42,7 @@ namespace ScrumTEC
 
             String nombre_user_story = this.textBox1.Text.Trim(); 
             String descripcion_user_story = this.textBox2.Text.Trim();
-            String prioridad = "";
+            String prioridad = getPrioridadSeleccionada();
 
             if (nombre_user_story.Length >= 5 & nombre_user_story.Length <= 25)
             {
@@ -67,6 +67,22 @@ namespace ScrumTEC
         }
 
 
+        private String getPrioridadSeleccionada() 
+        {
+
+            string prioridad = "";
+
+            if (this.radioButton.Checked) { prioridad = radioButton.Text; }
+            else if (this.radioButton2.Checked) { prioridad = radioButton2.Text; }
+            else if (this.radioButton3.Checked) { prioridad = radioButton3.Text; }
+            else {
+                MessageBox.Show("Debe seleccionar una prioridad", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Hide();
+            }
+   
+            return prioridad;
+        
+        }
 
 
     }

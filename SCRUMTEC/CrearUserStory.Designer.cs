@@ -35,7 +35,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.Verde = new System.Windows.Forms.RadioButton();
+            this.radioButton = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
@@ -105,17 +105,17 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // Verde
+            // radioButton
             // 
-            this.Verde.AutoSize = true;
-            this.Verde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.Verde.Location = new System.Drawing.Point(279, 320);
-            this.Verde.Name = "Verde";
-            this.Verde.Size = new System.Drawing.Size(70, 24);
-            this.Verde.TabIndex = 10;
-            this.Verde.TabStop = true;
-            this.Verde.Text = "Verde";
-            this.Verde.UseVisualStyleBackColor = true;
+            this.radioButton.AutoSize = true;
+            this.radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.radioButton.Location = new System.Drawing.Point(279, 320);
+            this.radioButton.Name = "radioButton";
+            this.radioButton.Size = new System.Drawing.Size(70, 24);
+            this.radioButton.TabIndex = 10;
+            this.radioButton.TabStop = true;
+            this.radioButton.Text = "Verde";
+            this.radioButton.UseVisualStyleBackColor = true;
             // 
             // radioButton2
             // 
@@ -148,7 +148,7 @@
             this.ClientSize = new System.Drawing.Size(612, 519);
             this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.Verde);
+            this.Controls.Add(this.radioButton);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
@@ -176,7 +176,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.RadioButton Verde;
+        private System.Windows.Forms.RadioButton radioButton;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton3;
     }
