@@ -478,7 +478,7 @@ namespace SCRUMTEC
 
 
         //-----------------------------------------------------------------------------------------
-        public static int insertarProyecto(String nombre_proyecto, String descripcion_proyecto, int id_SysAdmin)
+        public static int insertarProyecto(String nombre_proyecto, String descripcion_proyecto, int id_usuario)
         {
 
             int resultado;
@@ -488,6 +488,7 @@ namespace SCRUMTEC
                 Comando.CommandType = CommandType.StoredProcedure;
                 Comando.Parameters.AddWithValue("@nombre", nombre_proyecto);
                 Comando.Parameters.AddWithValue("@descripcion", descripcion_proyecto);
+                Comando.Parameters.AddWithValue("@id_usuario", id_usuario);
                 resultado = Comando.ExecuteNonQuery();
                 Conn.Close();
                 return resultado;
