@@ -15,6 +15,7 @@ namespace SCRUMTEC
     {
         int rol;
         int idUsuario;
+        int idProyecto;
         Button BotonProyecto;
         DataSet Proyectos;
 
@@ -26,10 +27,16 @@ namespace SCRUMTEC
 
            
             InitializeComponent();
-            if (rol == 1) { menuStrip1.Visible = true;
-                            crearUsuarioToolStripMenuItem.Visible = false;
+            if (rol == 1)
+            {
+                menuStrip1.Visible = true;
+                crearUsuarioToolStripMenuItem.Visible = false;
+
             }
-            
+            if (rol == 2) { menuStrip2.Visible = true;
+                nuevoProyectoToolStripMenuItem.Visible = false;
+                crearUsuarioToolStripMenuItem.Visible = false;
+            }
             Proyectos = ConexionMetodos.CargarProyectosxUsuario(idUsuario);
             List<String> ListaNombres = new List<String>();
             
@@ -132,9 +139,22 @@ namespace SCRUMTEC
             int ID_Boton = Convert.ToInt32(NumeroBoton);
             DataRow ID_Proyecto = Proyectos.Tables[0].Rows[ID_Boton];
             int ID = Convert.ToInt32(ID_Proyecto["id"].ToString());
+            idProyecto = ID;
             Cargar_Panel_Releases(ID);
             panel2.Visible = true;
             panel1.Visible = false;
+            if (rol == 1)
+            {
+                //menuStrip1.Visible = true;
+                crearUsuarioToolStripMenuItem.Visible = false;
+
+            }
+            if (rol == 2)
+            {
+                menuStrip2.Visible = true;
+                nuevoProyectoToolStripMenuItem.Visible = false;
+                crearUsuarioToolStripMenuItem.Visible = false;
+            }
 
         }
 
@@ -163,10 +183,16 @@ namespace SCRUMTEC
                 NuevoBoton.Location = new System.Drawing.Point(255, 150 * i + 30);
                 NuevoBoton.Size = new System.Drawing.Size(300, 120);
                 NuevoBoton.BackColor = System.Drawing.Color.Silver;
-               // NuevoBoton.Click += new System.EventHandler(NuevoBoton_click);
+                //NuevoBoton.Click += new System.EventHandler(NuevoBoton_click);
                 panel2.Controls.Add(NuevoBoton);
 
             }
+        }
+
+        private void opcionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreaUsuario ventana = new CreaUsuario(idProyecto, idUsuario );
+            ventana.ShowDialog();
         }
     }
 }

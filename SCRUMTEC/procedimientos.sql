@@ -343,3 +343,24 @@ END CATCH
 END
 
 --------------------------------------------------
+
+
+create procedure CargarReleases
+                @IDProyecto int
+                as
+                begin
+                begin try
+		            begin transaction
+
+			            Select * from dbo.Release R
+				            inner join dbo.Release_Proyecto RP on RP.FKProyecto = @IDProyecto
+					            where R.id = RP.FKRelease
+		            commit transaction
+	            end try
+	            begin catch
+		            select ERROR_NUMBER() as ErrorNumber;
+		            return -1;
+		            rollback transaction
+	            end catch 
+            end
+
