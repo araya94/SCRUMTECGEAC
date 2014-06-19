@@ -24,7 +24,7 @@ namespace SCRUMTEC
             rol = rolP;
             idUsuario = idUsuarioP;
 
-           // if (rol == 1) { menuStrip1.}
+           
             InitializeComponent();
 
             
