@@ -12,9 +12,19 @@ namespace SCRUMTEC
 {
     public partial class Index_UserStory : Form
     {
-        public Index_UserStory()
+        int ID_Proyecto;
+        int ID_Sprint;
+        public Index_UserStory(int id_proyecto)
         {
             InitializeComponent();
+            this.ID_Proyecto = id_proyecto;
+        }
+
+        public Index_UserStory(int id_proyecto, int id_sprint)
+        {
+            InitializeComponent();
+            this.ID_Proyecto = id_proyecto;
+            this.ID_Sprint = id_sprint;
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -32,6 +42,11 @@ namespace SCRUMTEC
             lstUserStory.DataSource = UserStory.Tables[0].DefaultView;
             lstUserStory.ValueMember = "Nombre";
             lstUserStory.ValueMember = "Prioridad";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CrearUserStory nuevoUser = new CrearUserStory();
         }
     }
 }

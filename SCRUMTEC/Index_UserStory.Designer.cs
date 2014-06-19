@@ -30,7 +30,7 @@
         {
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnNuevoUserStory = new System.Windows.Forms.Button();
             this.lstUserStory = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
@@ -53,14 +53,15 @@
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
-            // button1
+            // btnNuevoUserStory
             // 
-            this.button1.Location = new System.Drawing.Point(12, 14);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(113, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Nueva User Story";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnNuevoUserStory.Location = new System.Drawing.Point(12, 14);
+            this.btnNuevoUserStory.Name = "btnNuevoUserStory";
+            this.btnNuevoUserStory.Size = new System.Drawing.Size(113, 23);
+            this.btnNuevoUserStory.TabIndex = 5;
+            this.btnNuevoUserStory.Text = "Nueva User Story";
+            this.btnNuevoUserStory.UseVisualStyleBackColor = true;
+            this.btnNuevoUserStory.Click += new System.EventHandler(this.button1_Click);
             // 
             // lstUserStory
             // 
@@ -77,7 +78,7 @@
             this.ClientSize = new System.Drawing.Size(361, 207);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnNuevoUserStory);
             this.Controls.Add(this.lstUserStory);
             this.Name = "Index_UserStory";
             this.Text = "IndexUserStory";
@@ -90,7 +91,7 @@
 
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnNuevoUserStory;
         private System.Windows.Forms.ListBox lstUserStory;
     }
 }

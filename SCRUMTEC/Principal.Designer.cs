@@ -31,17 +31,19 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoProyectoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.crearUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
-            this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.crearUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.releasesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoReleaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userStoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aministrarUserStoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.crearUsuarioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -59,13 +61,11 @@
             this.menuStrip1.Size = new System.Drawing.Size(884, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.Visible = false;
             // 
             // archivoToolStripMenuItem
             // 
             this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nuevoProyectoToolStripMenuItem,
-            this.crearUsuarioToolStripMenuItem});
+            this.nuevoProyectoToolStripMenuItem});
             this.archivoToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.archivoToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
@@ -79,13 +79,6 @@
             this.nuevoProyectoToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.nuevoProyectoToolStripMenuItem.Text = "Nuevo Proyecto";
             this.nuevoProyectoToolStripMenuItem.Click += new System.EventHandler(this.nuevoProyectoToolStripMenuItem_Click_1);
-            // 
-            // crearUsuarioToolStripMenuItem
-            // 
-            this.crearUsuarioToolStripMenuItem.Name = "crearUsuarioToolStripMenuItem";
-            this.crearUsuarioToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.crearUsuarioToolStripMenuItem.Text = "Crear Usuario";
-            this.crearUsuarioToolStripMenuItem.Click += new System.EventHandler(this.crearUsuarioToolStripMenuItem_Click);
             // 
             // button1
             // 
@@ -145,20 +138,23 @@
             // 
             this.menuStrip2.BackColor = System.Drawing.Color.LightGray;
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.opcionesToolStripMenuItem,
-            this.releasesToolStripMenuItem});
+            this.crearUsuarioToolStripMenuItem,
+            this.releasesToolStripMenuItem,
+            this.userStoryToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Size = new System.Drawing.Size(810, 24);
             this.menuStrip2.TabIndex = 0;
             this.menuStrip2.Text = "menuStrip2";
             // 
-            // opcionesToolStripMenuItem
+            // crearUsuarioToolStripMenuItem
             // 
-            this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
-            this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
-            this.opcionesToolStripMenuItem.Text = "Crear Usuario";
-            this.opcionesToolStripMenuItem.Click += new System.EventHandler(this.opcionesToolStripMenuItem_Click);
+            this.crearUsuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.crearUsuarioToolStripMenuItem1});
+            this.crearUsuarioToolStripMenuItem.Name = "crearUsuarioToolStripMenuItem";
+            this.crearUsuarioToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.crearUsuarioToolStripMenuItem.Text = "Usuario";
+            this.crearUsuarioToolStripMenuItem.Click += new System.EventHandler(this.opcionesToolStripMenuItem_Click);
             // 
             // panel2
             // 
@@ -168,6 +164,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(810, 412);
             this.panel2.TabIndex = 6;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // releasesToolStripMenuItem
             // 
@@ -182,6 +179,28 @@
             this.nuevoReleaseToolStripMenuItem.Name = "nuevoReleaseToolStripMenuItem";
             this.nuevoReleaseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.nuevoReleaseToolStripMenuItem.Text = "Nuevo Release";
+            // 
+            // userStoryToolStripMenuItem
+            // 
+            this.userStoryToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aministrarUserStoryToolStripMenuItem});
+            this.userStoryToolStripMenuItem.Name = "userStoryToolStripMenuItem";
+            this.userStoryToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.userStoryToolStripMenuItem.Text = "User Story";
+            // 
+            // aministrarUserStoryToolStripMenuItem
+            // 
+            this.aministrarUserStoryToolStripMenuItem.Name = "aministrarUserStoryToolStripMenuItem";
+            this.aministrarUserStoryToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.aministrarUserStoryToolStripMenuItem.Text = "Aministrar User Story";
+            this.aministrarUserStoryToolStripMenuItem.Click += new System.EventHandler(this.aministrarUserStoryToolStripMenuItem_Click);
+            // 
+            // crearUsuarioToolStripMenuItem1
+            // 
+            this.crearUsuarioToolStripMenuItem1.Name = "crearUsuarioToolStripMenuItem1";
+            this.crearUsuarioToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.crearUsuarioToolStripMenuItem1.Text = "Nuevo Usuario";
+            this.crearUsuarioToolStripMenuItem1.Click += new System.EventHandler(this.crearUsuarioToolStripMenuItem1_Click);
             // 
             // Principal
             // 
@@ -219,16 +238,18 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nuevoProyectoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem crearUsuarioToolStripMenuItem;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         private System.Windows.Forms.MenuStrip menuStrip2;
-        private System.Windows.Forms.ToolStripMenuItem opcionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem crearUsuarioToolStripMenuItem;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ToolStripMenuItem releasesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nuevoReleaseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem userStoryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem crearUsuarioToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem aministrarUserStoryToolStripMenuItem;
     }
 }

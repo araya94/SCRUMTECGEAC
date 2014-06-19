@@ -29,11 +29,11 @@ namespace SCRUMTEC
             InitializeComponent();
             if (rol == 1)
             {
-                menuStrip1.Visible = true;
                 crearUsuarioToolStripMenuItem.Visible = false;
 
             }
-            if (rol == 2) { menuStrip2.Visible = true;
+            if (rol == 2) { 
+                
                 nuevoProyectoToolStripMenuItem.Visible = false;
                 crearUsuarioToolStripMenuItem.Visible = false;
             }
@@ -145,15 +145,15 @@ namespace SCRUMTEC
             panel1.Visible = false;
             if (rol == 1)
             {
-                //menuStrip1.Visible = true;
-                crearUsuarioToolStripMenuItem.Visible = false;
+                
 
             }
             if (rol == 2)
             {
-                menuStrip2.Visible = true;
+                
                 nuevoProyectoToolStripMenuItem.Visible = false;
                 crearUsuarioToolStripMenuItem.Visible = false;
+
             }
 
         }
@@ -191,8 +191,23 @@ namespace SCRUMTEC
 
         private void opcionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreaUsuario ventana = new CreaUsuario(idProyecto, idUsuario );
+            
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void crearUsuarioToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            CreaUsuario ventana = new CreaUsuario(idProyecto, idUsuario);
             ventana.ShowDialog();
+        }
+
+        private void aministrarUserStoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

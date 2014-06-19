@@ -79,7 +79,7 @@ namespace SCRUMTEC
             if (txtContraseña.Text == txtConfirmarcionContraseña.Text)
             {
                 //insertarUsuario(String nombre, String usuario, String contrasena, String email, int proyecto, int rol);
-                if (ConexionMetodos.insertarUsuario(txtNombre.Text, txtUsuario.Text, txtContraseña.Text, txtEmail.Text, iDProyecto, (cBRol.SelectedIndex + 1)) > 0)
+                if (ConexionMetodos.insertarUsuario(txtNombre.Text, txtUsuario.Text, txtContraseña.Text, txtEmail.Text, iDProyecto, (cBRol.SelectedIndex + 2)) > 0)
                 {
                     MessageBox.Show("Usuario Creado con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Hide();
