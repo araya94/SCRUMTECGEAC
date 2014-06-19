@@ -240,15 +240,7 @@ END
 
 /*--------------------------------------------- ESTEBAN -----------------------------------------------------------
 
-USE [ScrumProyecto]
-GO
-/****** Object:  StoredProcedure [dbo].[SP_ACTUALIZAR_USERSTORIE]    Script Date: 6/19/2014 10:49:58 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-ALTER PROCEDURE [dbo].[SP_ACTUALIZAR_USERSTORIE]
-
+create procedure SP_ACTUALIZAR_USERSTORIE
 	 @ID INT, 
 	 @NOMBRE VARCHAR(50),
 	 @PRIORIDAD VARCHAR(500)
@@ -271,14 +263,7 @@ BEGIN CATCH
 END CATCH
 END
 
-USE [ScrumProyecto]
-GO
-/****** Object:  StoredProcedure [dbo].[SP_INGRESAR_CRITERIO]    Script Date: 6/19/2014 10:50:21 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-ALTER PROCEDURE [dbo].[SP_INGRESAR_CRITERIO]
+create procedure SP_INGRESAR_CRITERIO
 
 	 @FK_USERSTORY INT,
 	 @NOMBRE VARCHAR(500), 
@@ -304,14 +289,7 @@ BEGIN CATCH
 END CATCH
 END
 
-USE [ScrumProyecto]
-GO
-/****** Object:  StoredProcedure [dbo].[SP_INGRESAR_TAREA]    Script Date: 6/19/2014 10:50:32 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-ALTER PROCEDURE [dbo].[SP_INGRESAR_TAREA]
+create procedure SP_INGRESAR_TAREA
 
 	 @FK_USERSTORY INT, 
 	 @NOMBRE VARCHAR(500),
@@ -337,14 +315,7 @@ BEGIN CATCH
 END CATCH
 END
 
-USE [ScrumProyecto]
-GO
-/****** Object:  StoredProcedure [dbo].[SP_OBTENER_USERSORY_x_ID_SPRING]    Script Date: 6/19/2014 10:52:03 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-ALTER PROCEDURE [dbo].[SP_OBTENER_USERSORY_x_ID_SPRING]
+create procedure SP_OBTENER_USERSORY_x_ID_SPRING
 
 	 @ID_SPRING INT
 
@@ -366,4 +337,3 @@ BEGIN CATCH
 	ROLLBACK TRANSACTION
 END CATCH
 END
-
