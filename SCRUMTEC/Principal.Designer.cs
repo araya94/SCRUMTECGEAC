@@ -38,12 +38,12 @@
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.crearUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.crearUsuarioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.releasesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoReleaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userStoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aministrarUserStoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.crearUsuarioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -156,15 +156,12 @@
             this.crearUsuarioToolStripMenuItem.Text = "Usuario";
             this.crearUsuarioToolStripMenuItem.Click += new System.EventHandler(this.opcionesToolStripMenuItem_Click);
             // 
-            // panel2
+            // crearUsuarioToolStripMenuItem1
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.panel2.Controls.Add(this.menuStrip2);
-            this.panel2.Location = new System.Drawing.Point(1, 74);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(810, 412);
-            this.panel2.TabIndex = 6;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            this.crearUsuarioToolStripMenuItem1.Name = "crearUsuarioToolStripMenuItem1";
+            this.crearUsuarioToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.crearUsuarioToolStripMenuItem1.Text = "Nuevo Usuario";
+            this.crearUsuarioToolStripMenuItem1.Click += new System.EventHandler(this.crearUsuarioToolStripMenuItem1_Click);
             // 
             // releasesToolStripMenuItem
             // 
@@ -177,7 +174,7 @@
             // nuevoReleaseToolStripMenuItem
             // 
             this.nuevoReleaseToolStripMenuItem.Name = "nuevoReleaseToolStripMenuItem";
-            this.nuevoReleaseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nuevoReleaseToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.nuevoReleaseToolStripMenuItem.Text = "Nuevo Release";
             // 
             // userStoryToolStripMenuItem
@@ -187,6 +184,7 @@
             this.userStoryToolStripMenuItem.Name = "userStoryToolStripMenuItem";
             this.userStoryToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
             this.userStoryToolStripMenuItem.Text = "User Story";
+            this.userStoryToolStripMenuItem.Click += new System.EventHandler(this.userStoryToolStripMenuItem_Click);
             // 
             // aministrarUserStoryToolStripMenuItem
             // 
@@ -195,12 +193,15 @@
             this.aministrarUserStoryToolStripMenuItem.Text = "Aministrar User Story";
             this.aministrarUserStoryToolStripMenuItem.Click += new System.EventHandler(this.aministrarUserStoryToolStripMenuItem_Click);
             // 
-            // crearUsuarioToolStripMenuItem1
+            // panel2
             // 
-            this.crearUsuarioToolStripMenuItem1.Name = "crearUsuarioToolStripMenuItem1";
-            this.crearUsuarioToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.crearUsuarioToolStripMenuItem1.Text = "Nuevo Usuario";
-            this.crearUsuarioToolStripMenuItem1.Click += new System.EventHandler(this.crearUsuarioToolStripMenuItem1_Click);
+            this.panel2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel2.Controls.Add(this.menuStrip2);
+            this.panel2.Location = new System.Drawing.Point(1, 74);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(810, 412);
+            this.panel2.TabIndex = 6;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // Principal
             // 
