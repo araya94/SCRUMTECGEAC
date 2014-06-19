@@ -57,6 +57,7 @@ namespace SCRUMTEC
 
         private void nuevoProyectoToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
+            this.Hide();
             CrearProyecto ventana = new CrearProyecto(rol,idUsuario);
             ventana.ShowDialog();
         }

@@ -52,6 +52,8 @@ namespace SCRUMTEC
                 }
 
                 this.Close();
+                Principal ventana = new Principal(rol, idUsuario);
+                ventana.ShowDialog();
             }
         }
 
