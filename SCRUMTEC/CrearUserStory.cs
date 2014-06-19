@@ -20,6 +20,7 @@ namespace ScrumTEC
         {
             this.id_proyecto = id_proyectoP;
             this.id_sprint = id_sprintP;
+            this.radioButton.Checked = true;
             InitializeComponent();
         }
 
@@ -74,12 +75,8 @@ namespace ScrumTEC
 
             if (this.radioButton.Checked) { prioridad = radioButton.Text; }
             else if (this.radioButton2.Checked) { prioridad = radioButton2.Text; }
-            else if (this.radioButton3.Checked) { prioridad = radioButton3.Text; }
-            else {
-                MessageBox.Show("Debe seleccionar una prioridad", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Hide();
-            }
-   
+            else { prioridad = radioButton3.Text; }
+  
             return prioridad;
         
         }

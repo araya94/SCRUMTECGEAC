@@ -26,7 +26,9 @@ namespace SCRUMTEC
 
            
             InitializeComponent();
-
+            if (rol == 1) { menuStrip1.Visible = true;
+                            crearUsuarioToolStripMenuItem.Visible = false;
+            }
             
             Proyectos = ConexionMetodos.CargarProyectosxUsuario(idUsuario);
             List<String> ListaNombres = new List<String>();
