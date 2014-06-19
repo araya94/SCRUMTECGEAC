@@ -205,4 +205,18 @@ create procedure CargarProyectosUsuario
 		            rollback transaction
 	            end catch 
             end
+
+create procedure insertarProyecto
+@nombre varchar(100),
+@descripcion varchar(100)
+as
+BEGIN 
+   IF NOT EXISTS (SELECT nombre FROM Proyecto
+                   WHERE nombre = @nombre)
+   BEGIN
+       insert Proyecto(nombre,descripcion)
+	   values(@nombre,@descripcion)
+   END
+   ELSE return -1;
+END
 */

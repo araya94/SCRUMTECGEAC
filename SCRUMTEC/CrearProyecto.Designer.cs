@@ -38,22 +38,23 @@
             // 
             // button_CrearProyecto
             // 
-            this.button_CrearProyecto.Location = new System.Drawing.Point(298, 323);
+            this.button_CrearProyecto.Location = new System.Drawing.Point(287, 323);
             this.button_CrearProyecto.Name = "button_CrearProyecto";
             this.button_CrearProyecto.Size = new System.Drawing.Size(75, 23);
             this.button_CrearProyecto.TabIndex = 11;
             this.button_CrearProyecto.Text = "Crear";
             this.button_CrearProyecto.UseVisualStyleBackColor = true;
-            this.button_CrearProyecto.Click += new System.EventHandler(this.button_CrearProyecto_Click_1);
+            this.button_CrearProyecto.Click += new System.EventHandler(this.button_CrearProyecto_Click);
             // 
             // button_cancelarCrearProyecto
             // 
-            this.button_cancelarCrearProyecto.Location = new System.Drawing.Point(208, 323);
+            this.button_cancelarCrearProyecto.Location = new System.Drawing.Point(197, 323);
             this.button_cancelarCrearProyecto.Name = "button_cancelarCrearProyecto";
             this.button_cancelarCrearProyecto.Size = new System.Drawing.Size(75, 23);
             this.button_cancelarCrearProyecto.TabIndex = 10;
             this.button_cancelarCrearProyecto.Text = "Cancelar";
             this.button_cancelarCrearProyecto.UseVisualStyleBackColor = true;
+            this.button_cancelarCrearProyecto.Click += new System.EventHandler(this.button_cancelarCrearProyecto_Click);
             // 
             // textBox_descripcionProyecto
             // 
