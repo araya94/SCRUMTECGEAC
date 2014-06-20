@@ -109,11 +109,13 @@ namespace SCRUMTEC
             
         }
 
+        
         private void archivoToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
 
+        
         private void crearUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CreaUsuario ventana = new CreaUsuario(rol, idUsuario);
@@ -130,9 +132,15 @@ namespace SCRUMTEC
 
         }
 
+        private void nuevoReleaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Aqui");
+        }
+
+        
         private void releaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Aqui");
         }
 
         private void button1_Click(object sender, EventArgs e)

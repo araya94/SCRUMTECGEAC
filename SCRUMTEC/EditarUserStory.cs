@@ -14,11 +14,23 @@ namespace SCRUMTEC
     {
         int ID;
         int ID_Proyecto;
-        public frmEditarUserStory(int id, int id_proyecto)
+        int rol;
+        public frmEditarUserStory(int id, int id_proyecto, int rol)
         {
             this.ID = id;
             this.ID_Proyecto = id_proyecto;
             InitializeComponent();
+            if (rol == 2)
+            {
+                btnAgregar_Tarea.Enabled = false;
+                btnModificar_Tarea.Enabled = false;
+                btnEliminar_Tarea.Enabled = false;
+
+                btnAgregar_Criterios.Enabled = false;
+                btnModificar_Criterio.Enabled = false;
+                btnEliminar_Criterios.Enabled = false;
+                
+            }
         }
 
         private void btnAgregar_Criterios_Click(object sender, EventArgs e)
@@ -41,6 +53,9 @@ namespace SCRUMTEC
             {
                 MessageBox.Show("User Storie Actualizado", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
+                Index_UserStory index = new Index_UserStory(ID_Proyecto, rol);
+                index.Show();
+                    
                 //this.Dispose();
                 //MenuPrincipal Menu = new MenuPrincipal();
                 //Menu.ShowDialog();

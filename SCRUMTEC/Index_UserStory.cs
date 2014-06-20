@@ -39,8 +39,9 @@ namespace SCRUMTEC
             ListItemIndex = lstUserStory.SelectedIndex;
 
 
-            frmEditarUserStory editar_userstory = new frmEditarUserStory(ListItemIndex+1,ID_Proyecto);
+            frmEditarUserStory editar_userstory = new frmEditarUserStory(ListItemIndex+1,ID_Proyecto, rol);
             editar_userstory.Show();
+            this.Close();
         }
 
         private void Index_UserStory_Load(object sender, EventArgs e)
