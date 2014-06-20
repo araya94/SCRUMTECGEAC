@@ -26,7 +26,6 @@ namespace SCRUMTEC
             rol = rolP;
             idUsuario = idUsuarioP;
             Proyectos = ConexionMetodos.CargarProyectosxUsuario(idUsuario);
-            List<String> ListaNombres = new List<String>();
 
             if (rol == 1)
             {
@@ -59,8 +58,22 @@ namespace SCRUMTEC
                 userStoryToolStripMenuItem.Visible = false;
                 releaseToolStripMenuItem.Visible = false;
             }
+
+            CrearBotones(panel1, Proyectos);
+            BotonAtras.Enabled = false;
+            panel2.Visible = false;
+            panel3.Visible = false;
+            panel4.Visible = false;
+            panel5.Visible = false;
             
-            foreach (DataRow dr in Proyectos.Tables[0].Rows)
+        }
+
+
+        public void CrearBotones(Panel panelActual, DataSet Datos)
+        {
+            
+            List<String> ListaNombres = new List<String>();
+            foreach (DataRow dr in Datos.Tables[0].Rows)
             {
                 ListaNombres.Add(Convert.ToString(dr["Nombre"]));
             }
@@ -72,17 +85,13 @@ namespace SCRUMTEC
                 BotonProyecto.Location = new System.Drawing.Point(255, 150 * i + 30);
                 BotonProyecto.Size = new System.Drawing.Size(300, 120);
                 BotonProyecto.BackColor = System.Drawing.Color.Silver;
-                BotonProyecto.Click += new System.EventHandler(BotonProyecto_click);
-                panel1.Controls.Add(BotonProyecto);          
-                
+                if (panelActual.Name == "panel1") { BotonProyecto.Click += new System.EventHandler(CargarReleases_click); }
+                else if (panelActual.Name == "panel2") { BotonProyecto.Click += new System.EventHandler(CargarSprints_click); }
+                else if (panelActual.Name == "panel3") { BotonProyecto.Click += new System.EventHandler(CargarUserStory_click); }
+                else if (panelActual.Name == "panel4") { BotonProyecto.Click += new System.EventHandler(CargarTareas_click); }
+                panelActual.Controls.Add(BotonProyecto);
             }
-            panel2.Visible = false;
-            
-            
         }
-
-
-
         private void agregarHistoriasDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -90,7 +99,7 @@ namespace SCRUMTEC
 
         private void nuevoProyectoToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-           // this.Hide(); Si lo oculta lo debe volver a mostrar depues de hacer el proyecto
+            this.Close(); 
             CrearProyecto ventana = new CrearProyecto(rol,idUsuario);
             ventana.ShowDialog();
         }
@@ -149,54 +158,54 @@ namespace SCRUMTEC
             //ventana.ShowDialog();
         }
 
-        public void BotonProyecto_click(Object sender, System.EventArgs e)
+        public void CargarReleases_click(Object sender, System.EventArgs e)
         {
-            label1.Text = "Seleccione un Release para continuar";
+            label1.Text = "Seleccione un Release o una opción válida para continuar";
+            
             Button B = (Button)sender;
             String NumeroBoton = B.Name;
             NumeroBoton = NumeroBoton.Remove(0,5);
             int ID_Boton = Convert.ToInt32(NumeroBoton);
+
             DataRow ID_Proyecto = Proyectos.Tables[0].Rows[ID_Boton];
-            int ID = Convert.ToInt32(ID_Proyecto["id"].ToString());
-            idProyecto = ID;
-            Cargar_Panel_Releases(ID);
+            idProyecto = Convert.ToInt32(ID_Proyecto["id"].ToString());
+
+            DataSet Releases = ConexionMetodos.CargarReleases(idProyecto);
+            CrearBotones(panel2, Releases);
+            
             panel2.Visible = true;
             panel1.Visible = false;
-           
 
+            BotonAtras.Enabled = true;
         }
 
+        public void CargarSprints_click(Object sender, System.EventArgs e)
+        {
+
+            label1.Text = "Seleccione un Sprint o una opción válida para continuar";
+            panel3.Visible = true;
+            panel2.Visible = false;
+        }
+
+        public void CargarUserStory_click(Object sender, System.EventArgs e)
+        {
+            label1.Text = "Seleccione un UserStory o una opción válida para continuar";
+            panel4.Visible = true;
+            panel3.Visible = false;
+        }
+
+        public void CargarTareas_click(Object sender, System.EventArgs e)
+        {
+            label1.Text = "Seleccione una Tarea o una opción válida para continuar";
+            panel5.Visible = true;
+            panel4.Visible = false;
+        }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        public void Cargar_Panel_Releases(int idProyeto)
-        {
-
-            DataSet Releases = ConexionMetodos.CargarReleases(idProyeto);
-            List<String> ListaNombres = new List<String>();
-            List<String> ListaId = new List<String>();
-            List<String> ListaDescripcion = new List<String>();
-
-            foreach (DataRow dr in Releases.Tables[0].Rows)
-            {
-                ListaNombres.Add(Convert.ToString(dr["Nombre"]));
-            }
-            for (int i = 0; i < ListaNombres.Count; i++)
-            {
-                Button NuevoBoton = new Button();
-                NuevoBoton.Name = "Boton" + i.ToString();
-                NuevoBoton.Text = ListaNombres[i].ToString();
-                NuevoBoton.Location = new System.Drawing.Point(255, 150 * i + 30);
-                NuevoBoton.Size = new System.Drawing.Size(300, 120);
-                NuevoBoton.BackColor = System.Drawing.Color.Silver;
-                //NuevoBoton.Click += new System.EventHandler(NuevoBoton_click);
-                panel2.Controls.Add(NuevoBoton);
-
-            }
-        }
-
+       
         private void opcionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
@@ -226,9 +235,54 @@ namespace SCRUMTEC
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            Identificacion SalirSesion = new Identificacion();
+            Identificacion CerrarSesion = new Identificacion();
             this.Close();
-            SalirSesion.Show();
+            CerrarSesion.Show();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            if (panel2.Visible == true) 
+            {
+                CargarPanelAnterior(panel2);
+                label1.Text = "Seleccione un Proyecto o una opción válida para continuar";
+                BotonAtras.Enabled = false;
+                panel2.Visible = false;
+                panel1.Visible = true;
+            }
+            
+            else if (panel3.Visible == true)
+            {
+                label1.Text = "Seleccione un Release o una opción válida para continuar";
+                panel3.Visible = false;
+                panel2.Visible = true;
+            }
+
+            else if (panel4.Visible == true)
+            {
+                label1.Text = "Seleccione un Sprint o una opción válida para continuar";
+                panel4.Visible = false;
+                panel3.Visible = true;
+            }
+
+            else if (panel5.Visible == true)
+            {
+                label1.Text = "Seleccione un User Story o una opción válida para continuar";
+                panel4.Visible = false;
+                panel3.Visible = true;
+            }
+        }
+
+
+        public void CargarPanelAnterior(Panel panelActual)
+        {
+            while (panelActual.Controls.Count > 1)
+            {   
+                foreach (Control item in panelActual.Controls)
+                {
+                    if (item.Name.Substring(0, 5) == "Boton") { panelActual.Controls.Remove(item); }
+                }
+            }
         }
 
     }

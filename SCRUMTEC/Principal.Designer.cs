@@ -43,10 +43,20 @@
             this.userStoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aministrarUserStoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BotonCerrarSesion = new System.Windows.Forms.Button();
+            this.BotonAtras = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.menuStrip3 = new System.Windows.Forms.MenuStrip();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.menuStrip4 = new System.Windows.Forms.MenuStrip();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.menuStrip5 = new System.Windows.Forms.MenuStrip();
             this.menuStrip1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -97,11 +107,11 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(272, 46);
+            this.label1.Location = new System.Drawing.Point(261, 45);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(238, 15);
+            this.label1.Size = new System.Drawing.Size(357, 15);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Seleccione un proyecto para continuar";
+            this.label1.Text = "Seleccione un Proyecto o una opción válida para continuar";
             // 
             // shapeContainer1
             // 
@@ -193,18 +203,85 @@
             this.panel2.TabIndex = 6;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // button1
+            // BotonCerrarSesion
             // 
-            this.button1.BackColor = System.Drawing.Color.DarkGray;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(748, 492);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(99, 27);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Cerrar sesión";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.BotonCerrarSesion.BackColor = System.Drawing.Color.DarkGray;
+            this.BotonCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BotonCerrarSesion.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BotonCerrarSesion.Location = new System.Drawing.Point(748, 492);
+            this.BotonCerrarSesion.Name = "BotonCerrarSesion";
+            this.BotonCerrarSesion.Size = new System.Drawing.Size(99, 27);
+            this.BotonCerrarSesion.TabIndex = 8;
+            this.BotonCerrarSesion.Text = "Cerrar sesión";
+            this.BotonCerrarSesion.UseVisualStyleBackColor = false;
+            this.BotonCerrarSesion.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // BotonAtras
+            // 
+            this.BotonAtras.BackColor = System.Drawing.Color.DarkGray;
+            this.BotonAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BotonAtras.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BotonAtras.Location = new System.Drawing.Point(667, 492);
+            this.BotonAtras.Name = "BotonAtras";
+            this.BotonAtras.Size = new System.Drawing.Size(75, 27);
+            this.BotonAtras.TabIndex = 9;
+            this.BotonAtras.Text = "Atrás";
+            this.BotonAtras.UseVisualStyleBackColor = false;
+            this.BotonAtras.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panel3.Controls.Add(this.menuStrip3);
+            this.panel3.Location = new System.Drawing.Point(37, 74);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(810, 412);
+            this.panel3.TabIndex = 10;
+            // 
+            // menuStrip3
+            // 
+            this.menuStrip3.BackColor = System.Drawing.Color.LightGray;
+            this.menuStrip3.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip3.Name = "menuStrip3";
+            this.menuStrip3.Size = new System.Drawing.Size(810, 24);
+            this.menuStrip3.TabIndex = 0;
+            this.menuStrip3.Text = "menuStrip3";
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.AliceBlue;
+            this.panel4.Controls.Add(this.menuStrip4);
+            this.panel4.Location = new System.Drawing.Point(37, 74);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(810, 412);
+            this.panel4.TabIndex = 11;
+            // 
+            // menuStrip4
+            // 
+            this.menuStrip4.BackColor = System.Drawing.Color.LightGray;
+            this.menuStrip4.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip4.Name = "menuStrip4";
+            this.menuStrip4.Size = new System.Drawing.Size(810, 24);
+            this.menuStrip4.TabIndex = 0;
+            this.menuStrip4.Text = "menuStrip4";
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel5.Controls.Add(this.menuStrip5);
+            this.panel5.Location = new System.Drawing.Point(37, 74);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(810, 412);
+            this.panel5.TabIndex = 12;
+            // 
+            // menuStrip5
+            // 
+            this.menuStrip5.BackColor = System.Drawing.Color.LightGray;
+            this.menuStrip5.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip5.Name = "menuStrip5";
+            this.menuStrip5.Size = new System.Drawing.Size(810, 24);
+            this.menuStrip5.TabIndex = 0;
+            this.menuStrip5.Text = "menuStrip5";
             // 
             // Principal
             // 
@@ -212,7 +289,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(884, 531);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.BotonAtras);
+            this.Controls.Add(this.BotonCerrarSesion);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
@@ -233,6 +314,12 @@
             this.menuStrip2.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -255,6 +342,13 @@
         private System.Windows.Forms.ToolStripMenuItem userStoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem crearUsuarioToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem aministrarUserStoryToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BotonCerrarSesion;
+        private System.Windows.Forms.Button BotonAtras;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.MenuStrip menuStrip3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.MenuStrip menuStrip4;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.MenuStrip menuStrip5;
     }
 }
