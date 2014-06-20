@@ -139,6 +139,21 @@ return -1;
 end catch
 end
 
+
+create procedure SP_BUSCARESTIMADO_TAREA
+@tarea int
+as
+begin
+begin try
+Select T.id,T.DuracionEstimada from Tarea T
+where  @tarea = T.id
+end try
+begin catch
+select ERROR_NUMBER() as ErrorNumber;
+return -1;
+end catch
+end
+
 create procedure SP_BUSCARESFUERZO_TAREA
 @tarea int
 as
@@ -159,9 +174,19 @@ create procedure SP_ACTUALIZARESFUERZO_TAREA
 as
 begin
 begin try
+
+DECLARE @HorasTrabajadas int;
+
+SET @HorasTrabajadas = @tiempo - (Select EsfuerzoInvertido
+from Tarea
+where id = @sprint)
+
 update Tarea
 set EsfuerzoInvertido = @tiempo
 where id = @sprint
+
+insert HistorialEsfuerzo(FKTarea,FechaCambio,HorasTrabajadas)
+values(@sprint,getdate(),@HorasTrabajadas)
 end try
 begin catch
 select ERROR_NUMBER() as ErrorNumber;
@@ -239,24 +264,6 @@ return -1;
 rollback transaction
 end catch
 end
-
-create procedure insertarProyecto
-@nombre varchar(100),
-@descripcion varchar(100),
-@id_usuario int
-as
-BEGIN
-IF NOT EXISTS (SELECT nombre FROM Proyecto
-WHERE nombre = @nombre)
-BEGIN
-insert Proyecto(nombre,descripcion)
-values(@nombre,@descripcion)
-
-insert Usuario_Proyecto(FKUsuario, FKProyecto)
-values(@id_usuario,(select max(Id) from Proyecto))
-END
-ELSE return -1;
-END
 
 
 create procedure insertarUserStory
@@ -416,3 +423,21 @@ rollback transaction
 end catch
 end
 
+// Le puse lo de la fecha
+create procedure insertarProyecto
+@nombre varchar(100),
+@descripcion varchar(100),
+@id_usuario int
+as
+BEGIN
+IF NOT EXISTS (SELECT nombre FROM Proyecto
+WHERE nombre = @nombre)
+BEGIN
+insert Proyecto(nombre,descripcion,FechaInicio)
+values(@nombre,@descripcion,getdate())
+
+insert Usuario_Proyecto(FKUsuario, FKProyecto)
+values(@id_usuario,(select max(Id) from Proyecto))
+END
+ELSE return -1;
+END

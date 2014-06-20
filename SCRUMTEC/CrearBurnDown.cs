@@ -25,8 +25,11 @@ namespace SCRUMTEC
             this.Controls.Add(this.chart2);   //Se agrega a la ventana el grafico
         }
 
+        private void CrearGraficoTareas() { } // Haciendo el de horas sale casi igual
         private void CrearGraficoHoras(int TotalHoras)
         {
+            // Para este hay que fijar en la tabla HistorialEsfuerzo que es la nueva y hacer ahi analisis de los datos.
+
             // Datos que se insertan en el grafico
             int totalEspacios = 11;
             int horastemp = TotalHoras / (totalEspacios - 1);
@@ -42,6 +45,14 @@ namespace SCRUMTEC
 
             Array xHorasInvertidas = new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
             Array yHorasInvertidas = new[] { 29, 28, 28, 28, 28, 28, 28, 23, 21 };
+            
+            /*var xvals = new[]
+                {
+                    new DateTime(2012, 4, 4), 
+                    new DateTime(2012, 4, 5), 
+                    new DateTime(2012, 4, 6), 
+                    new DateTime(2012, 4, 7)
+                }; */
 
             //Informacion y caracteristicas basica del grafico
             var chart = new Chart();

@@ -186,6 +186,25 @@ namespace SCRUMTEC
             }
         }
 
+        public static String GetEstimadoTarea(int idTarea)
+        {
+            int Documento = 0;
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("SP_BUSCARESTIMADO_TAREA", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@tarea", idTarea);
+                SqlDataReader lector = Comando.ExecuteReader();
+
+                while (lector.Read())
+                {
+                    Documento = lector.GetInt32(1);
+                }
+                Conn.Close();
+                return Documento + "";
+            }
+        }
+
         public static int GetTotalHoras(int idProyecto)
         {
             int Documento = 0;
