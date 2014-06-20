@@ -37,9 +37,10 @@ namespace SCRUMTEC
         private void Index_UserStory_Load(object sender, EventArgs e)
         {
             //METODO ALAMBRADO RECORDAR ARREGLAR
-            int idSpring = 1;
-            DataSet UserStory = ConexionMetodos.obtenerUserStory_IDSpring(idSpring);
+            
+            DataSet UserStory = ConexionMetodos.obtenerUserStory_IDProyecto(ID_Proyecto);
 
+            
             lstUserStory.DataSource = UserStory.Tables[0].DefaultView;
             lstUserStory.ValueMember = "Nombre";
             lstUserStory.ValueMember = "Prioridad";

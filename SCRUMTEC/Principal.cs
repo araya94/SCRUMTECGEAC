@@ -207,13 +207,13 @@ namespace SCRUMTEC
 
         private void aministrarUserStoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Index_UserStory indexUser = new Index_UserStory(idProyecto);
+            indexUser.Show();
         }
 
         private void userStoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Index_UserStory indexUser = new Index_UserStory(idProyecto);
-            indexUser.Show();
+            
         }
     }
 }

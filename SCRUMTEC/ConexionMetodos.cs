@@ -548,6 +548,35 @@ namespace SCRUMTEC
             }
         }
 
+        public static DataSet obtenerUserStory_IDProyecto(int id_proyecto)
+        {
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("SP_OBTENER_USERSORY_x_ID_PROYECTO", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@ID_PROYECTO", id_proyecto);
+                SqlDataReader lector = Comando.ExecuteReader();
+
+                if (lector.HasRows)
+                {
+                    while (lector.Read())
+                    {
+                        
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No rows found.");
+                }
+                lector.Close();
+                DataSet DataSet1 = new DataSet();
+                SqlDataAdapter DataAdapter1 = new SqlDataAdapter(Comando);
+                DataAdapter1.Fill(DataSet1, "dbo.UserStory");
+
+                Conn.Close();
+                return DataSet1;
+            }
+        }
 
 
         //-----------------------------------------------------------------------------------------

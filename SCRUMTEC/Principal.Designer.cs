@@ -189,8 +189,8 @@
             // aministrarUserStoryToolStripMenuItem
             // 
             this.aministrarUserStoryToolStripMenuItem.Name = "aministrarUserStoryToolStripMenuItem";
-            this.aministrarUserStoryToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.aministrarUserStoryToolStripMenuItem.Text = "Aministrar User Story";
+            this.aministrarUserStoryToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.aministrarUserStoryToolStripMenuItem.Text = "Administrar User Story";
             this.aministrarUserStoryToolStripMenuItem.Click += new System.EventHandler(this.aministrarUserStoryToolStripMenuItem_Click);
             // 
             // panel2

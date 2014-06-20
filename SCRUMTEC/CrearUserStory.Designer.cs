@@ -111,10 +111,10 @@
             this.radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.radioButton.Location = new System.Drawing.Point(279, 320);
             this.radioButton.Name = "radioButton";
-            this.radioButton.Size = new System.Drawing.Size(70, 24);
+            this.radioButton.Size = new System.Drawing.Size(55, 24);
             this.radioButton.TabIndex = 10;
             this.radioButton.TabStop = true;
-            this.radioButton.Text = "Verde";
+            this.radioButton.Text = "Alta";
             this.radioButton.UseVisualStyleBackColor = true;
             // 
             // radioButton2
@@ -123,10 +123,10 @@
             this.radioButton2.ForeColor = System.Drawing.Color.Gold;
             this.radioButton2.Location = new System.Drawing.Point(279, 362);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(83, 24);
+            this.radioButton2.Size = new System.Drawing.Size(70, 24);
             this.radioButton2.TabIndex = 11;
             this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Amarillo";
+            this.radioButton2.Text = "Media";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // radioButton3
@@ -135,10 +135,10 @@
             this.radioButton3.ForeColor = System.Drawing.Color.Red;
             this.radioButton3.Location = new System.Drawing.Point(279, 403);
             this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(60, 24);
+            this.radioButton3.Size = new System.Drawing.Size(59, 24);
             this.radioButton3.TabIndex = 12;
             this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Rojo";
+            this.radioButton3.Text = "Baja";
             this.radioButton3.UseVisualStyleBackColor = true;
             // 
             // CrearUserStory
