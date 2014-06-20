@@ -240,24 +240,6 @@ rollback transaction
 end catch
 end
 
-create procedure insertarProyecto
-@nombre varchar(100),
-@descripcion varchar(100),
-@id_usuario int
-as
-BEGIN
-IF NOT EXISTS (SELECT nombre FROM Proyecto
-WHERE nombre = @nombre)
-BEGIN
-insert Proyecto(nombre,descripcion)
-values(@nombre,@descripcion)
-
-insert Usuario_Proyecto(FKUsuario, FKProyecto)
-values(@id_usuario,(select max(Id) from Proyecto))
-END
-ELSE return -1;
-END
-
 
 create procedure insertarUserStory
 @FKProyecto int,
@@ -416,3 +398,21 @@ rollback transaction
 end catch
 end
 
+// Le puse lo de la fecha
+create procedure insertarProyecto
+@nombre varchar(100),
+@descripcion varchar(100),
+@id_usuario int
+as
+BEGIN
+IF NOT EXISTS (SELECT nombre FROM Proyecto
+WHERE nombre = @nombre)
+BEGIN
+insert Proyecto(nombre,descripcion,FechaInicio)
+values(@nombre,@descripcion,getdate())
+
+insert Usuario_Proyecto(FKUsuario, FKProyecto)
+values(@id_usuario,(select max(Id) from Proyecto))
+END
+ELSE return -1;
+END

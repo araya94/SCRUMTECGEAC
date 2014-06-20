@@ -42,6 +42,14 @@ namespace SCRUMTEC
 
             Array xHorasInvertidas = new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
             Array yHorasInvertidas = new[] { 29, 28, 28, 28, 28, 28, 28, 23, 21 };
+            
+            /*var xvals = new[]
+                {
+                    new DateTime(2012, 4, 4), 
+                    new DateTime(2012, 4, 5), 
+                    new DateTime(2012, 4, 6), 
+                    new DateTime(2012, 4, 7)
+                }; */
 
             //Informacion y caracteristicas basica del grafico
             var chart = new Chart();
