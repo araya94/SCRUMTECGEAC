@@ -12,20 +12,20 @@ namespace SCRUMTEC
 {
     public partial class ActualizarEsfuerzoTarea : Form
     {
-        int idSprint;
+        int idTare;
         public ActualizarEsfuerzoTarea(int idTarea)
         {
-            idSprint = idTarea;
+            idTare = idTarea;
             InitializeComponent();
-
-            txtDuracion.Text = ConexionMetodos.GetEsfuerzoTarea(idSprint);
+            tBEstimado.Text = ConexionMetodos.GetEstimadoTarea(idTare);
+            txtDuracion.Text = ConexionMetodos.GetEsfuerzoTarea(idTare);
         }
 
         private void btnDefinir_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(txtDuracion.Text))
             {
-                if (ConexionMetodos.ActualizarEsfuerzo(Convert.ToInt32(txtDuracion.Text), idSprint) > 0)
+                if (ConexionMetodos.ActualizarEsfuerzo(Convert.ToInt32(txtDuracion.Text), idTare) > 0)
                 {
                     MessageBox.Show("Esfuerzo Actualizado", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Hide();
