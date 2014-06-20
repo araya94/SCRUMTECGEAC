@@ -19,7 +19,16 @@ namespace SCRUMTEC
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
+            String nombre = txtNombre.Text;
+            String objetivo = rtxtDescripcion.Text;
 
+            ConexionMetodos conn = new ConexionMetodos();
+            int estado = conn.insertarRelease(nombre,objetivo);
+
+            if (estado == 1)
+            {
+                MessageBox.Show("Release creado correctamente");
+            }
         }
     }
 }

@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.label4 = new System.Windows.Forms.Label();
-            this.txtDuracion = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.rtxtDescripcion = new System.Windows.Forms.RichTextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNombreTarea = new System.Windows.Forms.TextBox();
+            this.cmbDuracion = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label4
@@ -45,13 +45,6 @@
             this.label4.Size = new System.Drawing.Size(50, 13);
             this.label4.TabIndex = 26;
             this.label4.Text = "Duracion";
-            // 
-            // txtDuracion
-            // 
-            this.txtDuracion.Location = new System.Drawing.Point(13, 222);
-            this.txtDuracion.Name = "txtDuracion";
-            this.txtDuracion.Size = new System.Drawing.Size(259, 20);
-            this.txtDuracion.TabIndex = 25;
             // 
             // label3
             // 
@@ -96,13 +89,21 @@
             this.txtNombreTarea.Size = new System.Drawing.Size(259, 20);
             this.txtNombreTarea.TabIndex = 20;
             // 
+            // cmbDuracion
+            // 
+            this.cmbDuracion.FormattingEnabled = true;
+            this.cmbDuracion.Location = new System.Drawing.Point(17, 223);
+            this.cmbDuracion.Name = "cmbDuracion";
+            this.cmbDuracion.Size = new System.Drawing.Size(251, 21);
+            this.cmbDuracion.TabIndex = 27;
+            // 
             // frmAgregarTarea
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 309);
+            this.Controls.Add(this.cmbDuracion);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtDuracion);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.rtxtDescripcion);
             this.Controls.Add(this.btnAgregar);
@@ -110,6 +111,7 @@
             this.Controls.Add(this.txtNombreTarea);
             this.Name = "frmAgregarTarea";
             this.Text = "AgregarTarea";
+            this.Load += new System.EventHandler(this.frmAgregarTarea_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -118,11 +120,11 @@
         #endregion
 
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtDuracion;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RichTextBox rtxtDescripcion;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNombreTarea;
+        private System.Windows.Forms.ComboBox cmbDuracion;
     }
 }

@@ -43,14 +43,14 @@
             this.userStoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aministrarUserStoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.BotonCerrarSesion = new System.Windows.Forms.Button();
-            this.BotonAtras = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.menuStrip3 = new System.Windows.Forms.MenuStrip();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.menuStrip4 = new System.Windows.Forms.MenuStrip();
             this.panel5 = new System.Windows.Forms.Panel();
             this.menuStrip5 = new System.Windows.Forms.MenuStrip();
+            this.menuStrip4 = new System.Windows.Forms.MenuStrip();
+            this.menuStrip3 = new System.Windows.Forms.MenuStrip();
+            this.BotonCerrarSesion = new System.Windows.Forms.Button();
+            this.BotonAtras = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -174,8 +174,9 @@
             // nuevoReleaseToolStripMenuItem
             // 
             this.nuevoReleaseToolStripMenuItem.Name = "nuevoReleaseToolStripMenuItem";
-            this.nuevoReleaseToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.nuevoReleaseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.nuevoReleaseToolStripMenuItem.Text = "Nuevo Release";
+            this.nuevoReleaseToolStripMenuItem.Click += new System.EventHandler(this.nuevoReleaseToolStripMenuItem_Click);
             // 
             // userStoryToolStripMenuItem
             // 
@@ -203,6 +204,62 @@
             this.panel2.TabIndex = 6;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panel3.Controls.Add(this.panel4);
+            this.panel3.Controls.Add(this.menuStrip3);
+            this.panel3.Location = new System.Drawing.Point(37, 74);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(810, 412);
+            this.panel3.TabIndex = 10;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.AliceBlue;
+            this.panel4.Controls.Add(this.menuStrip4);
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(810, 412);
+            this.panel4.TabIndex = 11;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel5.Controls.Add(this.menuStrip5);
+            this.panel5.Location = new System.Drawing.Point(37, 71);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(810, 412);
+            this.panel5.TabIndex = 12;
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
+            // 
+            // menuStrip5
+            // 
+            this.menuStrip5.BackColor = System.Drawing.Color.LightGray;
+            this.menuStrip5.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip5.Name = "menuStrip5";
+            this.menuStrip5.Size = new System.Drawing.Size(810, 24);
+            this.menuStrip5.TabIndex = 0;
+            this.menuStrip5.Text = "menuStrip5";
+            // 
+            // menuStrip4
+            // 
+            this.menuStrip4.BackColor = System.Drawing.Color.LightGray;
+            this.menuStrip4.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip4.Name = "menuStrip4";
+            this.menuStrip4.Size = new System.Drawing.Size(810, 24);
+            this.menuStrip4.TabIndex = 0;
+            this.menuStrip4.Text = "menuStrip4";
+            // 
+            // menuStrip3
+            // 
+            this.menuStrip3.BackColor = System.Drawing.Color.LightGray;
+            this.menuStrip3.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip3.Name = "menuStrip3";
+            this.menuStrip3.Size = new System.Drawing.Size(810, 24);
+            this.menuStrip3.TabIndex = 0;
+            this.menuStrip3.Text = "menuStrip3";
+            // 
             // BotonCerrarSesion
             // 
             this.BotonCerrarSesion.BackColor = System.Drawing.Color.DarkGray;
@@ -229,60 +286,6 @@
             this.BotonAtras.UseVisualStyleBackColor = false;
             this.BotonAtras.Click += new System.EventHandler(this.button2_Click_1);
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.panel3.Controls.Add(this.menuStrip3);
-            this.panel3.Location = new System.Drawing.Point(37, 74);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(810, 412);
-            this.panel3.TabIndex = 10;
-            // 
-            // menuStrip3
-            // 
-            this.menuStrip3.BackColor = System.Drawing.Color.LightGray;
-            this.menuStrip3.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip3.Name = "menuStrip3";
-            this.menuStrip3.Size = new System.Drawing.Size(810, 24);
-            this.menuStrip3.TabIndex = 0;
-            this.menuStrip3.Text = "menuStrip3";
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.AliceBlue;
-            this.panel4.Controls.Add(this.menuStrip4);
-            this.panel4.Location = new System.Drawing.Point(37, 74);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(810, 412);
-            this.panel4.TabIndex = 11;
-            // 
-            // menuStrip4
-            // 
-            this.menuStrip4.BackColor = System.Drawing.Color.LightGray;
-            this.menuStrip4.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip4.Name = "menuStrip4";
-            this.menuStrip4.Size = new System.Drawing.Size(810, 24);
-            this.menuStrip4.TabIndex = 0;
-            this.menuStrip4.Text = "menuStrip4";
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel5.Controls.Add(this.menuStrip5);
-            this.panel5.Location = new System.Drawing.Point(37, 74);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(810, 412);
-            this.panel5.TabIndex = 12;
-            // 
-            // menuStrip5
-            // 
-            this.menuStrip5.BackColor = System.Drawing.Color.LightGray;
-            this.menuStrip5.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip5.Name = "menuStrip5";
-            this.menuStrip5.Size = new System.Drawing.Size(810, 24);
-            this.menuStrip5.TabIndex = 0;
-            this.menuStrip5.Text = "menuStrip5";
-            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -290,7 +293,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(884, 531);
             this.Controls.Add(this.panel5);
-            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.BotonAtras);
             this.Controls.Add(this.BotonCerrarSesion);

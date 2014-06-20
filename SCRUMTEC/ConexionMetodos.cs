@@ -521,7 +521,7 @@ namespace SCRUMTEC
             }
         }
 
-        public static int insertarTarea(int fk_userstory, string nombre, string descripcion, string duracion)
+        public static int insertarTarea(int fk_userstory, string nombre, string descripcion, int duracion, int esfuerzo)
         {
             int resultado = -1;
             using (SqlConnection Conn = Conexion.ObtenerConexion())
@@ -531,7 +531,9 @@ namespace SCRUMTEC
                 Comando.Parameters.AddWithValue("@FK_USERSTORY", fk_userstory);
                 Comando.Parameters.AddWithValue("@NOMBRE", nombre);
                 Comando.Parameters.AddWithValue("@DESCRIPCION", descripcion);
-                Comando.Parameters.AddWithValue("@DURACION", duracion);
+                Comando.Parameters.AddWithValue("@DURACIONESTIMADA", duracion);
+                Comando.Parameters.AddWithValue("@ESFUERZOINVERTIDO", esfuerzo);
+
                 SqlDataReader lector = Comando.ExecuteReader();
                 resultado = 1;
                 Conn.Close();
@@ -587,6 +589,47 @@ namespace SCRUMTEC
             }
         }
 
+        public static DataSet obtenerTarea_x_UserStory(int id_userstory)
+        {
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("SP_OBTENER_TAREA_x_USERSORY", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@FK_USER_STORIE", id_userstory);
+                SqlDataReader lector = Comando.ExecuteReader();
+
+
+                lector.Close();
+                DataSet DataSet1 = new DataSet();
+                SqlDataAdapter DataAdapter1 = new SqlDataAdapter(Comando);
+                DataAdapter1.Fill(DataSet1, "dbo.Tarea");
+
+                Conn.Close();
+                return DataSet1;
+            }
+        }
+
+        public static DataSet obtenerCriterio_x_UserStory(int id_userstory)
+        {
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("SP_OBTENER_CRITERIO_x_USERSTORY", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@FK_USER_STORIE", id_userstory);
+                SqlDataReader lector = Comando.ExecuteReader();
+
+
+                lector.Close();
+                DataSet DataSet1 = new DataSet();
+                SqlDataAdapter DataAdapter1 = new SqlDataAdapter(Comando);
+                DataAdapter1.Fill(DataSet1, "dbo.Criteri");
+
+                Conn.Close();
+                return DataSet1;
+            }
+        }
+
+
         public UserStory obtenerUserStory_x_ID(int id)
         {
              UserStory userstory=null;
@@ -619,6 +662,22 @@ namespace SCRUMTEC
                 Conn.Close();
 
                 return userstory;
+            }
+        }
+
+        public  int insertarRelease(string nombre, string objetivo)
+        {
+            int resultado = -1;
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("SP_INGRESAR_RELEASE", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@NOMBRE", nombre);
+                Comando.Parameters.AddWithValue("@OBJETIVO", objetivo);
+                SqlDataReader lector = Comando.ExecuteReader();
+                resultado = 1;
+                Conn.Close();
+                return resultado;
             }
         }
 
@@ -661,6 +720,8 @@ namespace SCRUMTEC
                 return resultado;
             }
         }
+
+        
     }
 
 

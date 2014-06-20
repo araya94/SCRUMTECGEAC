@@ -21,6 +21,10 @@ namespace SCRUMTEC
         {
             cmbEstado.Items.Add("Completado");
             cmbEstado.Items.Add("Pendiente");
+
+            cmbEstado.SelectedIndex = 0;
+
+            
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

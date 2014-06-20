@@ -41,14 +41,14 @@ namespace SCRUMTEC
             {
                 nuevoProyectoToolStripMenuItem.Visible = false;
                 crearUsuarioToolStripMenuItem.Visible = false;
-                userStoryToolStripMenuItem.Visible = false;
+                userStoryToolStripMenuItem.Visible = true;
                 releaseToolStripMenuItem.Visible = false;
             }
             if (rol == 4)
             {
                 nuevoProyectoToolStripMenuItem.Visible = false;
                 crearUsuarioToolStripMenuItem.Visible = false;
-                userStoryToolStripMenuItem.Visible = false;
+                userStoryToolStripMenuItem.Visible = true;
                 releaseToolStripMenuItem.Visible = false;
             }
             if (rol == 5)
@@ -132,10 +132,6 @@ namespace SCRUMTEC
 
         }
 
-        private void nuevoReleaseToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Aqui");
-        }
 
         
         private void releaseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -292,6 +288,21 @@ namespace SCRUMTEC
                 }
             }
         }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void nuevoReleaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Si");
+            NuevoRelease nuevorelease = new NuevoRelease();
+            nuevorelease.ShowDialog();
+        }
+
+
+
 
     }
 }
