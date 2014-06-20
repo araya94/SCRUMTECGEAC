@@ -139,6 +139,21 @@ return -1;
 end catch
 end
 
+
+create procedure SP_BUSCARESTIMADO_TAREA
+@tarea int
+as
+begin
+begin try
+Select T.id,T.DuracionEstimada from Tarea T
+where  @tarea = T.id
+end try
+begin catch
+select ERROR_NUMBER() as ErrorNumber;
+return -1;
+end catch
+end
+
 create procedure SP_BUSCARESFUERZO_TAREA
 @tarea int
 as
@@ -159,9 +174,19 @@ create procedure SP_ACTUALIZARESFUERZO_TAREA
 as
 begin
 begin try
+
+DECLARE @HorasTrabajadas int;
+
+SET @HorasTrabajadas = @tiempo - (Select EsfuerzoInvertido
+from Tarea
+where id = @sprint)
+
 update Tarea
 set EsfuerzoInvertido = @tiempo
 where id = @sprint
+
+insert HistorialEsfuerzo(FKTarea,FechaCambio,HorasTrabajadas)
+values(@sprint,getdate(),@HorasTrabajadas)
 end try
 begin catch
 select ERROR_NUMBER() as ErrorNumber;
