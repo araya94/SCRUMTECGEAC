@@ -21,25 +21,43 @@ namespace SCRUMTEC
 
         public Principal(int rolP,int idUsuarioP)
         {
-
+            InitializeComponent();
             rol = rolP;
             idUsuario = idUsuarioP;
+            Proyectos = ConexionMetodos.CargarProyectosxUsuario(idUsuario);
+            List<String> ListaNombres = new List<String>();
 
-           
-            InitializeComponent();
             if (rol == 1)
             {
-                crearUsuarioToolStripMenuItem.Visible = false;
-
+                userStoryToolStripMenuItem.Visible = false;
+                releaseToolStripMenuItem.Visible = false;
             }
-            if (rol == 2) { 
-                
+            if (rol == 2)
+            {
                 nuevoProyectoToolStripMenuItem.Visible = false;
                 crearUsuarioToolStripMenuItem.Visible = false;
             }
-            Proyectos = ConexionMetodos.CargarProyectosxUsuario(idUsuario);
-            List<String> ListaNombres = new List<String>();
-            
+            if (rol == 3)
+            {
+                nuevoProyectoToolStripMenuItem.Visible = false;
+                crearUsuarioToolStripMenuItem.Visible = false;
+                userStoryToolStripMenuItem.Visible = false;
+                releaseToolStripMenuItem.Visible = false;
+            }
+            if (rol == 4)
+            {
+                nuevoProyectoToolStripMenuItem.Visible = false;
+                crearUsuarioToolStripMenuItem.Visible = false;
+                userStoryToolStripMenuItem.Visible = false;
+                releaseToolStripMenuItem.Visible = false;
+            }
+            if (rol == 5)
+            {
+                nuevoProyectoToolStripMenuItem.Visible = false;
+                crearUsuarioToolStripMenuItem.Visible = false;
+                userStoryToolStripMenuItem.Visible = false;
+                releaseToolStripMenuItem.Visible = false;
+            }
             
             foreach (DataRow dr in Proyectos.Tables[0].Rows)
             {
@@ -143,18 +161,7 @@ namespace SCRUMTEC
             Cargar_Panel_Releases(ID);
             panel2.Visible = true;
             panel1.Visible = false;
-            if (rol == 1)
-            {
-                
-
-            }
-            if (rol == 2)
-            {
-                
-                nuevoProyectoToolStripMenuItem.Visible = false;
-                crearUsuarioToolStripMenuItem.Visible = false;
-
-            }
+           
 
         }
 
