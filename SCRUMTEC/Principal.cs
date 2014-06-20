@@ -71,7 +71,7 @@ namespace SCRUMTEC
 
         private void nuevoProyectoToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            this.Hide();
+           // this.Hide(); Si lo oculta lo debe volver a mostrar depues de hacer el proyecto
             CrearProyecto ventana = new CrearProyecto(rol,idUsuario);
             ventana.ShowDialog();
         }
