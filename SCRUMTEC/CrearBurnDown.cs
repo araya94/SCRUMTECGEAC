@@ -25,8 +25,11 @@ namespace SCRUMTEC
             this.Controls.Add(this.chart2);   //Se agrega a la ventana el grafico
         }
 
+        private void CrearGraficoTareas() { } // Haciendo el de horas sale casi igual
         private void CrearGraficoHoras(int TotalHoras)
         {
+            // Para este hay que fijar en la tabla HistorialEsfuerzo que es la nueva y hacer ahi analisis de los datos.
+
             // Datos que se insertan en el grafico
             int totalEspacios = 11;
             int horastemp = TotalHoras / (totalEspacios - 1);
