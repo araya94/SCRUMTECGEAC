@@ -83,6 +83,12 @@
     </Compile>
     <Compile Include="Conexion.cs" />
     <Compile Include="ConexionMetodos.cs" />
+    <Compile Include="CrearBurnDown.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrearBurnDown.Designer.cs">
+      <DependentUpon>CrearBurnDown.cs</DependentUpon>
+    </Compile>
     <Compile Include="CrearProyecto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AgregarTarea.resx">
       <DependentUpon>AgregarTarea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrearBurnDown.resx">
+      <DependentUpon>CrearBurnDown.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CrearProyecto.resx">
       <DependentUpon>CrearProyecto.cs</DependentUpon>
