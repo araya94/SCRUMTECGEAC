@@ -401,6 +401,71 @@ ROLLBACK TRANSACTION
 END CATCH
 END
 
+
+------------- NUEVOS SP ESTEBAN -----------------------------
+USE [ScrumProyecto]
+GO
+/****** Object:  StoredProcedure [dbo].[SP_INGRESAR_RELEASE]    Script Date: 6/20/2014 8:27:58 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SP_INGRESAR_RELEASE]
+
+	
+	 @NOMBRE VARCHAR(500), 
+	 @OBJETIVO TEXT
+
+AS
+BEGIN
+BEGIN TRY
+	BEGIN TRANSACTION
+	
+	SET NOCOUNT ON;
+	
+	
+	INSERT INTO dbo.Release VALUES (@NOMBRE,@OBJETIVO)
+	
+	COMMIT TRANSACTION
+END TRY
+BEGIN CATCH
+	SELECT ERROR_NUMBER() AS ErrorNumber;
+	RETURN -1;
+	ROLLBACK TRANSACTION
+END CATCH
+END
+
+USE [ScrumProyecto]
+GO
+/****** Object:  StoredProcedure [dbo].[SP_OBTENER_USERSORY_x_ID]    Script Date: 6/20/2014 8:28:31 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[SP_OBTENER_USERSORY_x_ID]
+
+	 @ID INT
+
+AS
+BEGIN
+BEGIN TRY
+	BEGIN TRANSACTION
+	
+	SET NOCOUNT ON;
+	
+	SELECT usu.id,usu.FKProyecto, usu.FKSprint, usu.Nombre,usu.Prioridad,usu.Descripcion
+	FROM dbo.UserStory usu 
+	WHERE usu.id = @ID
+	COMMIT TRANSACTION
+END TRY
+BEGIN CATCH
+	SELECT ERROR_NUMBER() AS ErrorNumber;
+	RETURN -1;
+	ROLLBACK TRANSACTION
+END CATCH
+END
+
+
 --------------------------------------------------
 
 

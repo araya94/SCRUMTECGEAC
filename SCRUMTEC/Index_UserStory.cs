@@ -15,22 +15,31 @@ namespace SCRUMTEC
     {
         int ID_Proyecto;
         int ID_Sprint;
-        public Index_UserStory(int id_proyecto)
+        int rol;
+        public Index_UserStory(int id_proyecto, int rol)
         {
             InitializeComponent();
             this.ID_Proyecto = id_proyecto;
+            this.rol = rol;
         }
 
-        public Index_UserStory(int id_proyecto, int id_sprint)
+        public Index_UserStory(int id_proyecto, int id_sprint, int rol)
         {
             InitializeComponent();
             this.ID_Proyecto = id_proyecto;
             this.ID_Sprint = id_sprint;
+            this.rol = rol;
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            frmEditarUserStory editar_userstory = new frmEditarUserStory();
+            // The index:
+            int ListItemIndex;
+
+            ListItemIndex = lstUserStory.SelectedIndex;
+
+
+            frmEditarUserStory editar_userstory = new frmEditarUserStory(ListItemIndex+1,ID_Proyecto);
             editar_userstory.Show();
         }
 
@@ -42,8 +51,10 @@ namespace SCRUMTEC
 
             
             lstUserStory.DataSource = UserStory.Tables[0].DefaultView;
+            
             lstUserStory.ValueMember = "Nombre";
-            lstUserStory.ValueMember = "Prioridad";
+            lstUserStory.ValueMember = "id";
+            
         }
 
         private void button1_Click(object sender, EventArgs e)

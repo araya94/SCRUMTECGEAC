@@ -12,8 +12,12 @@ namespace SCRUMTEC
 {
     public partial class frmEditarUserStory : Form
     {
-        public frmEditarUserStory()
+        int ID;
+        int ID_Proyecto;
+        public frmEditarUserStory(int id, int id_proyecto)
         {
+            this.ID = id;
+            this.ID_Proyecto = id_proyecto;
             InitializeComponent();
         }
 
@@ -25,7 +29,7 @@ namespace SCRUMTEC
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            int id = 1;
+            
             string nombre = txtNombreUserStorie.Text;
             string prioridad = "";
             if (cmbPrioridad.SelectedIndex != -1)
@@ -33,7 +37,7 @@ namespace SCRUMTEC
                 prioridad = cmbPrioridad.SelectedItem.ToString();
             }
             //acualizar User Storie(int id,String nombre, String prioridad);
-            if (ConexionMetodos.actualizarUserStorie(id, nombre, prioridad) > 0)
+            if (ConexionMetodos.actualizarUserStorie(ID, nombre, prioridad) > 0)
             {
                 MessageBox.Show("User Storie Actualizado", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
@@ -52,6 +56,12 @@ namespace SCRUMTEC
             cmbPrioridad.Items.Add("Alta");
             cmbPrioridad.Items.Add("Media");
             cmbPrioridad.Items.Add("Baja");
+
+            ConexionMetodos con = new ConexionMetodos();
+            UserStory userstory = con.obtenerUserStory_x_ID(ID);
+
+            txtNombreUserStorie.Text = userstory.nombre;
+            cmbPrioridad.SelectedItem = userstory.prioridad;
         }
 
         private void btnAgregar_Tarea_Click(object sender, EventArgs e)

@@ -215,7 +215,7 @@ namespace SCRUMTEC
 
         private void aministrarUserStoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Index_UserStory indexUser = new Index_UserStory(idProyecto);
+            Index_UserStory indexUser = new Index_UserStory(idProyecto, rol);
             indexUser.Show();
         }
 

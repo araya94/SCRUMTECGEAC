@@ -576,17 +576,7 @@ namespace SCRUMTEC
                 Comando.Parameters.AddWithValue("@ID_PROYECTO", id_proyecto);
                 SqlDataReader lector = Comando.ExecuteReader();
 
-                if (lector.HasRows)
-                {
-                    while (lector.Read())
-                    {
-                        
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("No rows found.");
-                }
+                
                 lector.Close();
                 DataSet DataSet1 = new DataSet();
                 SqlDataAdapter DataAdapter1 = new SqlDataAdapter(Comando);
@@ -594,6 +584,41 @@ namespace SCRUMTEC
 
                 Conn.Close();
                 return DataSet1;
+            }
+        }
+
+        public UserStory obtenerUserStory_x_ID(int id)
+        {
+             UserStory userstory=null;
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("SP_OBTENER_USERSORY_x_ID", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@ID", id);
+                SqlDataReader lector = Comando.ExecuteReader();
+
+                lector.Close();
+                DataSet DataSet1 = new DataSet();
+                SqlDataAdapter DataAdapter1 = new SqlDataAdapter(Comando);
+                DataAdapter1.Fill(DataSet1, "dbo.UserStory");
+
+                foreach (DataRow dr in DataSet1.Tables[0].Rows)
+                {
+                    
+                    String nombre = Convert.ToString(dr["Nombre"]);
+                    String prioridad = Convert.ToString(dr["Prioridad"]);
+
+                    String id_user_story = Convert.ToString(dr["id"]);
+                    String descripcion = Convert.ToString(dr["Descripcion"]);
+
+
+                    userstory = new UserStory(id_user_story, nombre, prioridad, descripcion);
+
+                }
+
+                Conn.Close();
+
+                return userstory;
             }
         }
 
