@@ -103,7 +103,8 @@
             this.Controls.Add(this.label_descripcionProyecto);
             this.Controls.Add(this.label_nombreProyecto);
             this.Name = "CrearProyecto";
-            this.Text = "CrearProyecto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Nuevo Proyecto";
             this.ResumeLayout(false);
             this.PerformLayout();
 

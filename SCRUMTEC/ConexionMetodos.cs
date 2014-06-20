@@ -185,6 +185,25 @@ namespace SCRUMTEC
                 return Documento + "";
             }
         }
+
+        public static int GetTotalHoras(int idProyecto)
+        {
+            int Documento = 0;
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("SP_TOTALHORAS", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@proyecto", idProyecto);
+                SqlDataReader lector = Comando.ExecuteReader();
+
+                while (lector.Read())
+                {
+                    Documento = lector.GetInt32(0);
+                }
+                Conn.Close();
+                return Documento;
+            }
+        }
         
                /*
          * Nombre: insertarDuracion
