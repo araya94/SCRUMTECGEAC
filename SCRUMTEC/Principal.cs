@@ -62,8 +62,9 @@ namespace SCRUMTEC
             CrearBotones(panel1, Proyectos);
             BotonAtras.Enabled = false;
             panel2.Visible = false;
-            //panel3.Visible = false;
-            //panel4.Visible = false;
+            panel3.Visible = false;
+            panel4.Visible = false;
+            panel5.Visible = false;
             
         }
 
@@ -86,7 +87,8 @@ namespace SCRUMTEC
                 BotonProyecto.BackColor = System.Drawing.Color.Silver;
                 if (panelActual.Name == "panel1") { BotonProyecto.Click += new System.EventHandler(CargarReleases_click); }
                 else if (panelActual.Name == "panel2") { BotonProyecto.Click += new System.EventHandler(CargarSprints_click); }
-                //else if (panelActual.Name == "panel3") { BotonProyecto.Click += new System.EventHandler(CargarTareas_click); }
+                else if (panelActual.Name == "panel3") { BotonProyecto.Click += new System.EventHandler(CargarUserStory_click); }
+                else if (panelActual.Name == "panel4") { BotonProyecto.Click += new System.EventHandler(CargarTareas_click); }
                 panelActual.Controls.Add(BotonProyecto);
             }
         }
@@ -179,9 +181,25 @@ namespace SCRUMTEC
 
         public void CargarSprints_click(Object sender, System.EventArgs e)
         {
-            MessageBox.Show("Si funciona");
+
+            label1.Text = "Seleccione un Sprint o una opción válida para continuar";
+            panel3.Visible = true;
+            panel2.Visible = false;
         }
 
+        public void CargarUserStory_click(Object sender, System.EventArgs e)
+        {
+            label1.Text = "Seleccione un UserStory o una opción válida para continuar";
+            panel4.Visible = true;
+            panel3.Visible = false;
+        }
+
+        public void CargarTareas_click(Object sender, System.EventArgs e)
+        {
+            label1.Text = "Seleccione una Tarea o una opción válida para continuar";
+            panel5.Visible = true;
+            panel4.Visible = false;
+        }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -232,7 +250,7 @@ namespace SCRUMTEC
                 panel2.Visible = false;
                 panel1.Visible = true;
             }
-            /*
+            
             else if (panel3.Visible == true)
             {
                 label1.Text = "Seleccione un Release o una opción válida para continuar";
@@ -246,7 +264,13 @@ namespace SCRUMTEC
                 panel4.Visible = false;
                 panel3.Visible = true;
             }
-            */
+
+            else if (panel5.Visible == true)
+            {
+                label1.Text = "Seleccione un User Story o una opción válida para continuar";
+                panel4.Visible = false;
+                panel3.Visible = true;
+            }
         }
 
 
