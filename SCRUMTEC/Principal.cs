@@ -21,6 +21,7 @@ namespace SCRUMTEC
 
         public Principal(int rolP,int idUsuarioP)
         {
+            
             InitializeComponent();
             rol = rolP;
             idUsuario = idUsuarioP;
@@ -222,5 +223,13 @@ namespace SCRUMTEC
             Index_UserStory indexUser = new Index_UserStory(idProyecto);
             indexUser.Show();
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Identificacion SalirSesion = new Identificacion();
+            this.Close();
+            SalirSesion.Show();
+        }
+
     }
 }

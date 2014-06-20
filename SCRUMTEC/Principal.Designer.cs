@@ -43,6 +43,7 @@
             this.userStoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aministrarUserStoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -84,7 +85,7 @@
             this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Location = new System.Drawing.Point(0, 74);
+            this.panel1.Location = new System.Drawing.Point(37, 74);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(810, 412);
             this.panel1.TabIndex = 2;
@@ -96,7 +97,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(272, 45);
+            this.label1.Location = new System.Drawing.Point(272, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(238, 15);
             this.label1.TabIndex = 5;
@@ -163,7 +164,7 @@
             // nuevoReleaseToolStripMenuItem
             // 
             this.nuevoReleaseToolStripMenuItem.Name = "nuevoReleaseToolStripMenuItem";
-            this.nuevoReleaseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nuevoReleaseToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.nuevoReleaseToolStripMenuItem.Text = "Nuevo Release";
             // 
             // userStoryToolStripMenuItem
@@ -186,11 +187,24 @@
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.panel2.Controls.Add(this.menuStrip2);
-            this.panel2.Location = new System.Drawing.Point(1, 74);
+            this.panel2.Location = new System.Drawing.Point(37, 74);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(810, 412);
             this.panel2.TabIndex = 6;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DarkGray;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(748, 492);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(99, 27);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Cerrar sesión";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Principal
             // 
@@ -198,6 +212,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(884, 531);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
@@ -240,5 +255,6 @@
         private System.Windows.Forms.ToolStripMenuItem userStoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem crearUsuarioToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem aministrarUserStoryToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }
