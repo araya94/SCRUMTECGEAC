@@ -13,10 +13,17 @@ namespace SCRUMTEC
     public partial class DefinirSprints : Form
     {
         int idRelease;
+        Principal VentanaPrincipal;
+        Panel PanelActual;
+        DataSet Sprints;
 
-        public DefinirSprints(int idreleaseP)
+        public DefinirSprints(int idreleaseP, Principal Ventana, Panel Panel, DataSet DS)
         {
             idRelease = idreleaseP;
+            VentanaPrincipal = Ventana;
+            PanelActual = Panel;
+            Sprints = DS;
+
             InitializeComponent();
         }
 
@@ -32,7 +39,8 @@ namespace SCRUMTEC
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            VentanaPrincipal.Show();
+            this.Close();
         }
 
         private void btnCrear_Click(object sender, EventArgs e)
@@ -41,6 +49,7 @@ namespace SCRUMTEC
             {
                 int idSprint;
                 idSprint = ConexionMetodos.insertarSprint(txtNombre.Text, txtDescri.Text, idRelease);
+                
                 if ( idSprint > 0)
                 {
                     DialogResult dialogResult = MessageBox.Show("Sprint Creado con éxito, Desea agregar los user Stories", "Éxito Sprint", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
@@ -65,6 +74,11 @@ namespace SCRUMTEC
             {
                 MessageBox.Show("Debe llenar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+
+            VentanaPrincipal.CargarPanelAnterior(PanelActual);
+            Sprints = 
+            VentanaPrincipal.CrearBotones(PanelActual, Sprints);
+            VentanaPrincipal.Show();
         }
     }
 }
