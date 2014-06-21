@@ -45,6 +45,7 @@
             this.btnCerrar.TabIndex = 12;
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // txtEstado
             // 
@@ -58,9 +59,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(14, 213);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 13);
+            this.label3.Size = new System.Drawing.Size(40, 13);
             this.label3.TabIndex = 10;
-            this.label3.Text = "Duracion Estimada";
+            this.label3.Text = "Estado";
             // 
             // rtxtDescripcion
             // 
