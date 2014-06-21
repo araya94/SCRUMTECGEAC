@@ -76,9 +76,8 @@ namespace SCRUMTEC
             }
 
             VentanaPrincipal.CargarPanelAnterior(PanelActual);
-            Sprints = 
-            VentanaPrincipal.CrearBotones(PanelActual, Sprints);
-            VentanaPrincipal.Show();
+            //Sprints = VentanaPrincipal.CrearBotones(PanelActual, Sprints);
+            //VentanaPrincipal.Show();
         }
     }
 }

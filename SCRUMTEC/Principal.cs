@@ -24,7 +24,7 @@ namespace SCRUMTEC
         DataSet Proyectos;
         DataSet Releases;
         DataSet Sprints;
-        
+
 
         public Principal(int rolP,int idUsuarioP)
         {
@@ -48,14 +48,14 @@ namespace SCRUMTEC
             {
                 nuevoProyectoToolStripMenuItem.Visible = false;
                 crearUsuarioToolStripMenuItem.Visible = false;
-                userStoryToolStripMenuItem.Visible = false;
+                userStoryToolStripMenuItem.Visible = true;
                 releaseToolStripMenuItem.Visible = false;
             }
             if (rol == 4)
             {
                 nuevoProyectoToolStripMenuItem.Visible = false;
                 crearUsuarioToolStripMenuItem.Visible = false;
-                userStoryToolStripMenuItem.Visible = false;
+                userStoryToolStripMenuItem.Visible = true;
                 releaseToolStripMenuItem.Visible = false;
             }
             if (rol == 5)
@@ -117,11 +117,13 @@ namespace SCRUMTEC
             
         }
 
+        
         private void archivoToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
 
+        
         private void crearUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CreaUsuario ventana = new CreaUsuario(rol, idUsuario);
@@ -138,9 +140,11 @@ namespace SCRUMTEC
 
         }
 
+
+        
         private void releaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Aqui");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -259,8 +263,7 @@ namespace SCRUMTEC
 
         private void aministrarUserStoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Index_UserStory indexUser = new Index_UserStory(idProyecto);
-            indexUser.Show();
+
         }
 
         private void userStoryToolStripMenuItem_Click(object sender, EventArgs e)
@@ -323,20 +326,8 @@ namespace SCRUMTEC
             }
         }
 
-        private void nuevoReleaseToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            NuevoRelease NuevoRelease = new NuevoRelease();
-            NuevoRelease.Show();
-        }
 
-        private void nuevoSprintToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            DefinirSprints NuevoSprint= new DefinirSprints(idRelease, this, panel3, Sprints);
-            NuevoSprint.Show();
-            
-            
-        }
+
 
     }
 }
