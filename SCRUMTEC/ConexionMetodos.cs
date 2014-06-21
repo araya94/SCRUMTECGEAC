@@ -73,7 +73,7 @@ namespace SCRUMTEC
                 Comando.Parameters.AddWithValue("@email", email);
                 Comando.Parameters.AddWithValue("@proyecto", proyecto);
                 Comando.Parameters.AddWithValue("@rol", rol);
-                SqlDataReader lector = Comando.ExecuteReader();
+                Comando.ExecuteNonQuery();
                 resultado = 1;
                 Conn.Close();
                 return resultado;
@@ -100,7 +100,7 @@ namespace SCRUMTEC
                 Comando.CommandType = CommandType.StoredProcedure;
                 Comando.Parameters.AddWithValue("@userS", userS);
                 Comando.Parameters.AddWithValue("@usuario", usuario);
-                SqlDataReader lector = Comando.ExecuteReader();
+                Comando.ExecuteNonQuery();
                 resultado = 1;
                 Conn.Close();
                 return resultado;
@@ -126,13 +126,10 @@ namespace SCRUMTEC
                 SqlCommand Comando = new SqlCommand("SP_INSERTAR_SPRINT", Conn);
                 Comando.CommandType = CommandType.StoredProcedure;
                 Comando.Parameters.AddWithValue("@nombre", nombre);
-                Comando.Parameters.AddWithValue("@email", descripcion);
-                Comando.Parameters.AddWithValue("@rol", release);
-                SqlDataReader lector = Comando.ExecuteReader();
-                while (lector.Read())
-                {
-                    resultado = lector.GetInt32(0);
-                }
+                Comando.Parameters.AddWithValue("@descripcion", descripcion);
+                Comando.Parameters.AddWithValue("@release", release);
+                Comando.ExecuteNonQuery();
+                resultado = 1;
                 Conn.Close();
                 return resultado;
             }
@@ -465,6 +462,43 @@ namespace SCRUMTEC
             }
         }
 
+        public static DataSet CargarSprints(int ID_Release)
+        {
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("CargarSprints", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@IDRelease", ID_Release);
+
+
+                DataSet DataSet1 = new DataSet();
+                SqlDataAdapter DataAdapter1 = new SqlDataAdapter(Comando);
+                DataAdapter1.Fill(DataSet1, "dbo.Sprint");
+
+                Conn.Close();
+                return DataSet1;
+
+            }
+        }
+
+        public static DataSet CargarUserStories(int ID_Sprint)
+        {
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("CargarUserStories", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@IDSprint", ID_Sprint);
+
+
+                DataSet DataSet1 = new DataSet();
+                SqlDataAdapter DataAdapter1 = new SqlDataAdapter(Comando);
+                DataAdapter1.Fill(DataSet1, "dbo.UserStory");
+
+                Conn.Close();
+                return DataSet1;
+
+            }
+        }
 
         /*
         * Nombre: eliminarUserStoriE
@@ -556,7 +590,7 @@ namespace SCRUMTEC
                 SqlCommand Comando = new SqlCommand("SP_OBTENER_USERSORY_x_ID_SPRING", Conn);
                 Comando.CommandType = CommandType.StoredProcedure;
                 Comando.Parameters.AddWithValue("@ID_SPRING", id_spring);
-                SqlDataReader lector = Comando.ExecuteReader();
+               // SqlDataReader lector = Comando.ExecuteReader();
 
                 DataSet DataSet1 = new DataSet();
                 SqlDataAdapter DataAdapter1 = new SqlDataAdapter(Comando);

@@ -87,26 +87,26 @@ end
 
 create procedure SP_INSERTAR_SPRINT
 @nombre varchar(500),
-@descripcion text,
-@releas int
+@descripcion varchar(500),
+@release int
 as
 begin
-begin try
-begin transaction
-insert Sprint(Nombre,Descripcion)
-values(@nombre,@descripcion)
+	begin try
+		begin transaction
+			insert Sprint(Nombre,Descripcion)
+			values(@nombre,@descripcion)
 
-insert Sprint_Release(FKRelease,FKSprint)
-values(@releas,(select max(Id) from Sprint))
+			insert Sprint_Release(FKRelease,FKSprint)
+			values(@release,(select max(Id) from Sprint))
 
-return (select max(Id) from Sprint) /*Retorna el id del sprint creado actual */
-commit transaction
-end try
-begin catch
-select ERROR_NUMBER() as ErrorNumber;
-return -1;
-rollback transaction
-end catch
+			return (select max(Id) from Sprint) /*Retorna el id del sprint creado actual */
+		commit transaction
+	end try
+	begin catch
+		select ERROR_NUMBER() as ErrorNumber;
+		return -1;
+		rollback transaction
+	end catch
 end
 
 create procedure SP_BUSCARNOMBRE_PROYECTO
@@ -421,6 +421,44 @@ select ERROR_NUMBER() as ErrorNumber;
 return -1;
 rollback transaction
 end catch
+end
+
+create procedure CargarSprints
+@IDRelease int
+as
+begin
+	begin try
+		begin transaction
+
+		Select * from dbo.Sprint S
+			inner join dbo.Sprint_Release SR on SR.FKRelease = @IDRelease
+			where S.id = SR.FKSprint
+		commit transaction
+	end try
+	begin catch
+		select ERROR_NUMBER() as ErrorNumber;
+		return -1;
+		rollback transaction
+	end catch
+end
+
+create procedure CargarUserStories
+@IDSprint int
+as
+begin
+	begin try
+		begin transaction
+
+		Select * from dbo.UserStory US
+			inner join dbo.UserS_Sprint USS on USS.FKSprint = @IDSprint
+			where US.id = USS.FKUserS
+		commit transaction
+	end try
+	begin catch
+		select ERROR_NUMBER() as ErrorNumber;
+		return -1;
+		rollback transaction
+	end catch
 end
 
 // Le puse lo de la fecha

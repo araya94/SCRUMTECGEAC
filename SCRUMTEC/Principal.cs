@@ -16,8 +16,15 @@ namespace SCRUMTEC
         int rol;
         int idUsuario;
         int idProyecto;
+        int idRelease;
+        int idSprint;
+        int idUserStory;
+        
         Button BotonProyecto;
         DataSet Proyectos;
+        DataSet Releases;
+        DataSet Sprints;
+        
 
         public Principal(int rolP,int idUsuarioP)
         {
@@ -92,6 +99,7 @@ namespace SCRUMTEC
                 panelActual.Controls.Add(BotonProyecto);
             }
         }
+
         private void agregarHistoriasDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -170,7 +178,7 @@ namespace SCRUMTEC
             DataRow ID_Proyecto = Proyectos.Tables[0].Rows[ID_Boton];
             idProyecto = Convert.ToInt32(ID_Proyecto["id"].ToString());
 
-            DataSet Releases = ConexionMetodos.CargarReleases(idProyecto);
+            Releases = ConexionMetodos.CargarReleases(idProyecto);
             CrearBotones(panel2, Releases);
             
             panel2.Visible = true;
@@ -183,16 +191,43 @@ namespace SCRUMTEC
         {
 
             label1.Text = "Seleccione un Sprint o una opción válida para continuar";
+
+            Button B = (Button)sender;
+            String NumeroBoton = B.Name;
+            NumeroBoton = NumeroBoton.Remove(0, 5);
+            int ID_Boton = Convert.ToInt32(NumeroBoton);
+
+            DataRow ID_Release = Releases.Tables[0].Rows[ID_Boton];
+            idRelease = Convert.ToInt32(ID_Release["id"].ToString());
+
+            Sprints = ConexionMetodos.CargarSprints(idRelease);
+            CrearBotones(panel3, Sprints);
+
             panel3.Visible = true;
             panel2.Visible = false;
         }
 
         public void CargarUserStory_click(Object sender, System.EventArgs e)
         {
+
             label1.Text = "Seleccione un UserStory o una opción válida para continuar";
+
+            Button B = (Button)sender;
+            String NumeroBoton = B.Name;
+            NumeroBoton = NumeroBoton.Remove(0, 5);
+            int ID_Boton = Convert.ToInt32(NumeroBoton);
+
+            DataRow ID_Sprint = Sprints.Tables[0].Rows[ID_Boton];
+            idSprint = Convert.ToInt32(ID_Sprint["id"].ToString());
+
+            DataSet UserStories = ConexionMetodos.CargarUserStories(idSprint);
+            CrearBotones(panel4, UserStories);
+
             panel4.Visible = true;
             panel3.Visible = false;
         }
+
+        
 
         public void CargarTareas_click(Object sender, System.EventArgs e)
         {
@@ -224,13 +259,13 @@ namespace SCRUMTEC
 
         private void aministrarUserStoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Index_UserStory indexUser = new Index_UserStory(idProyecto);
+            indexUser.Show();
         }
 
         private void userStoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Index_UserStory indexUser = new Index_UserStory(idProyecto);
-            indexUser.Show();
+           
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -253,6 +288,7 @@ namespace SCRUMTEC
             
             else if (panel3.Visible == true)
             {
+                CargarPanelAnterior(panel3);
                 label1.Text = "Seleccione un Release o una opción válida para continuar";
                 panel3.Visible = false;
                 panel2.Visible = true;
@@ -260,6 +296,7 @@ namespace SCRUMTEC
 
             else if (panel4.Visible == true)
             {
+                CargarPanelAnterior(panel4);
                 label1.Text = "Seleccione un Sprint o una opción válida para continuar";
                 panel4.Visible = false;
                 panel3.Visible = true;
@@ -267,9 +304,10 @@ namespace SCRUMTEC
 
             else if (panel5.Visible == true)
             {
+                CargarPanelAnterior(panel5);
                 label1.Text = "Seleccione un User Story o una opción válida para continuar";
-                panel4.Visible = false;
-                panel3.Visible = true;
+                panel5.Visible = false;
+                panel4.Visible = true;
             }
         }
 
@@ -283,6 +321,21 @@ namespace SCRUMTEC
                     if (item.Name.Substring(0, 5) == "Boton") { panelActual.Controls.Remove(item); }
                 }
             }
+        }
+
+        private void nuevoReleaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NuevoRelease NuevoRelease = new NuevoRelease();
+            NuevoRelease.Show();
+        }
+
+        private void nuevoSprintToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DefinirSprints NuevoSprint= new DefinirSprints(idRelease, this, panel3, Sprints);
+            NuevoSprint.Show();
+            
+            
         }
 
     }
