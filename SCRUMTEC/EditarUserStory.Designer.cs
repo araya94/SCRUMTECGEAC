@@ -28,13 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnModificar_Criterio = new System.Windows.Forms.Button();
-            this.btnModificar_Tarea = new System.Windows.Forms.Button();
-            this.btnEliminar_Criterios = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.btnAgregar_Criterios = new System.Windows.Forms.Button();
             this.lstCriterios = new System.Windows.Forms.ListBox();
-            this.btnEliminar_Tarea = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.btnAgregar_Tarea = new System.Windows.Forms.Button();
             this.lstTareas = new System.Windows.Forms.ListBox();
@@ -44,34 +40,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNombreUserStorie = new System.Windows.Forms.TextBox();
+            this.btnVerTarea = new System.Windows.Forms.Button();
+            this.btnVerCriterio = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // btnModificar_Criterio
-            // 
-            this.btnModificar_Criterio.Location = new System.Drawing.Point(113, 600);
-            this.btnModificar_Criterio.Name = "btnModificar_Criterio";
-            this.btnModificar_Criterio.Size = new System.Drawing.Size(75, 23);
-            this.btnModificar_Criterio.TabIndex = 32;
-            this.btnModificar_Criterio.Text = "Modificar";
-            this.btnModificar_Criterio.UseVisualStyleBackColor = true;
-            // 
-            // btnModificar_Tarea
-            // 
-            this.btnModificar_Tarea.Location = new System.Drawing.Point(113, 369);
-            this.btnModificar_Tarea.Name = "btnModificar_Tarea";
-            this.btnModificar_Tarea.Size = new System.Drawing.Size(75, 23);
-            this.btnModificar_Tarea.TabIndex = 31;
-            this.btnModificar_Tarea.Text = "Modificar";
-            this.btnModificar_Tarea.UseVisualStyleBackColor = true;
-            // 
-            // btnEliminar_Criterios
-            // 
-            this.btnEliminar_Criterios.Location = new System.Drawing.Point(199, 600);
-            this.btnEliminar_Criterios.Name = "btnEliminar_Criterios";
-            this.btnEliminar_Criterios.Size = new System.Drawing.Size(75, 23);
-            this.btnEliminar_Criterios.TabIndex = 30;
-            this.btnEliminar_Criterios.Text = "Eliminar";
-            this.btnEliminar_Criterios.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -84,7 +55,7 @@
             // 
             // btnAgregar_Criterios
             // 
-            this.btnAgregar_Criterios.Location = new System.Drawing.Point(32, 600);
+            this.btnAgregar_Criterios.Location = new System.Drawing.Point(190, 600);
             this.btnAgregar_Criterios.Name = "btnAgregar_Criterios";
             this.btnAgregar_Criterios.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar_Criterios.TabIndex = 28;
@@ -100,15 +71,6 @@
             this.lstCriterios.Size = new System.Drawing.Size(256, 173);
             this.lstCriterios.TabIndex = 27;
             // 
-            // btnEliminar_Tarea
-            // 
-            this.btnEliminar_Tarea.Location = new System.Drawing.Point(202, 369);
-            this.btnEliminar_Tarea.Name = "btnEliminar_Tarea";
-            this.btnEliminar_Tarea.Size = new System.Drawing.Size(75, 23);
-            this.btnEliminar_Tarea.TabIndex = 26;
-            this.btnEliminar_Tarea.Text = "Eliminar";
-            this.btnEliminar_Tarea.UseVisualStyleBackColor = true;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -120,7 +82,7 @@
             // 
             // btnAgregar_Tarea
             // 
-            this.btnAgregar_Tarea.Location = new System.Drawing.Point(32, 369);
+            this.btnAgregar_Tarea.Location = new System.Drawing.Point(192, 369);
             this.btnAgregar_Tarea.Name = "btnAgregar_Tarea";
             this.btnAgregar_Tarea.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar_Tarea.TabIndex = 24;
@@ -189,18 +151,36 @@
             this.txtNombreUserStorie.Size = new System.Drawing.Size(259, 20);
             this.txtNombreUserStorie.TabIndex = 17;
             // 
+            // btnVerTarea
+            // 
+            this.btnVerTarea.Location = new System.Drawing.Point(111, 369);
+            this.btnVerTarea.Name = "btnVerTarea";
+            this.btnVerTarea.Size = new System.Drawing.Size(75, 23);
+            this.btnVerTarea.TabIndex = 33;
+            this.btnVerTarea.Text = "Ver";
+            this.btnVerTarea.UseVisualStyleBackColor = true;
+            this.btnVerTarea.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnVerCriterio
+            // 
+            this.btnVerCriterio.Location = new System.Drawing.Point(111, 600);
+            this.btnVerCriterio.Name = "btnVerCriterio";
+            this.btnVerCriterio.Size = new System.Drawing.Size(75, 23);
+            this.btnVerCriterio.TabIndex = 34;
+            this.btnVerCriterio.Text = "Ver";
+            this.btnVerCriterio.UseVisualStyleBackColor = true;
+            this.btnVerCriterio.Click += new System.EventHandler(this.btnVerCriterio_Click);
+            // 
             // frmEditarUserStory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 632);
-            this.Controls.Add(this.btnModificar_Criterio);
-            this.Controls.Add(this.btnModificar_Tarea);
-            this.Controls.Add(this.btnEliminar_Criterios);
+            this.Controls.Add(this.btnVerCriterio);
+            this.Controls.Add(this.btnVerTarea);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnAgregar_Criterios);
             this.Controls.Add(this.lstCriterios);
-            this.Controls.Add(this.btnEliminar_Tarea);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnAgregar_Tarea);
             this.Controls.Add(this.lstTareas);
@@ -220,13 +200,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnModificar_Criterio;
-        private System.Windows.Forms.Button btnModificar_Tarea;
-        private System.Windows.Forms.Button btnEliminar_Criterios;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnAgregar_Criterios;
         private System.Windows.Forms.ListBox lstCriterios;
-        private System.Windows.Forms.Button btnEliminar_Tarea;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnAgregar_Tarea;
         private System.Windows.Forms.ListBox lstTareas;
@@ -236,5 +212,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNombreUserStorie;
+        private System.Windows.Forms.Button btnVerTarea;
+        private System.Windows.Forms.Button btnVerCriterio;
     }
 }

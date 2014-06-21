@@ -23,12 +23,8 @@ namespace SCRUMTEC
             if (rol == 2)
             {
                 btnAgregar_Tarea.Enabled = false;
-                btnModificar_Tarea.Enabled = false;
-                btnEliminar_Tarea.Enabled = false;
 
                 btnAgregar_Criterios.Enabled = false;
-                btnModificar_Criterio.Enabled = false;
-                btnEliminar_Criterios.Enabled = false;
                 
             }
 
@@ -95,7 +91,7 @@ namespace SCRUMTEC
             lstTareas.ValueMember = "Nombre";
             lstTareas.ValueMember = "id";
 
-            DataSet Criterios = ConexionMetodos.obtenerTarea_x_UserStory(ID_UserStory);
+            DataSet Criterios = ConexionMetodos.obtenerCriterio_x_UserStory(ID_UserStory);
 
             lstCriterios.DataSource = Criterios.Tables[0].DefaultView;
             lstCriterios.ValueMember = "Nombre";
@@ -107,6 +103,20 @@ namespace SCRUMTEC
             frmAgregarTarea agregar_tarea = new frmAgregarTarea();
             agregar_tarea.Show();
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int index = lstTareas.SelectedIndex;
+            VerTarea ver = new VerTarea(index + 1);
+            ver.Show();
+        }
+
+        private void btnVerCriterio_Click(object sender, EventArgs e)
+        {
+            int index = lstCriterios.SelectedIndex;
+            VerCriterio ver = new VerCriterio(index + 1);
+            ver.Show();
         }
     }
 }

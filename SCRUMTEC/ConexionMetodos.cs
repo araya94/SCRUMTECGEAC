@@ -665,6 +665,78 @@ namespace SCRUMTEC
             }
         }
 
+        public Tarea obtenerTarea_x_ID(int id)
+        {
+            Tarea tarea = null;
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("SP_OBTENER_TAREA_x_ID", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@ID_TAREA", id);
+                SqlDataReader lector = Comando.ExecuteReader();
+
+                lector.Close();
+                DataSet DataSet1 = new DataSet();
+                SqlDataAdapter DataAdapter1 = new SqlDataAdapter(Comando);
+                DataAdapter1.Fill(DataSet1, "dbo.Tarea");
+
+                foreach (DataRow dr in DataSet1.Tables[0].Rows)
+                {
+                    String id_tarea = Convert.ToString(dr["id"]);
+                    String nombre = Convert.ToString(dr["Nombre"]);
+                    String descripcion = Convert.ToString(dr["Descripción"]);
+
+
+                    String duracion = Convert.ToString(dr["DuracionEstimada"]);
+                    
+
+
+                    tarea = new Tarea(id_tarea, nombre, descripcion,duracion);
+
+                }
+
+                Conn.Close();
+
+                return tarea;
+            }
+        }
+
+
+        public Criterio obtenerCriterio_x_ID(int id)
+        {
+            Criterio criterio = null;
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("SP_OBTENER_CRITERIO_x_ID", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@ID_CRITERIO", id);
+                SqlDataReader lector = Comando.ExecuteReader();
+
+                lector.Close();
+                DataSet DataSet1 = new DataSet();
+                SqlDataAdapter DataAdapter1 = new SqlDataAdapter(Comando);
+                DataAdapter1.Fill(DataSet1, "dbo.Criteri");
+
+                foreach (DataRow dr in DataSet1.Tables[0].Rows)
+                {
+                    String id_criterio = Convert.ToString(dr["id"]);
+                    String nombre = Convert.ToString(dr["Nombre"]);
+                    String descripcion = Convert.ToString(dr["Descripcion"]);
+
+
+                    String estado = Convert.ToString(dr["Estado"]);
+
+
+
+                    criterio = new Criterio(id_criterio, nombre, descripcion, estado);
+
+                }
+
+                Conn.Close();
+
+                return criterio ;
+            }
+        }
         public  int insertarRelease(string nombre, string objetivo)
         {
             int resultado = -1;
