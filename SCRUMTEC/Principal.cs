@@ -67,7 +67,7 @@ namespace SCRUMTEC
             }
 
             CrearBotones(panel1, Proyectos);
-            BotonAtras.Enabled = false;
+            //BotonAtras.Enabled = false;
             panel2.Visible = false;
             panel3.Visible = false;
             panel4.Visible = false;
@@ -188,7 +188,7 @@ namespace SCRUMTEC
             panel2.Visible = true;
             panel1.Visible = false;
 
-            BotonAtras.Enabled = true;
+            //BotonAtras.Enabled = true;
         }
 
         public void CargarSprints_click(Object sender, System.EventArgs e)
@@ -263,7 +263,8 @@ namespace SCRUMTEC
 
         private void aministrarUserStoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Index_UserStory index = new Index_UserStory(idProyecto, rol);
+            index.Show();
         }
 
         private void userStoryToolStripMenuItem_Click(object sender, EventArgs e)
@@ -325,6 +326,13 @@ namespace SCRUMTEC
                 }
             }
         }
+
+        private void nuevoReleaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+
+        }
+
 
 
 

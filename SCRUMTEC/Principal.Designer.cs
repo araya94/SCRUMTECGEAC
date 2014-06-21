@@ -51,7 +51,6 @@
             this.menuStrip2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            //this.menuStrip3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.SuspendLayout();
@@ -171,9 +170,9 @@
             // nuevoReleaseToolStripMenuItem
             // 
             this.nuevoReleaseToolStripMenuItem.Name = "nuevoReleaseToolStripMenuItem";
-            this.nuevoReleaseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nuevoReleaseToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.nuevoReleaseToolStripMenuItem.Text = "Nuevo Release";
-           // this.nuevoReleaseToolStripMenuItem.Click += new System.EventHandler(this.nuevoReleaseToolStripMenuItem_Click);
+            this.nuevoReleaseToolStripMenuItem.Click += new System.EventHandler(this.nuevoReleaseToolStripMenuItem_Click);
             // 
             // userStoryToolStripMenuItem
             // 
@@ -207,50 +206,28 @@
             this.panel3.AutoScroll = true;
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.panel3.Controls.Add(this.panel4);
-            this.panel3.Controls.Add(this.menuStrip3);
             this.panel3.Location = new System.Drawing.Point(54, 101);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(793, 385);
             this.panel3.TabIndex = 10;
             // 
-            // menuStrip3
-            // 
-            /*this.menuStrip3.BackColor = System.Drawing.Color.LightGray;
-            this.menuStrip3.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip3.Name = "menuStrip3";
-            this.menuStrip3.Size = new System.Drawing.Size(810, 24);
-            this.menuStrip3.TabIndex = 0;
-            this.menuStrip3.Text = "menuStrip3";*/
-            // 
             // panel4
             // 
-            this.panel4.AutoScroll = true;
-            this.panel4.BackColor = System.Drawing.Color.AliceBlue;
-            this.panel4.Controls.Add(this.menuStrip4);
-            this.panel4.Location = new System.Drawing.Point(37, 74);
+            this.panel4.Controls.Add(this.panel5);
+            this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(762, 343);
-            this.panel4.TabIndex = 11;
-            // 
-            // menuStrip4
-            // 
-            this.menuStrip4.BackColor = System.Drawing.Color.LightGray;
-            this.menuStrip4.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip4.Name = "menuStrip4";
-            this.menuStrip4.Size = new System.Drawing.Size(810, 24);
-            this.menuStrip4.TabIndex = 0;
-            this.menuStrip4.Text = "menuStrip4";
+            this.panel4.Size = new System.Drawing.Size(200, 100);
+            this.panel4.TabIndex = 0;
             // 
             // panel5
             // 
             this.panel5.AutoScroll = true;
             this.panel5.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel5.Controls.Add(this.menuStrip5);
-            this.panel5.Location = new System.Drawing.Point(37, 74);
+            this.panel5.Location = new System.Drawing.Point(3, 3);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(717, 295);
             this.panel5.TabIndex = 12;
-            //this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // menuStrip5
             // 
@@ -267,10 +244,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(884, 531);
-            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.BotonAtras);
-            this.Controls.Add(this.BotonCerrarSesion);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
@@ -292,11 +266,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.menuStrip3.ResumeLayout(false);
-            this.menuStrip3.PerformLayout();
             this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.ResumeLayout(false);

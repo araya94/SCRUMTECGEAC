@@ -27,8 +27,22 @@ namespace SCRUMTEC
             rtxtDescripcion.Enabled = false;
             txtEstado.Enabled = false;
             rtxtDescripcion.Text = criterio.descripcion;
-            txtEstado.Text = criterio.estado+" dias";
 
+            String estado;
+            if (criterio.estado == "True")
+            {
+                estado = "Completo";
+            }
+            else {
+                estado = "Pendiente";
+            }
+            txtEstado.Text = estado;
+
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
