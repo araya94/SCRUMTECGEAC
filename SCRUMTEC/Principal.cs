@@ -19,16 +19,16 @@ namespace SCRUMTEC
         int idRelease;
         int idSprint;
         int idUserStory;
-        
+
         Button BotonProyecto;
         DataSet Proyectos;
         DataSet Releases;
         DataSet Sprints;
 
 
-        public Principal(int rolP,int idUsuarioP)
+        public Principal(int rolP, int idUsuarioP)
         {
-            
+
             InitializeComponent();
             rol = rolP;
             idUsuario = idUsuarioP;
@@ -48,14 +48,14 @@ namespace SCRUMTEC
             {
                 nuevoProyectoToolStripMenuItem.Visible = false;
                 crearUsuarioToolStripMenuItem.Visible = false;
-                userStoryToolStripMenuItem.Visible = true;
+                userStoryToolStripMenuItem.Visible = false;
                 releaseToolStripMenuItem.Visible = false;
             }
             if (rol == 4)
             {
                 nuevoProyectoToolStripMenuItem.Visible = false;
                 crearUsuarioToolStripMenuItem.Visible = false;
-                userStoryToolStripMenuItem.Visible = true;
+                userStoryToolStripMenuItem.Visible = false;
                 releaseToolStripMenuItem.Visible = false;
             }
             if (rol == 5)
@@ -72,13 +72,13 @@ namespace SCRUMTEC
             panel3.Visible = false;
             panel4.Visible = false;
             panel5.Visible = false;
-            
+
         }
 
 
         public void CrearBotones(Panel panelActual, DataSet Datos)
         {
-            
+
             List<String> ListaNombres = new List<String>();
             foreach (DataRow dr in Datos.Tables[0].Rows)
             {
@@ -107,23 +107,21 @@ namespace SCRUMTEC
 
         private void nuevoProyectoToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            this.Close(); 
-            CrearProyecto ventana = new CrearProyecto(rol,idUsuario);
+            this.Close();
+            CrearProyecto ventana = new CrearProyecto(rol, idUsuario);
             ventana.ShowDialog();
         }
 
         private void agregarUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
-        
         private void archivoToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
 
-        
         private void crearUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CreaUsuario ventana = new CreaUsuario(rol, idUsuario);
@@ -140,17 +138,15 @@ namespace SCRUMTEC
 
         }
 
-
-        
         private void releaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Aqui");
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             if (panel1.Visible == true) { panel1.Visible = false; panel2.Visible = true; }
-            else { panel1.Visible = true;  panel2.Visible = false; }
+            else { panel1.Visible = true; panel2.Visible = false; }
         }
 
         private void menuStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -173,10 +169,10 @@ namespace SCRUMTEC
         public void CargarReleases_click(Object sender, System.EventArgs e)
         {
             label1.Text = "Seleccione un Release o una opción válida para continuar";
-            
+
             Button B = (Button)sender;
             String NumeroBoton = B.Name;
-            NumeroBoton = NumeroBoton.Remove(0,5);
+            NumeroBoton = NumeroBoton.Remove(0, 5);
             int ID_Boton = Convert.ToInt32(NumeroBoton);
 
             DataRow ID_Proyecto = Proyectos.Tables[0].Rows[ID_Boton];
@@ -184,7 +180,7 @@ namespace SCRUMTEC
 
             Releases = ConexionMetodos.CargarReleases(idProyecto);
             CrearBotones(panel2, Releases);
-            
+
             panel2.Visible = true;
             panel1.Visible = false;
 
@@ -231,7 +227,7 @@ namespace SCRUMTEC
             panel3.Visible = false;
         }
 
-        
+
 
         public void CargarTareas_click(Object sender, System.EventArgs e)
         {
@@ -244,10 +240,10 @@ namespace SCRUMTEC
 
         }
 
-       
+
         private void opcionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -263,12 +259,13 @@ namespace SCRUMTEC
 
         private void aministrarUserStoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Index_UserStory indexUser = new Index_UserStory(idProyecto, rol);
+            indexUser.Show();
         }
 
         private void userStoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -280,7 +277,7 @@ namespace SCRUMTEC
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            if (panel2.Visible == true) 
+            if (panel2.Visible == true)
             {
                 CargarPanelAnterior(panel2);
                 label1.Text = "Seleccione un Proyecto o una opción válida para continuar";
@@ -288,7 +285,7 @@ namespace SCRUMTEC
                 panel2.Visible = false;
                 panel1.Visible = true;
             }
-            
+
             else if (panel3.Visible == true)
             {
                 CargarPanelAnterior(panel3);
@@ -318,7 +315,7 @@ namespace SCRUMTEC
         public void CargarPanelAnterior(Panel panelActual)
         {
             while (panelActual.Controls.Count > 1)
-            {   
+            {
                 foreach (Control item in panelActual.Controls)
                 {
                     if (item.Name.Substring(0, 5) == "Boton") { panelActual.Controls.Remove(item); }
@@ -326,8 +323,20 @@ namespace SCRUMTEC
             }
         }
 
+        private void nuevoReleaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NuevoRelease NuevoRelease = new NuevoRelease();
+            NuevoRelease.Show();
+        }
+
+        private void nuevoSprintToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DefinirSprints NuevoSprint = new DefinirSprints(idRelease, this, panel3, Sprints);
+            NuevoSprint.Show();
 
 
+        }
 
     }
 }
