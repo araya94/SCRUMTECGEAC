@@ -349,8 +349,9 @@
             // nuevaTareaToolStripMenuItem
             // 
             this.nuevaTareaToolStripMenuItem.Name = "nuevaTareaToolStripMenuItem";
-            this.nuevaTareaToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.nuevaTareaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.nuevaTareaToolStripMenuItem.Text = "Nueva Tarea";
+            this.nuevaTareaToolStripMenuItem.Click += new System.EventHandler(this.nuevaTareaToolStripMenuItem_Click);
             // 
             // definirDuraciónSprintToolStripMenuItem
             // 

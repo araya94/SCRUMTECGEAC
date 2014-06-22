@@ -234,10 +234,11 @@ as
 begin
 begin try
 Select T.Id,T.Nombre from UserStory T, Proyecto P, Sprint_Release SR,Release_Proyecto RP
-where SR.FKSprint = @sprint
-and SR.FKRelease = RP.FKRelease
-and RP.FKProyecto = T.FKProyecto
-and T.FKSprint = null
+			where SR.FKSprint = @sprint
+			and SR.FKRelease = RP.FKRelease
+			and RP.FKProyecto = T.FKProyecto
+			and P.id = RP.FKProyecto
+			and T.FKSprint is NULL
 end try
 begin catch
 select ERROR_NUMBER() as ErrorNumber;
@@ -625,6 +626,8 @@ rollback transaction
 end catch
 end
 
+
+
 create procedure CargarSprints
 @IDRelease int
 as
@@ -644,6 +647,8 @@ begin
 	end catch
 end
 
+
+
 create procedure CargarUserStories
 @IDSprint int
 as
@@ -662,6 +667,29 @@ begin
 		rollback transaction
 	end catch
 end
+
+
+
+create procedure CargarTareas
+@IDUserStory int
+as
+begin
+	begin try
+		begin transaction
+
+		Select * from dbo.Tarea T
+			where T.FKUserStory = @IDUserStory
+		commit transaction
+	end try
+	begin catch
+		select ERROR_NUMBER() as ErrorNumber;
+		return -1;
+		rollback transaction
+	end catch
+end
+
+
+
 
 // Le puse lo de la fecha
 create procedure insertarProyecto

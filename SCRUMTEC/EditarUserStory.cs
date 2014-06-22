@@ -100,7 +100,7 @@ namespace SCRUMTEC
 
         private void btnAgregar_Tarea_Click(object sender, EventArgs e)
         {
-            frmAgregarTarea agregar_tarea = new frmAgregarTarea();
+            frmAgregarTarea agregar_tarea = new frmAgregarTarea(ID_UserStory);
             agregar_tarea.Show();
             
         }

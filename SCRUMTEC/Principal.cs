@@ -252,6 +252,16 @@ namespace SCRUMTEC
         public void CargarTareas_click(Object sender, System.EventArgs e)
         {
             label1.Text = "Seleccione una Tarea o una opción válida para continuar";
+            Button B = (Button)sender;
+            String NumeroBoton = B.Name;
+            NumeroBoton = NumeroBoton.Remove(0, 5);
+            int ID_Boton = Convert.ToInt32(NumeroBoton);
+
+            DataRow ID_UserStory = Sprints.Tables[0].Rows[ID_Boton];
+            idUserStory = Convert.ToInt32(ID_UserStory["id"].ToString());
+
+            DataSet Tareas = ConexionMetodos.CargarTareas(idUserStory);
+            CrearBotones(panel5, Tareas);
             panel5.Visible = true;
             panel4.Visible = false;
         }
@@ -376,6 +386,12 @@ namespace SCRUMTEC
         {
             AsociarUserASprint NuevaAsociacion = new AsociarUserASprint(idSprint);
             NuevaAsociacion.Show();
+        }
+
+        private void nuevaTareaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAgregarTarea NuevaTarea = new frmAgregarTarea(idUserStory);
+            NuevaTarea.Show();
         }
 
     }

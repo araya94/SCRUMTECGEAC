@@ -82,7 +82,7 @@ namespace SCRUMTEC
            
             if (verificador)
             {
-                MessageBox.Show("Usuario Creado con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Se guardaron los datos exitosamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Hide();
             }
             else

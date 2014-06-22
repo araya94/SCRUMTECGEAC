@@ -426,7 +426,7 @@ namespace SCRUMTEC
                 Comando.Parameters.AddWithValue("@ID", id);
                 Comando.Parameters.AddWithValue("@NOMBRE", nombre);
                 Comando.Parameters.AddWithValue("@PRIORIDAD", prioridad);
-                SqlDataReader lector = Comando.ExecuteReader();
+                Comando.ExecuteNonQuery();
                 resultado = 1;
                 Conn.Close();
                 return resultado;
@@ -488,11 +488,30 @@ namespace SCRUMTEC
                 SqlCommand Comando = new SqlCommand("CargarUserStories", Conn);
                 Comando.CommandType = CommandType.StoredProcedure;
                 Comando.Parameters.AddWithValue("@IDSprint", ID_Sprint);
-                Comando.ExecuteNonQuery();
+                
 
                 DataSet DataSet1 = new DataSet();
                 SqlDataAdapter DataAdapter1 = new SqlDataAdapter(Comando);
                 DataAdapter1.Fill(DataSet1, "dbo.UserStory");
+
+                Conn.Close();
+                return DataSet1;
+
+            }
+        }
+
+        public static DataSet CargarTareas(int ID_UserStory)
+        {
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("CargarTareas", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@IDUserStory", ID_UserStory);
+
+
+                DataSet DataSet1 = new DataSet();
+                SqlDataAdapter DataAdapter1 = new SqlDataAdapter(Comando);
+                DataAdapter1.Fill(DataSet1, "dbo.Tarea");
 
                 Conn.Close();
                 return DataSet1;
@@ -566,9 +585,9 @@ namespace SCRUMTEC
                 Comando.Parameters.AddWithValue("@NOMBRE", nombre);
                 Comando.Parameters.AddWithValue("@DESCRIPCION", descripcion);
                 Comando.Parameters.AddWithValue("@DURACIONESTIMADA", duracion);
-                Comando.Parameters.AddWithValue("@ESFUERZOINVERTIDO", esfuerzo);
+                Comando.Parameters.AddWithValue("@DURACIONINVERTIDA", esfuerzo);
 
-                SqlDataReader lector = Comando.ExecuteReader();
+                Comando.ExecuteNonQuery();
                 resultado = 1;
                 Conn.Close();
                 return resultado;

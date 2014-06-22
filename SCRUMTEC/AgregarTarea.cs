@@ -12,8 +12,10 @@ namespace SCRUMTEC
 {
     public partial class frmAgregarTarea : Form
     {
-        public frmAgregarTarea()
+        int idUserStory;
+        public frmAgregarTarea(int ID_UserStory)
         {
+            idUserStory = ID_UserStory;
             InitializeComponent();
             
         }
@@ -73,10 +75,10 @@ namespace SCRUMTEC
             {
                 duracion = 2880;
             }
-            ConexionMetodos.insertarTarea(1, txtNombreTarea.Text, rtxtDescripcion.Text, duracion,0);
+            ConexionMetodos.insertarTarea(idUserStory, txtNombreTarea.Text, rtxtDescripcion.Text, duracion,0);
             MessageBox.Show("Tarea creadada correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
-            frmAgregarTarea agregar = new frmAgregarTarea();
+            frmAgregarTarea agregar = new frmAgregarTarea(idUserStory);
             agregar.Show();
         }
 
