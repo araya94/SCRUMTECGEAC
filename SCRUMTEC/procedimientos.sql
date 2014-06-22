@@ -709,3 +709,41 @@ values(@id_usuario,(select max(Id) from Proyecto))
 END
 ELSE return -1;
 END
+
+
+USE [ScrumProyecto]
+GO
+/****** Object:  StoredProcedure [dbo].[SP_ELIMINAR_USERSORY_x_ID_SPRING]    Script Date: 6/22/2014 4:06:10 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SP_ELIMINAR_USERSORY_x_ID_SPRING]
+	 @ID_USER INT
+AS
+BEGIN
+BEGIN TRY
+	BEGIN TRANSACTION
+	
+	SET NOCOUNT ON;
+	
+		Delete from Tarea_Usuario
+		where FKUserUsuario = (select id from User_Usuario where FKUserStory = @ID_USER)
+		Delete from HistorialEsfuerzo
+		where FKTarea = (select id from Tarea where FKUserStory = @ID_USER )
+		Delete from User_Usuario
+		where FKUserStory = @ID_USER
+		Delete from Tarea
+		where FKUserStory = @ID_USER
+		Delete from Criteri
+		where FKUserStory = @ID_USER
+		Delete from UserStory
+		where id = @ID_USER
+	COMMIT TRANSACTION
+END TRY
+BEGIN CATCH
+	SELECT ERROR_NUMBER() AS ErrorNumber;
+	RETURN -1;
+	ROLLBACK TRANSACTION
+END CATCH
+END
