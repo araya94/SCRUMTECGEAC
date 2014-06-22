@@ -16,7 +16,7 @@ namespace SCRUMTEC
         int ID_Proyecto;
         int ID_Sprint;
         int rol;
-        DataSet UserStory;
+        List<UserStory> list_userstory;
         public Index_UserStory(int id_proyecto, int rol)
         {
             this.ID_Proyecto = id_proyecto;
@@ -38,22 +38,22 @@ namespace SCRUMTEC
         {
             // The index:
             int ListItemIndex = lstUserStory.SelectedIndex;
-            DataRow dr = UserStory.Tables[0].Rows[ListItemIndex];
-            int id = Convert.ToInt32(dr["id"]);
+            //DataRow dr = UserStory.Tables[0].Rows[ListItemIndex];
+            int id = Convert.ToInt32(list_userstory[ListItemIndex].id);
 
             frmEditarUserStory editar_userstory = new frmEditarUserStory(id,ID_Proyecto, rol);
             editar_userstory.Show();
-            this.Close();
+           
         }
 
         private void Index_UserStory_Load(object sender, EventArgs e)
         {
             //METODO ALAMBRADO RECORDAR ARREGLAR
             
-            UserStory = ConexionMetodos.obtenerUserStory_IDProyecto(ID_Proyecto);
+            list_userstory = ConexionMetodos.obtenerUserStory_IDProyecto(ID_Proyecto);
 
             
-            lstUserStory.DataSource = UserStory.Tables[0].DefaultView;
+            lstUserStory.DataSource = list_userstory.ToList();
             
             lstUserStory.ValueMember = "Nombre";
             //lstUserStory.ValueMember = "id";
@@ -64,6 +64,28 @@ namespace SCRUMTEC
         {
             CrearUserStory crearUser = new CrearUserStory(ID_Proyecto);
             crearUser.Show();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            ConexionMetodos con = new ConexionMetodos();
+           
+            con.eliminarUserStory(Convert.ToInt32(list_userstory[lstUserStory.SelectedIndex].id));
+
+            list_userstory.RemoveAt(lstUserStory.SelectedIndex);
+            lstUserStory.DataSource = list_userstory.ToList();
+
+            lstUserStory.ValueMember = "Nombre";
+        }
+
+        private void btnRefrescar_Click(object sender, EventArgs e)
+        {
+            list_userstory = ConexionMetodos.obtenerUserStory_IDProyecto(ID_Proyecto);
+
+
+            lstUserStory.DataSource = list_userstory.ToList();
+
+            lstUserStory.ValueMember = "Nombre";
         }
     }
 }

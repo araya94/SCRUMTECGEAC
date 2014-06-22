@@ -622,7 +622,7 @@ namespace SCRUMTEC
             }
         }
 
-        public static DataSet obtenerUserStory_IDProyecto(int id_proyecto)
+        public static List<UserStory> obtenerUserStory_IDProyecto(int id_proyecto)
         {
             using (SqlConnection Conn = Conexion.ObtenerConexion())
             {
@@ -634,8 +634,30 @@ namespace SCRUMTEC
                 SqlDataAdapter DataAdapter1 = new SqlDataAdapter(Comando);
                 DataAdapter1.Fill(DataSet1, "dbo.UserStory");
 
+                SqlDataReader DTR = Comando.ExecuteReader();
+
+                List<UserStory> list_userstory = new List<UserStory>();
+
+                while (DTR.Read())
+                {
+                    int id = DTR.GetInt32(0);
+                    String str_id = id.ToString();
+
+                    String nombre = DTR.GetString(3);
+                    String prioridad = DTR.GetString(4);
+
+                    String descripcion = DTR.GetString(5);
+
+
+                    UserStory userstory = new UserStory(str_id, nombre, prioridad, descripcion);
+                    list_userstory.Add(userstory);
+                }
+                
+
+
+                
                 Conn.Close();
-                return DataSet1;
+                return list_userstory;
             }
         }
 
@@ -792,6 +814,23 @@ namespace SCRUMTEC
                 return resultado;
             }
         }
+
+        public int eliminarUserStory(int idUser)
+        {
+            int resultado = -1;
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("SP_ELIMINAR_USERSORY_x_ID_SPRING", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@ID_USER", idUser);
+
+                Comando.ExecuteNonQuery();
+                resultado = 1;
+                Conn.Close();
+                return resultado;
+            }
+        }
+
 
 
         //-----------------------------------------------------------------------------------------

@@ -32,6 +32,7 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevoUserStory = new System.Windows.Forms.Button();
             this.lstUserStory = new System.Windows.Forms.ListBox();
+            this.btnRefrescar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnEliminar
@@ -42,6 +43,7 @@
             this.btnEliminar.TabIndex = 7;
             this.btnEliminar.Text = "Eliminar User Story";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnEditar
             // 
@@ -71,11 +73,22 @@
             this.lstUserStory.Size = new System.Drawing.Size(338, 121);
             this.lstUserStory.TabIndex = 4;
             // 
+            // btnRefrescar
+            // 
+            this.btnRefrescar.Location = new System.Drawing.Point(274, 12);
+            this.btnRefrescar.Name = "btnRefrescar";
+            this.btnRefrescar.Size = new System.Drawing.Size(75, 23);
+            this.btnRefrescar.TabIndex = 8;
+            this.btnRefrescar.Text = "Refrescar";
+            this.btnRefrescar.UseVisualStyleBackColor = true;
+            this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
+            // 
             // Index_UserStory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(361, 207);
+            this.Controls.Add(this.btnRefrescar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnNuevoUserStory);
@@ -93,5 +106,6 @@
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevoUserStory;
         private System.Windows.Forms.ListBox lstUserStory;
+        private System.Windows.Forms.Button btnRefrescar;
     }
 }

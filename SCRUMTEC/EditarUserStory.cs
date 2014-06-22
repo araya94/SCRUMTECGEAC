@@ -33,7 +33,6 @@ namespace SCRUMTEC
                 txtNombreUserStorie.Enabled=false;
                 cmbPrioridad.Enabled = false;
                 btnActualizar.Enabled = false;
-                btnEliminar.Enabled = false;
 
             }
         }
@@ -58,8 +57,7 @@ namespace SCRUMTEC
             {
                 MessageBox.Show("User Storie Actualizado", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
-                Index_UserStory index = new Index_UserStory(ID_Proyecto, rol);
-                index.Show();
+                
                     
                 //this.Dispose();
                 //MenuPrincipal Menu = new MenuPrincipal();
@@ -117,6 +115,11 @@ namespace SCRUMTEC
             int index = lstCriterios.SelectedIndex;
             VerCriterio ver = new VerCriterio(index + 1);
             ver.Show();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

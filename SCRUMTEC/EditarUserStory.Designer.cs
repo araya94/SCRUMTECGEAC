@@ -34,7 +34,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnAgregar_Tarea = new System.Windows.Forms.Button();
             this.lstTareas = new System.Windows.Forms.ListBox();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.cmbPrioridad = new System.Windows.Forms.ComboBox();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -98,15 +97,6 @@
             this.lstTareas.Size = new System.Drawing.Size(256, 173);
             this.lstTareas.TabIndex = 23;
             // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Location = new System.Drawing.Point(192, 123);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
-            this.btnEliminar.TabIndex = 22;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            // 
             // cmbPrioridad
             // 
             this.cmbPrioridad.FormattingEnabled = true;
@@ -118,7 +108,7 @@
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(111, 123);
+            this.btnActualizar.Location = new System.Drawing.Point(193, 124);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(75, 23);
             this.btnActualizar.TabIndex = 20;
@@ -184,7 +174,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnAgregar_Tarea);
             this.Controls.Add(this.lstTareas);
-            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.cmbPrioridad);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.label2);
@@ -206,7 +195,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnAgregar_Tarea;
         private System.Windows.Forms.ListBox lstTareas;
-        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.ComboBox cmbPrioridad;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Label label2;
