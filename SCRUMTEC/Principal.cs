@@ -41,23 +41,27 @@ namespace SCRUMTEC
             if (rol == 1)
             {
                 userStoryToolStripMenuItem.Visible = false;
+                userStoryToolStripMenuItem1.Visible = false;
                 releaseToolStripMenuItem.Visible = false;
                 sprintToolStripMenuItem.Visible = false;
                 sprintToolStripMenuItem1.Visible = false;
                 sprintToolStripMenuItem2.Visible = false;
                 tareasToolStripMenuItem.Visible = false;
                 definirDuraciónSprintToolStripMenuItem.Visible = false;
+                definirCriteriosDeAceptaciónToolStripMenuItem.Visible = false;
                 
             }
             if (rol == 2)
             {
                 nuevoProyectoToolStripMenuItem.Visible = false;
                 crearUsuarioToolStripMenuItem.Visible = false;
+                userStoryToolStripMenuItem1.Visible = false;
                 sprintToolStripMenuItem.Visible = false;
                 sprintToolStripMenuItem1.Visible = false;
                 sprintToolStripMenuItem2.Visible = false;
                 tareasToolStripMenuItem.Visible = false;
                 definirDuraciónSprintToolStripMenuItem.Visible = false;
+                definirCriteriosDeAceptaciónToolStripMenuItem.Visible = false;
             }
             if (rol == 3)
             {
@@ -66,6 +70,7 @@ namespace SCRUMTEC
                 userStoryToolStripMenuItem.Visible = false;
                 releaseToolStripMenuItem.Visible = false;
                 tareasToolStripMenuItem.Visible = false;
+                definirCriteriosDeAceptaciónToolStripMenuItem.Visible = false;
             }
             if (rol == 4)
             {
@@ -77,6 +82,7 @@ namespace SCRUMTEC
                 userStoryToolStripMenuItem.Visible = false;
                 releaseToolStripMenuItem.Visible = false;
                 definirDuraciónSprintToolStripMenuItem.Visible = false;
+                actualizarAsociaciónAUsuarioToolStripMenuItem.Visible = false;
             }
             if (rol == 5)
             {
@@ -88,6 +94,7 @@ namespace SCRUMTEC
                 userStoryToolStripMenuItem.Visible = false;
                 releaseToolStripMenuItem.Visible = false;
                 definirDuraciónSprintToolStripMenuItem.Visible = false;
+                actualizarAsociaciónAUsuarioToolStripMenuItem.Visible = false;
             }
 
             CrearBotones(panel1, Proyectos);
