@@ -12,8 +12,10 @@ namespace SCRUMTEC
 {
     public partial class NuevoRelease : Form
     {
-        public NuevoRelease()
+        int idProyecto;
+        public NuevoRelease(int ID_Proyecto)
         {
+            idProyecto = ID_Proyecto;
             InitializeComponent();
         }
 
@@ -23,12 +25,14 @@ namespace SCRUMTEC
             String objetivo = rtxtDescripcion.Text;
 
             ConexionMetodos conn = new ConexionMetodos();
-            int estado = conn.insertarRelease(nombre,objetivo);
+            int estado = conn.insertarRelease(nombre,objetivo, idProyecto);
 
             if (estado == 1)
             {
                 MessageBox.Show("Release creado correctamente");
             }
+
+            this.Close();
         }
     }
 }

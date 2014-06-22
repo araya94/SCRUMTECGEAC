@@ -757,15 +757,17 @@ namespace SCRUMTEC
                 return criterio ;
             }
         }
-        public  int insertarRelease(string nombre, string objetivo)
+        public  int insertarRelease(string nombre, string objetivo, int idProyecto)
         {
             int resultado = -1;
             using (SqlConnection Conn = Conexion.ObtenerConexion())
             {
                 SqlCommand Comando = new SqlCommand("SP_INGRESAR_RELEASE", Conn);
                 Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@idProyecto", idProyecto);
                 Comando.Parameters.AddWithValue("@NOMBRE", nombre);
                 Comando.Parameters.AddWithValue("@OBJETIVO", objetivo);
+                
                 Comando.ExecuteNonQuery();
                 resultado = 1;
                 Conn.Close();

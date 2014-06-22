@@ -56,6 +56,8 @@
             this.userStoryToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tareasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevaTareaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sprintToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.actualizarSprintToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -289,7 +291,8 @@
             // 
             this.menuStrip4.BackColor = System.Drawing.Color.LightGray;
             this.menuStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.userStoryToolStripMenuItem1});
+            this.userStoryToolStripMenuItem1,
+            this.sprintToolStripMenuItem1});
             this.menuStrip4.Location = new System.Drawing.Point(0, 0);
             this.menuStrip4.Name = "menuStrip4";
             this.menuStrip4.Size = new System.Drawing.Size(762, 24);
@@ -336,6 +339,20 @@
             this.nuevaTareaToolStripMenuItem.Name = "nuevaTareaToolStripMenuItem";
             this.nuevaTareaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.nuevaTareaToolStripMenuItem.Text = "Nueva Tarea";
+            // 
+            // sprintToolStripMenuItem1
+            // 
+            this.sprintToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.actualizarSprintToolStripMenuItem});
+            this.sprintToolStripMenuItem1.Name = "sprintToolStripMenuItem1";
+            this.sprintToolStripMenuItem1.Size = new System.Drawing.Size(50, 20);
+            this.sprintToolStripMenuItem1.Text = "Sprint";
+            // 
+            // actualizarSprintToolStripMenuItem
+            // 
+            this.actualizarSprintToolStripMenuItem.Name = "actualizarSprintToolStripMenuItem";
+            this.actualizarSprintToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.actualizarSprintToolStripMenuItem.Text = "Actualizar Sprint";
             // 
             // Principal
             // 
@@ -415,5 +432,7 @@
         private System.Windows.Forms.ToolStripMenuItem userStoryToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem tareasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nuevaTareaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sprintToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem actualizarSprintToolStripMenuItem;
     }
 }

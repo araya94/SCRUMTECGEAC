@@ -325,7 +325,7 @@ namespace SCRUMTEC
 
         private void nuevoReleaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            NuevoRelease NuevoRelease = new NuevoRelease();
+            NuevoRelease NuevoRelease = new NuevoRelease(idProyecto);
             NuevoRelease.Show();
         }
 
