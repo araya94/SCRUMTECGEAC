@@ -42,6 +42,7 @@ namespace SCRUMTEC
                 userStoryToolStripMenuItem1.Visible = false;
                 sprintToolStripMenuItem1.Visible = false;
                 tareasToolStripMenuItem.Visible = false;
+                definirDuraciónSprintToolStripMenuItem.Visible = false;
             }
             if (rol == 2)
             {
@@ -51,6 +52,7 @@ namespace SCRUMTEC
                 userStoryToolStripMenuItem1.Visible = false;
                 sprintToolStripMenuItem1.Visible = false;
                 tareasToolStripMenuItem.Visible = false;
+                definirDuraciónSprintToolStripMenuItem.Visible = false;
             }
             if (rol == 3)
             {
@@ -65,6 +67,7 @@ namespace SCRUMTEC
                 crearUsuarioToolStripMenuItem.Visible = false;
                 userStoryToolStripMenuItem.Visible = false;
                 releaseToolStripMenuItem.Visible = false;
+                definirDuraciónSprintToolStripMenuItem.Visible = false;
             }
             if (rol == 5)
             {
@@ -72,6 +75,7 @@ namespace SCRUMTEC
                 crearUsuarioToolStripMenuItem.Visible = false;
                 userStoryToolStripMenuItem.Visible = false;
                 releaseToolStripMenuItem.Visible = false;
+                definirDuraciónSprintToolStripMenuItem.Visible = false;
             }
 
             CrearBotones(panel1, Proyectos);
@@ -344,6 +348,11 @@ namespace SCRUMTEC
         }
 
         private void definirDuraciónSprintToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void definirDuraciónSprintToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             DefinirDuracionSprint NuevaDuracion = new DefinirDuracionSprint(idProyecto);
             NuevaDuracion.Show();

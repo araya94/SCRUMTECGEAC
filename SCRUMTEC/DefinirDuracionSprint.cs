@@ -33,20 +33,21 @@ namespace SCRUMTEC
         {
             if (String.IsNullOrEmpty(txtDuracion.Text))
             {
-                if (ConexionMetodos.insertarDuracion(Convert.ToInt32(txtDuracion.Text), idProyecto) > 0)
-                {
-                    MessageBox.Show("Duración Cambiada", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Hide();
-                }
-                else
-                {
-                    MessageBox.Show("Ha ocurrido un error,intentelo de nuevo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
+                MessageBox.Show("Tiene que llenar los campos correspondientes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                
+                
+            }
+
+            else if (ConexionMetodos.insertarDuracion(Convert.ToInt32(txtDuracion.Text), idProyecto) > 0)
+            {
+                MessageBox.Show("Duración Cambiada", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Hide();
             }
             else
             {
-                MessageBox.Show("Tiene que llenar los campos correspondientes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error,intentelo de nuevo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+            
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

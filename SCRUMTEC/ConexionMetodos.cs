@@ -240,7 +240,7 @@ namespace SCRUMTEC
                 Comando.CommandType = CommandType.StoredProcedure;
                 Comando.Parameters.AddWithValue("@tiempo", tiempo);
                 Comando.Parameters.AddWithValue("@proyecto", proyecto);
-                SqlDataReader lector = Comando.ExecuteReader();
+                Comando.ExecuteNonQuery();
                 resultado = 1;
                 Conn.Close();
                 return resultado;
