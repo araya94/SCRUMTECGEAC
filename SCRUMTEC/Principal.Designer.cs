@@ -51,7 +51,6 @@
             this.nuevoSprintToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel4 = new System.Windows.Forms.Panel();
             this.menuStrip4 = new System.Windows.Forms.MenuStrip();
-            this.userStoryToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.sprintToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.actualizarSprintToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -60,6 +59,7 @@
             this.nuevaTareaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.definirDuraciónSprintToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sprintToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.asociarUserStoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -294,7 +294,6 @@
             // 
             this.menuStrip4.BackColor = System.Drawing.Color.LightGray;
             this.menuStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.userStoryToolStripMenuItem1,
             this.sprintToolStripMenuItem1});
             this.menuStrip4.Location = new System.Drawing.Point(0, 0);
             this.menuStrip4.Name = "menuStrip4";
@@ -302,16 +301,11 @@
             this.menuStrip4.TabIndex = 0;
             this.menuStrip4.Text = "menuStrip4";
             // 
-            // userStoryToolStripMenuItem1
-            // 
-            this.userStoryToolStripMenuItem1.Name = "userStoryToolStripMenuItem1";
-            this.userStoryToolStripMenuItem1.Size = new System.Drawing.Size(72, 20);
-            this.userStoryToolStripMenuItem1.Text = "User Story";
-            // 
             // sprintToolStripMenuItem1
             // 
             this.sprintToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.actualizarSprintToolStripMenuItem});
+            this.actualizarSprintToolStripMenuItem,
+            this.asociarUserStoriesToolStripMenuItem});
             this.sprintToolStripMenuItem1.Name = "sprintToolStripMenuItem1";
             this.sprintToolStripMenuItem1.Size = new System.Drawing.Size(50, 20);
             this.sprintToolStripMenuItem1.Text = "Sprint";
@@ -372,6 +366,13 @@
             this.sprintToolStripMenuItem2.Name = "sprintToolStripMenuItem2";
             this.sprintToolStripMenuItem2.Size = new System.Drawing.Size(50, 20);
             this.sprintToolStripMenuItem2.Text = "Sprint";
+            // 
+            // asociarUserStoriesToolStripMenuItem
+            // 
+            this.asociarUserStoriesToolStripMenuItem.Name = "asociarUserStoriesToolStripMenuItem";
+            this.asociarUserStoriesToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.asociarUserStoriesToolStripMenuItem.Text = "Asociar User Stories";
+            this.asociarUserStoriesToolStripMenuItem.Click += new System.EventHandler(this.asociarUserStoriesToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -448,12 +449,12 @@
         private System.Windows.Forms.MenuStrip menuStrip5;
         private System.Windows.Forms.ToolStripMenuItem sprintToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nuevoSprintToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem userStoryToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem tareasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nuevaTareaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sprintToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem actualizarSprintToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sprintToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem definirDuraciónSprintToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem asociarUserStoriesToolStripMenuItem;
     }
 }

@@ -228,7 +228,24 @@ rollback transaction
 end catch
 end
 
-create procedure SP_BUSCAR_USER_SPRIN
+create procedure SP_BUSCAR_USER_SPRINT
+@sprint int
+as
+begin
+begin try
+Select T.Id,T.Nombre from UserStory T, Proyecto P, Sprint_Release SR,Release_Proyecto RP
+where SR.FKSprint = @sprint
+and SR.FKRelease = RP.FKRelease
+and RP.FKProyecto = T.FKProyecto
+and T.FKSprint = null
+end try
+begin catch
+select ERROR_NUMBER() as ErrorNumber;
+return -1;
+end catch
+end
+
+create procedure Buscar
 @sprint int
 as
 begin

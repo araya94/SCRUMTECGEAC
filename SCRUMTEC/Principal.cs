@@ -41,7 +41,6 @@ namespace SCRUMTEC
                 sprintToolStripMenuItem.Visible = false;
                 sprintToolStripMenuItem1.Visible = false;
                 sprintToolStripMenuItem2.Visible = false;
-                userStoryToolStripMenuItem1.Visible = false;
                 tareasToolStripMenuItem.Visible = false;
                 definirDuraciónSprintToolStripMenuItem.Visible = false;
                 
@@ -53,7 +52,6 @@ namespace SCRUMTEC
                 sprintToolStripMenuItem.Visible = false;
                 sprintToolStripMenuItem1.Visible = false;
                 sprintToolStripMenuItem2.Visible = false;
-                userStoryToolStripMenuItem1.Visible = false;
                 tareasToolStripMenuItem.Visible = false;
                 definirDuraciónSprintToolStripMenuItem.Visible = false;
             }
@@ -73,7 +71,6 @@ namespace SCRUMTEC
                 sprintToolStripMenuItem1.Visible = false;
                 sprintToolStripMenuItem2.Visible = false;
                 userStoryToolStripMenuItem.Visible = false;
-                userStoryToolStripMenuItem1.Visible = false;
                 releaseToolStripMenuItem.Visible = false;
                 definirDuraciónSprintToolStripMenuItem.Visible = false;
             }
@@ -85,7 +82,6 @@ namespace SCRUMTEC
                 sprintToolStripMenuItem1.Visible = false;
                 sprintToolStripMenuItem2.Visible = false;
                 userStoryToolStripMenuItem.Visible = false;
-                userStoryToolStripMenuItem1.Visible = false;
                 releaseToolStripMenuItem.Visible = false;
                 definirDuraciónSprintToolStripMenuItem.Visible = false;
             }
@@ -374,6 +370,12 @@ namespace SCRUMTEC
         {
             ActualizarSprintReview ActualizacionSR = new ActualizarSprintReview(idSprint);
             ActualizacionSR.Show();
+        }
+
+        private void asociarUserStoriesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AsociarUserASprint NuevaAsociacion = new AsociarUserASprint(idSprint);
+            NuevaAsociacion.Show();
         }
 
     }
