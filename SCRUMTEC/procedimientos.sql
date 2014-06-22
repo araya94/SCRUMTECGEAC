@@ -3,6 +3,8 @@ as
 begin
 begin try
 Select * from Rol
+
+
 end try
 begin catch
 select ERROR_NUMBER() as ErrorNumber;
@@ -91,21 +93,21 @@ create procedure SP_INSERTAR_SPRINT
 @release int
 as
 begin
-	begin try
-		begin transaction
-			insert Sprint(Nombre,Descripcion)
-			values(@nombre,@descripcion)
+begin try
+begin transaction
+insert Sprint(Nombre,Descripcion)
+values(@nombre,@descripcion)
 
-			insert Sprint_Release(FKRelease,FKSprint)
-			values(@release,(select max(Id) from Sprint))
+insert Sprint_Release(FKRelease,FKSprint)
+values(@release,(select max(Id) from Sprint))
 
-		commit transaction
-	end try
-	begin catch
-		select ERROR_NUMBER() as ErrorNumber;
-		return -1;
-		rollback transaction
-	end catch
+commit transaction
+end try
+begin catch
+select ERROR_NUMBER() as ErrorNumber;
+return -1;
+rollback transaction
+end catch
 end
 
 create procedure SP_BUSCARNOMBRE_PROYECTO
@@ -237,7 +239,8 @@ Select T.Id,T.Nombre from UserStory T, Proyecto P, Sprint_Release SR,Release_Pro
 where SR.FKSprint = @sprint
 and SR.FKRelease = RP.FKRelease
 and RP.FKProyecto = T.FKProyecto
-and T.FKSprint = null
+and P.id = RP.FKProyecto
+and T.FKSprint is NULL
 end try
 begin catch
 select ERROR_NUMBER() as ErrorNumber;
@@ -428,27 +431,27 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE [dbo].[SP_INGRESAR_RELEASE]
 
-	 @idProyecto int,
-	 @NOMBRE VARCHAR(500), 
-	 @OBJETIVO TEXT
+@idProyecto int,
+@NOMBRE VARCHAR(500),
+@OBJETIVO TEXT
 
 
 AS
 BEGIN
 BEGIN TRY
-	BEGIN TRANSACTION
-	
-	SET NOCOUNT ON;
-	
-	
-	INSERT INTO dbo.Release VALUES (@NOMBRE,@OBJETIVO)
-	INSERT INTO dbo.Release_Proyecto  VALUES (@idProyecto, (Select Max(Id) from dbo.Release))
-	COMMIT TRANSACTION
+BEGIN TRANSACTION
+
+SET NOCOUNT ON;
+
+
+INSERT INTO dbo.Release VALUES (@NOMBRE,@OBJETIVO)
+INSERT INTO dbo.Release_Proyecto  VALUES (@idProyecto, (Select Max(Id) from dbo.Release))
+COMMIT TRANSACTION
 END TRY
 BEGIN CATCH
-	SELECT ERROR_NUMBER() AS ErrorNumber;
-	RETURN -1;
-	ROLLBACK TRANSACTION
+SELECT ERROR_NUMBER() AS ErrorNumber;
+RETURN -1;
+ROLLBACK TRANSACTION
 END CATCH
 END
 
@@ -461,24 +464,24 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE [dbo].[SP_OBTENER_USERSORY_x_ID]
 
-	 @ID INT
+@ID INT
 
 AS
 BEGIN
 BEGIN TRY
-	BEGIN TRANSACTION
-	
-	SET NOCOUNT ON;
-	
-	SELECT usu.id,usu.FKProyecto, usu.FKSprint, usu.Nombre,usu.Prioridad,usu.Descripcion
-	FROM dbo.UserStory usu 
-	WHERE usu.id = @ID
-	COMMIT TRANSACTION
+BEGIN TRANSACTION
+
+SET NOCOUNT ON;
+
+SELECT usu.id,usu.FKProyecto, usu.FKSprint, usu.Nombre,usu.Prioridad,usu.Descripcion
+FROM dbo.UserStory usu
+WHERE usu.id = @ID
+COMMIT TRANSACTION
 END TRY
 BEGIN CATCH
-	SELECT ERROR_NUMBER() AS ErrorNumber;
-	RETURN -1;
-	ROLLBACK TRANSACTION
+SELECT ERROR_NUMBER() AS ErrorNumber;
+RETURN -1;
+ROLLBACK TRANSACTION
 END CATCH
 END
 
@@ -491,24 +494,24 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE [dbo].[SP_OBTENER_CRITERIO_x_USERSTORY]
 
-	 @FK_USER_STORIE INT
+@FK_USER_STORIE INT
 
 AS
 BEGIN
 BEGIN TRY
-	BEGIN TRANSACTION
-	
-	SET NOCOUNT ON;
-	
-	SELECT *
-	FROM dbo.Criteri criteri
-	WHERE criteri.FKUserStory = @FK_USER_STORIE
-	COMMIT TRANSACTION
+BEGIN TRANSACTION
+
+SET NOCOUNT ON;
+
+SELECT *
+FROM dbo.Criteri criteri
+WHERE criteri.FKUserStory = @FK_USER_STORIE
+COMMIT TRANSACTION
 END TRY
 BEGIN CATCH
-	SELECT ERROR_NUMBER() AS ErrorNumber;
-	RETURN -1;
-	ROLLBACK TRANSACTION
+SELECT ERROR_NUMBER() AS ErrorNumber;
+RETURN -1;
+ROLLBACK TRANSACTION
 END CATCH
 END
 
@@ -522,24 +525,24 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE [dbo].[SP_OBTENER_TAREA_x_USERSORY]
 
-	 @FK_USER_STORIE INT
+@FK_USER_STORIE INT
 
 AS
 BEGIN
 BEGIN TRY
-	BEGIN TRANSACTION
-	
-	SET NOCOUNT ON;
-	
-	SELECT *
-	FROM dbo.Tarea tarea
-	WHERE tarea.FKUserStory = @FK_USER_STORIE
-	COMMIT TRANSACTION
+BEGIN TRANSACTION
+
+SET NOCOUNT ON;
+
+SELECT *
+FROM dbo.Tarea tarea
+WHERE tarea.FKUserStory = @FK_USER_STORIE
+COMMIT TRANSACTION
 END TRY
 BEGIN CATCH
-	SELECT ERROR_NUMBER() AS ErrorNumber;
-	RETURN -1;
-	ROLLBACK TRANSACTION
+SELECT ERROR_NUMBER() AS ErrorNumber;
+RETURN -1;
+ROLLBACK TRANSACTION
 END CATCH
 END
 
@@ -552,24 +555,24 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE [dbo].[SP_OBTENER_CRITERIO_x_ID]
 
-	 @ID_CRITERIO INT
+@ID_CRITERIO INT
 
 AS
 BEGIN
 BEGIN TRY
-	BEGIN TRANSACTION
-	
-	SET NOCOUNT ON;
-	
-	SELECT *
-	FROM dbo.Criteri criteri
-	WHERE criteri.id = @ID_CRITERIO
-	COMMIT TRANSACTION
+BEGIN TRANSACTION
+
+SET NOCOUNT ON;
+
+SELECT *
+FROM dbo.Criteri criteri
+WHERE criteri.id = @ID_CRITERIO
+COMMIT TRANSACTION
 END TRY
 BEGIN CATCH
-	SELECT ERROR_NUMBER() AS ErrorNumber;
-	RETURN -1;
-	ROLLBACK TRANSACTION
+SELECT ERROR_NUMBER() AS ErrorNumber;
+RETURN -1;
+ROLLBACK TRANSACTION
 END CATCH
 END
 
@@ -582,24 +585,24 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE [dbo].[SP_OBTENER_TAREA_x_ID]
 
-	 @ID_TAREA INT
+@ID_TAREA INT
 
 AS
 BEGIN
 BEGIN TRY
-	BEGIN TRANSACTION
-	
-	SET NOCOUNT ON;
-	
-	SELECT *
-	FROM dbo.Tarea tarea
-	WHERE tarea.id = @ID_TAREA
-	COMMIT TRANSACTION
+BEGIN TRANSACTION
+
+SET NOCOUNT ON;
+
+SELECT *
+FROM dbo.Tarea tarea
+WHERE tarea.id = @ID_TAREA
+COMMIT TRANSACTION
 END TRY
 BEGIN CATCH
-	SELECT ERROR_NUMBER() AS ErrorNumber;
-	RETURN -1;
-	ROLLBACK TRANSACTION
+SELECT ERROR_NUMBER() AS ErrorNumber;
+RETURN -1;
+ROLLBACK TRANSACTION
 END CATCH
 END
 
@@ -629,38 +632,38 @@ create procedure CargarSprints
 @IDRelease int
 as
 begin
-	begin try
-		begin transaction
+begin try
+begin transaction
 
-		Select * from dbo.Sprint S
-			inner join dbo.Sprint_Release SR on SR.FKRelease = @IDRelease
-			where S.id = SR.FKSprint
-		commit transaction
-	end try
-	begin catch
-		select ERROR_NUMBER() as ErrorNumber;
-		return -1;
-		rollback transaction
-	end catch
+Select * from dbo.Sprint S
+inner join dbo.Sprint_Release SR on SR.FKRelease = @IDRelease
+where S.id = SR.FKSprint
+commit transaction
+end try
+begin catch
+select ERROR_NUMBER() as ErrorNumber;
+return -1;
+rollback transaction
+end catch
 end
 
 create procedure CargarUserStories
 @IDSprint int
 as
 begin
-	begin try
-		begin transaction
+begin try
+begin transaction
 
-		Select * from dbo.UserStory US
-			where US.FKSprint = @IDSprint
-		
-		commit transaction
-	end try
-	begin catch
-		select ERROR_NUMBER() as ErrorNumber;
-		return -1;
-		rollback transaction
-	end catch
+Select * from dbo.UserStory US
+where US.FKSprint = @IDSprint
+
+commit transaction
+end try
+begin catch
+select ERROR_NUMBER() as ErrorNumber;
+return -1;
+rollback transaction
+end catch
 end
 
 // Le puse lo de la fecha
