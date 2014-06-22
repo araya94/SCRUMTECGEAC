@@ -58,6 +58,7 @@
             this.nuevaTareaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sprintToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.actualizarSprintToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.definirDuraciónSprintToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -85,7 +86,8 @@
             // proyectoToolStripMenuItem
             // 
             this.proyectoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nuevoProyectoToolStripMenuItem});
+            this.nuevoProyectoToolStripMenuItem,
+            this.definirDuraciónSprintToolStripMenuItem});
             this.proyectoToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.proyectoToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.proyectoToolStripMenuItem.Name = "proyectoToolStripMenuItem";
@@ -246,9 +248,9 @@
             this.panel3.AutoScroll = true;
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.panel3.Controls.Add(this.menuStrip3);
-            this.panel3.Location = new System.Drawing.Point(54, 101);
+            this.panel3.Location = new System.Drawing.Point(53, 101);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(793, 385);
+            this.panel3.Size = new System.Drawing.Size(794, 385);
             this.panel3.TabIndex = 10;
             // 
             // menuStrip3
@@ -258,7 +260,7 @@
             this.sprintToolStripMenuItem});
             this.menuStrip3.Location = new System.Drawing.Point(0, 0);
             this.menuStrip3.Name = "menuStrip3";
-            this.menuStrip3.Size = new System.Drawing.Size(793, 24);
+            this.menuStrip3.Size = new System.Drawing.Size(794, 24);
             this.menuStrip3.TabIndex = 0;
             this.menuStrip3.Text = "menuStrip3";
             // 
@@ -282,9 +284,9 @@
             this.panel4.AutoScroll = true;
             this.panel4.BackColor = System.Drawing.Color.AliceBlue;
             this.panel4.Controls.Add(this.menuStrip4);
-            this.panel4.Location = new System.Drawing.Point(85, 143);
+            this.panel4.Location = new System.Drawing.Point(75, 128);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(762, 343);
+            this.panel4.Size = new System.Drawing.Size(772, 358);
             this.panel4.TabIndex = 11;
             // 
             // menuStrip4
@@ -295,7 +297,7 @@
             this.sprintToolStripMenuItem1});
             this.menuStrip4.Location = new System.Drawing.Point(0, 0);
             this.menuStrip4.Name = "menuStrip4";
-            this.menuStrip4.Size = new System.Drawing.Size(762, 24);
+            this.menuStrip4.Size = new System.Drawing.Size(772, 24);
             this.menuStrip4.TabIndex = 0;
             this.menuStrip4.Text = "menuStrip4";
             // 
@@ -304,9 +306,9 @@
             this.panel5.AutoScroll = true;
             this.panel5.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel5.Controls.Add(this.menuStrip5);
-            this.panel5.Location = new System.Drawing.Point(130, 191);
+            this.panel5.Location = new System.Drawing.Point(105, 177);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(717, 295);
+            this.panel5.Size = new System.Drawing.Size(742, 309);
             this.panel5.TabIndex = 12;
             // 
             // menuStrip5
@@ -316,7 +318,7 @@
             this.tareasToolStripMenuItem});
             this.menuStrip5.Location = new System.Drawing.Point(0, 0);
             this.menuStrip5.Name = "menuStrip5";
-            this.menuStrip5.Size = new System.Drawing.Size(717, 24);
+            this.menuStrip5.Size = new System.Drawing.Size(742, 24);
             this.menuStrip5.TabIndex = 0;
             this.menuStrip5.Text = "menuStrip5";
             // 
@@ -353,6 +355,13 @@
             this.actualizarSprintToolStripMenuItem.Name = "actualizarSprintToolStripMenuItem";
             this.actualizarSprintToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.actualizarSprintToolStripMenuItem.Text = "Actualizar Sprint";
+            // 
+            // definirDuraciónSprintToolStripMenuItem
+            // 
+            this.definirDuraciónSprintToolStripMenuItem.Name = "definirDuraciónSprintToolStripMenuItem";
+            this.definirDuraciónSprintToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.definirDuraciónSprintToolStripMenuItem.Text = "Definir Duración Sprints";
+            this.definirDuraciónSprintToolStripMenuItem.Click += new System.EventHandler(this.definirDuraciónSprintToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -434,5 +443,6 @@
         private System.Windows.Forms.ToolStripMenuItem nuevaTareaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sprintToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem actualizarSprintToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem definirDuraciónSprintToolStripMenuItem;
     }
 }

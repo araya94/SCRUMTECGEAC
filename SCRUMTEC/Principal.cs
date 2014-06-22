@@ -343,5 +343,11 @@ namespace SCRUMTEC
             NuevoSprint.Show();
         }
 
+        private void definirDuraciónSprintToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DefinirDuracionSprint NuevaDuracion = new DefinirDuracionSprint(idProyecto);
+            NuevaDuracion.Show();
+        }
+
     }
 }
