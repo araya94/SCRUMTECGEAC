@@ -412,9 +412,10 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE [dbo].[SP_INGRESAR_RELEASE]
 
-	
+	 @idProyecto int,
 	 @NOMBRE VARCHAR(500), 
 	 @OBJETIVO TEXT
+
 
 AS
 BEGIN
@@ -425,7 +426,7 @@ BEGIN TRY
 	
 	
 	INSERT INTO dbo.Release VALUES (@NOMBRE,@OBJETIVO)
-	
+	INSERT INTO dbo.Release_Proyecto  VALUES (@idProyecto, (Select Max(Id) from dbo.Release))
 	COMMIT TRANSACTION
 END TRY
 BEGIN CATCH
