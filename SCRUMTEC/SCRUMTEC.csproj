@@ -69,6 +69,12 @@
     <Compile Include="ActualizarEsfuerzoTarea.Designer.cs">
       <DependentUpon>ActualizarEsfuerzoTarea.cs</DependentUpon>
     </Compile>
+    <Compile Include="ActualizarSprintReview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActualizarSprintReview.designer.cs">
+      <DependentUpon>ActualizarSprintReview.cs</DependentUpon>
+    </Compile>
     <Compile Include="AgregarCriterio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,12 @@
     </Compile>
     <Compile Include="AgregarTarea.Designer.cs">
       <DependentUpon>AgregarTarea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AsociarUserASprint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AsociarUserASprint.Designer.cs">
+      <DependentUpon>AsociarUserASprint.cs</DependentUpon>
     </Compile>
     <Compile Include="Conexion.cs" />
     <Compile Include="ConexionMetodos.cs" />
@@ -169,11 +181,17 @@
     <EmbeddedResource Include="ActualizarEsfuerzoTarea.resx">
       <DependentUpon>ActualizarEsfuerzoTarea.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ActualizarSprintReview.resx">
+      <DependentUpon>ActualizarSprintReview.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AgregarCriterio.resx">
       <DependentUpon>AgregarCriterio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AgregarTarea.resx">
       <DependentUpon>AgregarTarea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AsociarUserASprint.resx">
+      <DependentUpon>AsociarUserASprint.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CrearBurnDown.resx">
       <DependentUpon>CrearBurnDown.cs</DependentUpon>
