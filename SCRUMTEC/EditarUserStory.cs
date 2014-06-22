@@ -17,8 +17,8 @@ namespace SCRUMTEC
         int rol;
         public frmEditarUserStory(int id, int id_proyecto, int rol)
         {
-            this.ID_UserStory = id;
-            this.ID_Proyecto = id_proyecto;
+            ID_UserStory = id;
+            ID_Proyecto = id_proyecto;
             InitializeComponent();
             if (rol == 2)
             {
@@ -40,7 +40,7 @@ namespace SCRUMTEC
 
         private void btnAgregar_Criterios_Click(object sender, EventArgs e)
         {
-            frmAgregarCriterio agregar_criterio = new frmAgregarCriterio();
+            frmAgregarCriterio agregar_criterio = new frmAgregarCriterio(ID_UserStory);
             agregar_criterio.Show();
         }
 

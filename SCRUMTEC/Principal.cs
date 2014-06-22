@@ -19,12 +19,16 @@ namespace SCRUMTEC
         int idRelease;
         int idSprint;
         int idUserStory;
+        int idTarea;
 
         Button BotonProyecto;
         DataSet Proyectos;
         DataSet Releases;
         DataSet Sprints;
+        DataSet UserStories;
+        DataSet Tareas;
 
+        bool BotonTareaSeleccionado = false;
 
         public Principal(int rolP, int idUsuarioP)
         {
@@ -116,6 +120,7 @@ namespace SCRUMTEC
                 else if (panelActual.Name == "panel2") { BotonProyecto.Click += new System.EventHandler(CargarSprints_click); }
                 else if (panelActual.Name == "panel3") { BotonProyecto.Click += new System.EventHandler(CargarUserStory_click); }
                 else if (panelActual.Name == "panel4") { BotonProyecto.Click += new System.EventHandler(CargarTareas_click); }
+                else if (panelActual.Name == "panel5") { BotonProyecto.Click += new System.EventHandler(SeleccionarTareas_click); }
                 panelActual.Controls.Add(BotonProyecto);
             }
         }
@@ -240,7 +245,7 @@ namespace SCRUMTEC
             DataRow ID_Sprint = Sprints.Tables[0].Rows[ID_Boton];
             idSprint = Convert.ToInt32(ID_Sprint["id"].ToString());
 
-            DataSet UserStories = ConexionMetodos.CargarUserStories(idSprint);
+            UserStories = ConexionMetodos.CargarUserStories(idSprint);
             CrearBotones(panel4, UserStories);
 
             panel4.Visible = true;
@@ -260,10 +265,45 @@ namespace SCRUMTEC
             DataRow ID_UserStory = Sprints.Tables[0].Rows[ID_Boton];
             idUserStory = Convert.ToInt32(ID_UserStory["id"].ToString());
 
-            DataSet Tareas = ConexionMetodos.CargarTareas(idUserStory);
+            Tareas = ConexionMetodos.CargarTareas(idUserStory);
             CrearBotones(panel5, Tareas);
             panel5.Visible = true;
             panel4.Visible = false;
+        }
+
+        public void SeleccionarTareas_click(Object sender, System.EventArgs e)
+        {
+
+            Button B = (Button)sender;
+            String NumeroBoton = B.Name;
+            NumeroBoton = NumeroBoton.Remove(0, 5);
+            int ID_Boton = Convert.ToInt32(NumeroBoton);
+            DataRow ID_Tarea = UserStories.Tables[0].Rows[ID_Boton];
+            idTarea = Convert.ToInt32(ID_Tarea["id"].ToString());
+
+            if (BotonTareaSeleccionado == false)
+            {
+                B.BackColor = System.Drawing.Color.Cyan;
+                foreach (Control item in panel5.Controls)
+                {
+                    if (item.Name.Substring(0, 5) == "Boton" & item.Name != B.Name) { item.Enabled = false; }
+                }
+                actualizarEsfuerzoTareaToolStripMenuItem.Enabled = true;
+                BotonTareaSeleccionado = true;
+            }
+
+            else
+            {
+                B.BackColor = System.Drawing.Color.Silver;
+                foreach (Control item in panel5.Controls)
+                {
+                    item.Enabled = true; 
+                }
+                actualizarEsfuerzoTareaToolStripMenuItem.Enabled = false;
+                BotonTareaSeleccionado = false;
+            }
+            
+
         }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -392,6 +432,18 @@ namespace SCRUMTEC
         {
             frmAgregarTarea NuevaTarea = new frmAgregarTarea(idUserStory);
             NuevaTarea.Show();
+        }
+
+        private void definirCriteriosDeAceptaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAgregarCriterio NuevoCriterio = new frmAgregarCriterio(idUserStory);
+            NuevoCriterio.Show();
+        }
+
+        private void actualizarEsfuerzoTareaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ActualizarEsfuerzoTarea ActualizaTarea = new ActualizarEsfuerzoTarea(idTarea);
+            ActualizaTarea.Show();
         }
 
     }

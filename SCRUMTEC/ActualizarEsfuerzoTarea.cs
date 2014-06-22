@@ -25,20 +25,21 @@ namespace SCRUMTEC
         {
             if (String.IsNullOrEmpty(txtDuracion.Text))
             {
-                if (ConexionMetodos.ActualizarEsfuerzo(Convert.ToInt32(txtDuracion.Text), idTare) > 0)
-                {
-                    MessageBox.Show("Esfuerzo Actualizado", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Hide();
-                }
-                else
-                {
-                    MessageBox.Show("Ha ocurrido un error,intentelo de nuevo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-            }
-            else
-            {
                 MessageBox.Show("Tiene que llenar los campos correspondientes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+
+            else if (ConexionMetodos.ActualizarEsfuerzo(Convert.ToInt32(txtDuracion.Text), idTare) > 0)
+            {
+                MessageBox.Show("Esfuerzo Actualizado", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Hide();
+            }
+
+            else
+            {
+                MessageBox.Show("Ha ocurrido un error,intentelo de nuevo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            
+            
         }
     }
 }

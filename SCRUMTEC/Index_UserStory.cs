@@ -16,30 +16,32 @@ namespace SCRUMTEC
         int ID_Proyecto;
         int ID_Sprint;
         int rol;
+        DataSet UserStory;
         public Index_UserStory(int id_proyecto, int rol)
         {
-            InitializeComponent();
             this.ID_Proyecto = id_proyecto;
             this.rol = rol;
+            InitializeComponent();
+            
         }
 
         public Index_UserStory(int id_proyecto, int id_sprint, int rol)
         {
-            InitializeComponent();
             this.ID_Proyecto = id_proyecto;
             this.ID_Sprint = id_sprint;
             this.rol = rol;
+            InitializeComponent();
+            
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
             // The index:
-            int ListItemIndex;
+            int ListItemIndex = lstUserStory.SelectedIndex;
+            DataRow dr = UserStory.Tables[0].Rows[ListItemIndex];
+            int id = Convert.ToInt32(dr["id"]);
 
-            ListItemIndex = lstUserStory.SelectedIndex;
-
-
-            frmEditarUserStory editar_userstory = new frmEditarUserStory(ListItemIndex+1,ID_Proyecto, rol);
+            frmEditarUserStory editar_userstory = new frmEditarUserStory(id,ID_Proyecto, rol);
             editar_userstory.Show();
             this.Close();
         }
@@ -48,7 +50,7 @@ namespace SCRUMTEC
         {
             //METODO ALAMBRADO RECORDAR ARREGLAR
             
-            DataSet UserStory = ConexionMetodos.obtenerUserStory_IDProyecto(ID_Proyecto);
+            UserStory = ConexionMetodos.obtenerUserStory_IDProyecto(ID_Proyecto);
 
             
             lstUserStory.DataSource = UserStory.Tables[0].DefaultView;

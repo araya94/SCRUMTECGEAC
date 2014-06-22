@@ -567,7 +567,7 @@ namespace SCRUMTEC
                 Comando.Parameters.AddWithValue("@NOMBRE", nombre);
                 Comando.Parameters.AddWithValue("@DESCRIPCION", descripcion);
                 Comando.Parameters.AddWithValue("@ESTADO", estado);
-                SqlDataReader lector = Comando.ExecuteReader();
+                Comando.ExecuteNonQuery();
                 resultado = 1;
                 Conn.Close();
                 return resultado;
@@ -629,7 +629,6 @@ namespace SCRUMTEC
                 SqlCommand Comando = new SqlCommand("SP_OBTENER_USERSORY_x_ID_PROYECTO", Conn);
                 Comando.CommandType = CommandType.StoredProcedure;
                 Comando.Parameters.AddWithValue("@ID_PROYECTO", id_proyecto);
-                Comando.ExecuteNonQuery();
 
                 DataSet DataSet1 = new DataSet();
                 SqlDataAdapter DataAdapter1 = new SqlDataAdapter(Comando);
@@ -677,7 +676,7 @@ namespace SCRUMTEC
 
         public UserStory obtenerUserStory_x_ID(int id)
         {
-             UserStory userstory=null;
+            UserStory userstory=null;
             using (SqlConnection Conn = Conexion.ObtenerConexion())
             {
                 SqlCommand Comando = new SqlCommand("SP_OBTENER_USERSORY_x_ID", Conn);
@@ -822,12 +821,10 @@ namespace SCRUMTEC
             {
                 SqlCommand Comando = new SqlCommand("insertarUserStory", Conn);
                 Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@FKProyecto", id_proyecto);
                 Comando.Parameters.AddWithValue("@nombre", nombre_user_story);
                 Comando.Parameters.AddWithValue("@descripcion", descripcion_user_story);  
                 Comando.Parameters.AddWithValue("@prioridad", prioridad);
-                Comando.Parameters.AddWithValue("@FKProyecto", id_proyecto);
-                //Comando.Parameters.AddWithValue("@FKSprint", id_sprint);
-
                 Comando.ExecuteNonQuery();
                 resultado = 1;
                 Conn.Close();
