@@ -592,7 +592,7 @@ namespace SCRUMTEC
                 SqlCommand Comando = new SqlCommand("SP_OBTENER_USERSORY_x_ID_SPRING", Conn);
                 Comando.CommandType = CommandType.StoredProcedure;
                 Comando.Parameters.AddWithValue("@ID_SPRING", id_spring);
-               // SqlDataReader lector = Comando.ExecuteReader();
+                Comando.ExecuteNonQuery();
 
                 DataSet DataSet1 = new DataSet();
                 SqlDataAdapter DataAdapter1 = new SqlDataAdapter(Comando);
@@ -610,10 +610,8 @@ namespace SCRUMTEC
                 SqlCommand Comando = new SqlCommand("SP_OBTENER_USERSORY_x_ID_PROYECTO", Conn);
                 Comando.CommandType = CommandType.StoredProcedure;
                 Comando.Parameters.AddWithValue("@ID_PROYECTO", id_proyecto);
-                SqlDataReader lector = Comando.ExecuteReader();
+                Comando.ExecuteNonQuery();
 
-                
-                lector.Close();
                 DataSet DataSet1 = new DataSet();
                 SqlDataAdapter DataAdapter1 = new SqlDataAdapter(Comando);
                 DataAdapter1.Fill(DataSet1, "dbo.UserStory");
@@ -630,10 +628,7 @@ namespace SCRUMTEC
                 SqlCommand Comando = new SqlCommand("SP_OBTENER_TAREA_x_USERSORY", Conn);
                 Comando.CommandType = CommandType.StoredProcedure;
                 Comando.Parameters.AddWithValue("@FK_USER_STORIE", id_userstory);
-                SqlDataReader lector = Comando.ExecuteReader();
-
-
-                lector.Close();
+                Comando.ExecuteNonQuery();
                 DataSet DataSet1 = new DataSet();
                 SqlDataAdapter DataAdapter1 = new SqlDataAdapter(Comando);
                 DataAdapter1.Fill(DataSet1, "dbo.Tarea");
@@ -650,10 +645,7 @@ namespace SCRUMTEC
                 SqlCommand Comando = new SqlCommand("SP_OBTENER_CRITERIO_x_USERSTORY", Conn);
                 Comando.CommandType = CommandType.StoredProcedure;
                 Comando.Parameters.AddWithValue("@FK_USER_STORIE", id_userstory);
-                SqlDataReader lector = Comando.ExecuteReader();
-
-
-                lector.Close();
+                Comando.ExecuteNonQuery();
                 DataSet DataSet1 = new DataSet();
                 SqlDataAdapter DataAdapter1 = new SqlDataAdapter(Comando);
                 DataAdapter1.Fill(DataSet1, "dbo.Criteri");
@@ -672,9 +664,7 @@ namespace SCRUMTEC
                 SqlCommand Comando = new SqlCommand("SP_OBTENER_USERSORY_x_ID", Conn);
                 Comando.CommandType = CommandType.StoredProcedure;
                 Comando.Parameters.AddWithValue("@ID", id);
-                SqlDataReader lector = Comando.ExecuteReader();
-
-                lector.Close();
+                Comando.ExecuteNonQuery();
                 DataSet DataSet1 = new DataSet();
                 SqlDataAdapter DataAdapter1 = new SqlDataAdapter(Comando);
                 DataAdapter1.Fill(DataSet1, "dbo.UserStory");
@@ -707,9 +697,7 @@ namespace SCRUMTEC
                 SqlCommand Comando = new SqlCommand("SP_OBTENER_TAREA_x_ID", Conn);
                 Comando.CommandType = CommandType.StoredProcedure;
                 Comando.Parameters.AddWithValue("@ID_TAREA", id);
-                SqlDataReader lector = Comando.ExecuteReader();
-
-                lector.Close();
+                Comando.ExecuteNonQuery();
                 DataSet DataSet1 = new DataSet();
                 SqlDataAdapter DataAdapter1 = new SqlDataAdapter(Comando);
                 DataAdapter1.Fill(DataSet1, "dbo.Tarea");
@@ -744,9 +732,7 @@ namespace SCRUMTEC
                 SqlCommand Comando = new SqlCommand("SP_OBTENER_CRITERIO_x_ID", Conn);
                 Comando.CommandType = CommandType.StoredProcedure;
                 Comando.Parameters.AddWithValue("@ID_CRITERIO", id);
-                SqlDataReader lector = Comando.ExecuteReader();
-
-                lector.Close();
+                Comando.ExecuteNonQuery();
                 DataSet DataSet1 = new DataSet();
                 SqlDataAdapter DataAdapter1 = new SqlDataAdapter(Comando);
                 DataAdapter1.Fill(DataSet1, "dbo.Criteri");
@@ -780,7 +766,7 @@ namespace SCRUMTEC
                 Comando.CommandType = CommandType.StoredProcedure;
                 Comando.Parameters.AddWithValue("@NOMBRE", nombre);
                 Comando.Parameters.AddWithValue("@OBJETIVO", objetivo);
-                SqlDataReader lector = Comando.ExecuteReader();
+                Comando.ExecuteNonQuery();
                 resultado = 1;
                 Conn.Close();
                 return resultado;
@@ -819,9 +805,10 @@ namespace SCRUMTEC
                 Comando.Parameters.AddWithValue("@descripcion", descripcion_user_story);  
                 Comando.Parameters.AddWithValue("@prioridad", prioridad);
                 Comando.Parameters.AddWithValue("@FKProyecto", id_proyecto);
-                Comando.Parameters.AddWithValue("@FKSprint", id_sprint);
+                //Comando.Parameters.AddWithValue("@FKSprint", id_sprint);
 
-                resultado = Comando.ExecuteNonQuery();
+                Comando.ExecuteNonQuery();
+                resultado = 1;
                 Conn.Close();
                 return resultado;
             }

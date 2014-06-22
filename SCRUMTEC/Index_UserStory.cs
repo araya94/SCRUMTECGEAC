@@ -54,7 +54,7 @@ namespace SCRUMTEC
             lstUserStory.DataSource = UserStory.Tables[0].DefaultView;
             
             lstUserStory.ValueMember = "Nombre";
-            lstUserStory.ValueMember = "id";
+            //lstUserStory.ValueMember = "id";
             
         }
 
