@@ -358,5 +358,11 @@ namespace SCRUMTEC
             NuevaDuracion.Show();
         }
 
+        private void actualizarSprintToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ActualizarSprintReview ActualizacionSR = new ActualizarSprintReview(idSprint);
+            ActualizacionSR.Show();
+        }
+
     }
 }

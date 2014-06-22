@@ -58,8 +58,8 @@
             this.menuStrip5 = new System.Windows.Forms.MenuStrip();
             this.tareasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevaTareaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sprintToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.definirDuraciónSprintToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sprintToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -319,8 +319,9 @@
             // actualizarSprintToolStripMenuItem
             // 
             this.actualizarSprintToolStripMenuItem.Name = "actualizarSprintToolStripMenuItem";
-            this.actualizarSprintToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.actualizarSprintToolStripMenuItem.Text = "Actualizar Sprint";
+            this.actualizarSprintToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.actualizarSprintToolStripMenuItem.Text = "Actualizar Sprint Review";
+            this.actualizarSprintToolStripMenuItem.Click += new System.EventHandler(this.actualizarSprintToolStripMenuItem_Click);
             // 
             // panel5
             // 
@@ -357,6 +358,13 @@
             this.nuevaTareaToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.nuevaTareaToolStripMenuItem.Text = "Nueva Tarea";
             // 
+            // definirDuraciónSprintToolStripMenuItem
+            // 
+            this.definirDuraciónSprintToolStripMenuItem.Name = "definirDuraciónSprintToolStripMenuItem";
+            this.definirDuraciónSprintToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.definirDuraciónSprintToolStripMenuItem.Text = "Definir Duración Sprint";
+            this.definirDuraciónSprintToolStripMenuItem.Click += new System.EventHandler(this.definirDuraciónSprintToolStripMenuItem_Click_1);
+            // 
             // sprintToolStripMenuItem2
             // 
             this.sprintToolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -364,13 +372,6 @@
             this.sprintToolStripMenuItem2.Name = "sprintToolStripMenuItem2";
             this.sprintToolStripMenuItem2.Size = new System.Drawing.Size(50, 20);
             this.sprintToolStripMenuItem2.Text = "Sprint";
-            // 
-            // definirDuraciónSprintToolStripMenuItem
-            // 
-            this.definirDuraciónSprintToolStripMenuItem.Name = "definirDuraciónSprintToolStripMenuItem";
-            this.definirDuraciónSprintToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.definirDuraciónSprintToolStripMenuItem.Text = "Definir Duración Sprint";
-            this.definirDuraciónSprintToolStripMenuItem.Click += new System.EventHandler(this.definirDuraciónSprintToolStripMenuItem_Click_1);
             // 
             // Principal
             // 
