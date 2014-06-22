@@ -39,18 +39,21 @@ namespace SCRUMTEC
                 userStoryToolStripMenuItem.Visible = false;
                 releaseToolStripMenuItem.Visible = false;
                 sprintToolStripMenuItem.Visible = false;
-                userStoryToolStripMenuItem1.Visible = false;
                 sprintToolStripMenuItem1.Visible = false;
+                sprintToolStripMenuItem2.Visible = false;
+                userStoryToolStripMenuItem1.Visible = false;
                 tareasToolStripMenuItem.Visible = false;
                 definirDuraciónSprintToolStripMenuItem.Visible = false;
+                
             }
             if (rol == 2)
             {
                 nuevoProyectoToolStripMenuItem.Visible = false;
                 crearUsuarioToolStripMenuItem.Visible = false;
                 sprintToolStripMenuItem.Visible = false;
-                userStoryToolStripMenuItem1.Visible = false;
                 sprintToolStripMenuItem1.Visible = false;
+                sprintToolStripMenuItem2.Visible = false;
+                userStoryToolStripMenuItem1.Visible = false;
                 tareasToolStripMenuItem.Visible = false;
                 definirDuraciónSprintToolStripMenuItem.Visible = false;
             }
@@ -60,12 +63,17 @@ namespace SCRUMTEC
                 crearUsuarioToolStripMenuItem.Visible = false;
                 userStoryToolStripMenuItem.Visible = false;
                 releaseToolStripMenuItem.Visible = false;
+                tareasToolStripMenuItem.Visible = false;
             }
             if (rol == 4)
             {
                 nuevoProyectoToolStripMenuItem.Visible = false;
                 crearUsuarioToolStripMenuItem.Visible = false;
+                sprintToolStripMenuItem.Visible = false;
+                sprintToolStripMenuItem1.Visible = false;
+                sprintToolStripMenuItem2.Visible = false;
                 userStoryToolStripMenuItem.Visible = false;
+                userStoryToolStripMenuItem1.Visible = false;
                 releaseToolStripMenuItem.Visible = false;
                 definirDuraciónSprintToolStripMenuItem.Visible = false;
             }
@@ -73,7 +81,11 @@ namespace SCRUMTEC
             {
                 nuevoProyectoToolStripMenuItem.Visible = false;
                 crearUsuarioToolStripMenuItem.Visible = false;
+                sprintToolStripMenuItem.Visible = false;
+                sprintToolStripMenuItem1.Visible = false;
+                sprintToolStripMenuItem2.Visible = false;
                 userStoryToolStripMenuItem.Visible = false;
+                userStoryToolStripMenuItem1.Visible = false;
                 releaseToolStripMenuItem.Visible = false;
                 definirDuraciónSprintToolStripMenuItem.Visible = false;
             }
