@@ -38,11 +38,19 @@ namespace SCRUMTEC
             {
                 userStoryToolStripMenuItem.Visible = false;
                 releaseToolStripMenuItem.Visible = false;
+                sprintToolStripMenuItem.Visible = false;
+                userStoryToolStripMenuItem1.Visible = false;
+                sprintToolStripMenuItem1.Visible = false;
+                tareasToolStripMenuItem.Visible = false;
             }
             if (rol == 2)
             {
                 nuevoProyectoToolStripMenuItem.Visible = false;
                 crearUsuarioToolStripMenuItem.Visible = false;
+                sprintToolStripMenuItem.Visible = false;
+                userStoryToolStripMenuItem1.Visible = false;
+                sprintToolStripMenuItem1.Visible = false;
+                tareasToolStripMenuItem.Visible = false;
             }
             if (rol == 3)
             {
@@ -331,11 +339,8 @@ namespace SCRUMTEC
 
         private void nuevoSprintToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            DefinirSprints NuevoSprint = new DefinirSprints(idRelease, this, panel3, Sprints);
+            DefinirSprints NuevoSprint = new DefinirSprints(idRelease);
             NuevoSprint.Show();
-
-
         }
 
     }

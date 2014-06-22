@@ -488,7 +488,7 @@ namespace SCRUMTEC
                 SqlCommand Comando = new SqlCommand("CargarUserStories", Conn);
                 Comando.CommandType = CommandType.StoredProcedure;
                 Comando.Parameters.AddWithValue("@IDSprint", ID_Sprint);
-
+                Comando.ExecuteNonQuery();
 
                 DataSet DataSet1 = new DataSet();
                 SqlDataAdapter DataAdapter1 = new SqlDataAdapter(Comando);

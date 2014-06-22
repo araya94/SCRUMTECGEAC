@@ -13,17 +13,10 @@ namespace SCRUMTEC
     public partial class DefinirSprints : Form
     {
         int idRelease;
-        Principal VentanaPrincipal;
-        Panel PanelActual;
-        DataSet Sprints;
-
-        public DefinirSprints(int idreleaseP, Principal Ventana, Panel Panel, DataSet DS)
+       
+        public DefinirSprints(int idreleaseP)
         {
             idRelease = idreleaseP;
-            VentanaPrincipal = Ventana;
-            PanelActual = Panel;
-            Sprints = DS;
-
             InitializeComponent();
         }
 
@@ -39,7 +32,6 @@ namespace SCRUMTEC
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            VentanaPrincipal.Show();
             this.Close();
         }
 
@@ -74,10 +66,7 @@ namespace SCRUMTEC
             {
                 MessageBox.Show("Debe llenar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-
-            VentanaPrincipal.CargarPanelAnterior(PanelActual);
-            //Sprints = VentanaPrincipal.CrearBotones(PanelActual, Sprints);
-            //VentanaPrincipal.Show();
+          
         }
     }
 }

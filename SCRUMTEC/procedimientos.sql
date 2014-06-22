@@ -99,7 +99,6 @@ begin
 			insert Sprint_Release(FKRelease,FKSprint)
 			values(@release,(select max(Id) from Sprint))
 
-			return (select max(Id) from Sprint) /*Retorna el id del sprint creado actual */
 		commit transaction
 	end try
 	begin catch
@@ -636,8 +635,8 @@ begin
 		begin transaction
 
 		Select * from dbo.UserStory US
-			inner join dbo.UserS_Sprint USS on USS.FKSprint = @IDSprint
-			where US.id = USS.FKUserS
+			where US.FKSprint = @IDSprint
+		
 		commit transaction
 	end try
 	begin catch
