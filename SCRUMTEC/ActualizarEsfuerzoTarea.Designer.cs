@@ -122,6 +122,7 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnDefinir);
             this.Name = "ActualizarEsfuerzoTarea";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ActualizarEsfuerzoTarea";
             this.ResumeLayout(false);
             this.PerformLayout();

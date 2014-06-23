@@ -110,6 +110,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtNombreTarea);
             this.Name = "frmAgregarTarea";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AgregarTarea";
             this.Load += new System.EventHandler(this.frmAgregarTarea_Load);
             this.ResumeLayout(false);

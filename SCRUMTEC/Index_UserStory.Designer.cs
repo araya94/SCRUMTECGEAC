@@ -94,6 +94,7 @@
             this.Controls.Add(this.btnNuevoUserStory);
             this.Controls.Add(this.lstUserStory);
             this.Name = "Index_UserStory";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IndexUserStory";
             this.Load += new System.EventHandler(this.Index_UserStory_Load);
             this.ResumeLayout(false);

@@ -111,6 +111,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtNombreCriterio);
             this.Name = "frmAgregarCriterio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AgregarCriterio";
             this.Load += new System.EventHandler(this.AgregarCriterio_Load);
             this.ResumeLayout(false);

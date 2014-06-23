@@ -97,6 +97,7 @@
             this.Controls.Add(this.lblCrea);
             this.Controls.Add(this.lblUsuario);
             this.Name = "ActualizarSprintReview";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ActualizarSprint";
             this.ResumeLayout(false);
             this.PerformLayout();

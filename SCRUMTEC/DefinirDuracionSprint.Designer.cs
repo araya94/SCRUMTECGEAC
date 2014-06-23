@@ -93,6 +93,7 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnDefinir);
             this.Name = "DefinirDuracionSprint";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DefinirDuracionSprint";
             this.ResumeLayout(false);
             this.PerformLayout();

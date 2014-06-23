@@ -95,6 +95,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblCrea);
             this.Name = "AsociarUserASprint";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AsociarUserASprint";
             this.ResumeLayout(false);
             this.PerformLayout();

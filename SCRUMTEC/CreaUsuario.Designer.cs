@@ -241,6 +241,7 @@
             this.Controls.Add(this.lblProyecto);
             this.Controls.Add(this.lblNombre);
             this.Name = "CreaUsuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CrearUsuario";
             this.ResumeLayout(false);
             this.PerformLayout();

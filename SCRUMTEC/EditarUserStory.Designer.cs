@@ -180,6 +180,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtNombreUserStorie);
             this.Name = "frmEditarUserStory";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditarUserStory";
             this.Load += new System.EventHandler(this.EditarUserStory_Load);
             this.ResumeLayout(false);

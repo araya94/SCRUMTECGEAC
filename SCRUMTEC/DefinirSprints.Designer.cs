@@ -121,6 +121,7 @@
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.lblNombre);
             this.Name = "DefinirSprints";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DefinirSprints";
             this.ResumeLayout(false);
             this.PerformLayout();

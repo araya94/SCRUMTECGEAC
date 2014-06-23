@@ -48,6 +48,7 @@
             this.ClientSize = new System.Drawing.Size(614, 296);
             this.Controls.Add(this.btnSalir);
             this.Name = "CrearBurnDown";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CrearBurnDown";
             this.ResumeLayout(false);
 

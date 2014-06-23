@@ -24,12 +24,12 @@ namespace SCRUMTEC
         {
             try
             {
-                SqlConnection Connec = new SqlConnection("Data Source=GUILLERMOPC\\SQL_GUILLERMO; Initial Catalog = ScrumProyecto; Integrated Security=True"); //User Id=mono; Password=123"
+                SqlConnection Connec = new SqlConnection("Data Source=EQUIPO-ADRIAN\\SQLEXPRESS; Initial Catalog = ScrumProyecto; Integrated Security=True"); //User Id=mono; Password=123"
                 // NO BORREN ESTO ES PARA NADA MAS COPIAR Y PEGAR A LA HORA DE HACER PRUEBAS...
                 // Data Source=GUILLERMOPC\\SQL_GUILLERMO;
                 // Data source = CRIS; 
                 //Data Source = ESTEBAN-PC
-                //Data Source = EQUIPO-ADRIAN
+                //Data Source = EQUIPO-ADRIAN\\SQLEXPRESS
                 Connec.Open();
                 return Connec;
             }

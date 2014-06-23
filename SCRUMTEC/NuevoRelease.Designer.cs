@@ -89,6 +89,7 @@
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label1);
             this.Name = "NuevoRelease";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "80***";
             this.ResumeLayout(false);
             this.PerformLayout();
