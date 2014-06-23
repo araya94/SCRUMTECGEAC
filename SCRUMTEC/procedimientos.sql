@@ -1,4 +1,5 @@
-/*create procedure buscarRoles
+/*
+create procedure buscarRoles
 as
 begin
 begin try
@@ -298,9 +299,7 @@ values(@FKProyecto, @FKSprint, @nombre,@prioridad)
 END
 ELSE return -1;
 END
-*/
 
-/**
 create procedure insertarUserStory
 @FKProyecto int,
 @nombre varchar(100),
@@ -316,9 +315,9 @@ values(@FKProyecto, @nombre, @descripcion ,@prioridad)
 END
 ELSE return -1;
 END
-*/
 
-/*--------------------------------------------- ESTEBAN -----------------------------------------------------------
+
+/*--------------------------------------------- ESTEBAN -----------------------------------------------------------*/
 
 create procedure SP_ACTUALIZAR_USERSTORIE
 @ID INT,
@@ -689,8 +688,6 @@ begin
 end
 
 
-
-
 // Le puse lo de la fecha
 create procedure insertarProyecto
 @nombre varchar(100),
@@ -709,3 +706,80 @@ values(@id_usuario,(select max(Id) from Proyecto))
 END
 ELSE return -1;
 END
+
+
+/**
+Create Procedure obtenerUsuariosAsociadosUserStory
+@idUserStory int
+As
+Begin
+Begin try
+Begin transaction
+
+Select U.id, U.nombre, R.Nombre From Usuario U
+inner join Usuario_Proyecto UP
+on U.id = UP.FKUsuario
+inner join User_Usuario UU
+on UP.id = UU.FKUsuarioP
+inner join Rol R
+on U.FKRol = R.id
+Where UU.FKUserStory = @idUserStory AND
+R.id = 4 or R.id = 5
+
+commit transaction
+end try
+begin catch
+select ERROR_NUMBER() as ErrorNumber;
+return -1;
+rollback transaction
+end catch
+end
+*/
+*/
+/**
+
+Create Procedure obtenerDevelopersAsociadosProyecto
+@idProyecto int
+As
+Begin
+Begin try
+Begin transaction
+
+Select U.nombre From Usuario U
+inner join Usuario_Proyecto UP on UP.id = @idProyecto
+inner join Rol R on U.FKRol = R.id
+Where U.id = UP.FKUsuario AND
+      R.id = 4
+
+commit transaction
+end try
+begin catch
+select ERROR_NUMBER() as ErrorNumber;
+return -1;
+rollback transaction
+end catch
+end
+*/
+/*
+Create Procedure obtenerTestersAsociadosProyecto
+@idProyecto int
+As
+Begin
+Begin try
+Begin transaction
+
+Select U.nombre From Usuario U
+inner join Usuario_Proyecto UP on UP.id = @idProyecto
+inner join Rol R on U.FKRol = R.id
+Where U.id = UP.FKUsuario AND
+      R.id = 5
+
+commit transaction
+end try
+begin catch
+select ERROR_NUMBER() as ErrorNumber;
+return -1;
+rollback transaction
+end catch
+end
+*/

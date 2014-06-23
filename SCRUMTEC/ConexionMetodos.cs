@@ -871,7 +871,71 @@ namespace SCRUMTEC
             }
         }
 
-        
+        //---------------------------------------------------------------------------------
+        public static DataSet obtenerUsuariosAsociadosUserStory(int idUserStory)
+        {
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("obtenerUsuariosAsociadosUserStory", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@idUserStory", idUserStory);
+                Comando.ExecuteNonQuery();
+
+                SqlDataAdapter DataAdapter = new SqlDataAdapter(Comando);
+
+                DataSet DataSet = new DataSet();
+                
+                DataAdapter.Fill(DataSet, "Usuarios del User Story");
+
+                DataAdapter.Dispose();
+                Comando.Dispose();
+                Conn.Close();
+                return DataSet;
+            }
+        }
+
+
+        //------------------------------------------------------------------------------------
+        public static DataSet obtenerDevelopersAsociadosProyecto(int idProyecto)
+        {
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("obtenerDevelopersAsociadosProyecto", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@idProyecto", idProyecto);
+                Comando.ExecuteNonQuery();
+
+                SqlDataAdapter DataAdapter = new SqlDataAdapter(Comando);
+                DataSet DataSet = new DataSet();
+                DataAdapter.Fill(DataSet, "Developers asociados al proyecto");
+
+                DataAdapter.Dispose();
+                Comando.Dispose();
+                Conn.Close();
+                return DataSet;
+            }
+        }
+
+        //------------------------------------------------------------------------------------
+        public static DataSet obtenerTestersAsociadosProyecto(int idProyecto)
+        {
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("obtenerTestersAsociadosProyecto", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@idProyecto", idProyecto);
+                Comando.ExecuteNonQuery();
+
+                SqlDataAdapter DataAdapter = new SqlDataAdapter(Comando);
+                DataSet DataSet = new DataSet();
+                DataAdapter.Fill(DataSet, "Testers asociados al proyecto");
+
+                DataAdapter.Dispose();
+                Comando.Dispose();
+                Conn.Close();
+                return DataSet;
+            }
+        }
     }
 
 

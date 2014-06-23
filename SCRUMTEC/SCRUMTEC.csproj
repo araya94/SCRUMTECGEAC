@@ -87,11 +87,23 @@
     <Compile Include="AgregarTarea.Designer.cs">
       <DependentUpon>AgregarTarea.cs</DependentUpon>
     </Compile>
+    <Compile Include="AsociarUserAUserStory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AsociarUserAUserStory.Designer.cs">
+      <DependentUpon>AsociarUserAUserStory.cs</DependentUpon>
+    </Compile>
     <Compile Include="AsociarUserASprint.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AsociarUserASprint.Designer.cs">
       <DependentUpon>AsociarUserASprint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditarAsociacionUserUserStory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditarAsociacionUserUserStory.Designer.cs">
+      <DependentUpon>EditarAsociacionUserUserStory.cs</DependentUpon>
     </Compile>
     <Compile Include="Conexion.cs" />
     <Compile Include="ConexionMetodos.cs" />
@@ -190,8 +202,14 @@
     <EmbeddedResource Include="AgregarTarea.resx">
       <DependentUpon>AgregarTarea.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AsociarUserAUserStory.resx">
+      <DependentUpon>AsociarUserAUserStory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AsociarUserASprint.resx">
       <DependentUpon>AsociarUserASprint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditarAsociacionUserUserStory.resx">
+      <DependentUpon>EditarAsociacionUserUserStory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CrearBurnDown.resx">
       <DependentUpon>CrearBurnDown.cs</DependentUpon>
