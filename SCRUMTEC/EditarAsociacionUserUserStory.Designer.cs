@@ -34,6 +34,7 @@
             this.button_agregar_usuario = new System.Windows.Forms.Button();
             this.button_eliminar_usuario = new System.Windows.Forms.Button();
             this.button_cancelar = new System.Windows.Forms.Button();
+            this.button_refresh = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label_nombre_user_story
@@ -61,7 +62,7 @@
             this.listBox_usuarios.FormattingEnabled = true;
             this.listBox_usuarios.Location = new System.Drawing.Point(76, 137);
             this.listBox_usuarios.Name = "listBox_usuarios";
-            this.listBox_usuarios.Size = new System.Drawing.Size(330, 173);
+            this.listBox_usuarios.Size = new System.Drawing.Size(318, 173);
             this.listBox_usuarios.TabIndex = 2;
             this.listBox_usuarios.SelectedIndexChanged += new System.EventHandler(this.listBox_usuarios_SelectedIndexChanged);
             // 
@@ -90,7 +91,7 @@
             // button_cancelar
             // 
             this.button_cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_cancelar.Location = new System.Drawing.Point(331, 378);
+            this.button_cancelar.Location = new System.Drawing.Point(319, 378);
             this.button_cancelar.Name = "button_cancelar";
             this.button_cancelar.Size = new System.Drawing.Size(75, 34);
             this.button_cancelar.TabIndex = 5;
@@ -98,11 +99,23 @@
             this.button_cancelar.UseVisualStyleBackColor = true;
             this.button_cancelar.Click += new System.EventHandler(this.button_cancelar_Click);
             // 
+            // button_refresh
+            // 
+            this.button_refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_refresh.Location = new System.Drawing.Point(238, 378);
+            this.button_refresh.Name = "button_refresh";
+            this.button_refresh.Size = new System.Drawing.Size(75, 34);
+            this.button_refresh.TabIndex = 6;
+            this.button_refresh.Text = "Refresh";
+            this.button_refresh.UseVisualStyleBackColor = true;
+            this.button_refresh.Click += new System.EventHandler(this.button_refresh_Click);
+            // 
             // EditarAsociacionUserUserStory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(489, 464);
+            this.Controls.Add(this.button_refresh);
             this.Controls.Add(this.button_cancelar);
             this.Controls.Add(this.button_eliminar_usuario);
             this.Controls.Add(this.button_agregar_usuario);
@@ -125,5 +138,6 @@
         private System.Windows.Forms.Button button_agregar_usuario;
         private System.Windows.Forms.Button button_eliminar_usuario;
         private System.Windows.Forms.Button button_cancelar;
+        private System.Windows.Forms.Button button_refresh;
     }
 }

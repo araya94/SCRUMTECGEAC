@@ -862,7 +862,7 @@ namespace SCRUMTEC
 
                 DataSet DataSet = new DataSet();
                 
-                DataAdapter.Fill(DataSet, "Usuarios del User Story");
+                DataAdapter.Fill(DataSet, "UsuariosUserStory");
 
                 DataAdapter.Dispose();
                 Comando.Dispose();
@@ -884,7 +884,7 @@ namespace SCRUMTEC
 
                 SqlDataAdapter DataAdapter = new SqlDataAdapter(Comando);
                 DataSet DataSet = new DataSet();
-                DataAdapter.Fill(DataSet, "Developers asociados al proyecto");
+                DataAdapter.Fill(DataSet, "Developers");
 
                 DataAdapter.Dispose();
                 Comando.Dispose();
@@ -895,7 +895,7 @@ namespace SCRUMTEC
 
         //------------------------------------------------------------------------------------
         public static DataSet obtenerTestersAsociadosProyecto(int idProyecto)
-        {
+        { 
             using (SqlConnection Conn = Conexion.ObtenerConexion())
             {
                 SqlCommand Comando = new SqlCommand("obtenerTestersAsociadosProyecto", Conn);
@@ -905,12 +905,47 @@ namespace SCRUMTEC
 
                 SqlDataAdapter DataAdapter = new SqlDataAdapter(Comando);
                 DataSet DataSet = new DataSet();
-                DataAdapter.Fill(DataSet, "Testers asociados al proyecto");
+                DataAdapter.Fill(DataSet, "Testers");
 
                 DataAdapter.Dispose();
                 Comando.Dispose();
                 Conn.Close();
                 return DataSet;
+            }
+
+
+        }
+
+
+        //-----------------------------------------------------------------------------
+        public static int insertarAsociacionUserUserStory(int idUserStory, int idUsuarioProyecto)
+        {
+            int resultado = -1;
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("insertarAsociacionUserUserStory", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@idUserStory", idUserStory);
+                Comando.Parameters.AddWithValue("@idUsuarioProyecto", idUsuarioProyecto);
+                Comando.ExecuteNonQuery();
+                resultado = 1;
+                Conn.Close();
+                return resultado;
+            }
+        }
+
+        public static int eliminarAsociacionUserUserStory(int id_user_userStory)
+        {
+            int resultado = -1;
+            using (SqlConnection Conn = Conexion.ObtenerConexion())
+            {
+                SqlCommand Comando = new SqlCommand("eliminarAsociacionUserUserStory", Conn);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@id_user_userStory", id_user_userStory);
+                Comando.ExecuteNonQuery();
+                resultado = 1;
+                Conn.Close();
+                return resultado;
             }
         }
     }

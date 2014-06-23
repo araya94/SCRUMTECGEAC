@@ -31,23 +31,25 @@ namespace SCRUMTEC
         private void cargarUsuariosDelUserStory(int idUserStory) 
         {
             DataSet Usuarios = ConexionMetodos.obtenerUsuariosAsociadosUserStory(idUserStory);
-            listBox_usuarios.DataSource = Usuarios;
+            listBox_usuarios.DataSource = Usuarios.Tables["UsuariosUserStory"];
+            listBox_usuarios.ValueMember = "id";
+            listBox_usuarios.DisplayMember = "nombre"; 
 
-             // listBox_usuarios.DataSource = Usuarios.Tables[0].DefaultView;
-            //  listBox_usuarios.ValueMember = "Nombre";
-           // listBox_usuarios.ValueMember = "Rol";
         
         }
 
         private void button_agregar_usuario_Click(object sender, EventArgs e)
         {
-            AsociarUserAUserStory asociacion = new AsociarUserAUserStory(idProyecto);
+            AsociarUserAUserStory asociacion = new AsociarUserAUserStory(idProyecto, idUserStory);
             asociacion.ShowDialog();
         }
 
         private void button_eliminar_usuario_Click(object sender, EventArgs e)
         {
-
+            int id_user_userStory = (int)listBox_usuarios.SelectedValue;
+           
+            ConexionMetodos.eliminarAsociacionUserUserStory(id_user_userStory);
+            cargarUsuariosDelUserStory(idUserStory);
         }
 
         //Se cierra el formulario
@@ -59,6 +61,11 @@ namespace SCRUMTEC
         private void listBox_usuarios_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.button_eliminar_usuario.Enabled = true;
+        }
+
+        private void button_refresh_Click(object sender, EventArgs e)
+        {
+            cargarUsuariosDelUserStory(idUserStory);
         }
     }
 }

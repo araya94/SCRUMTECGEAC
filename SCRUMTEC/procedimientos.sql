@@ -747,3 +747,112 @@ BEGIN CATCH
 	ROLLBACK TRANSACTION
 END CATCH
 END
+
+
+Create Procedure obtenerUsuariosAsociadosUserStory
+@idUserStory int
+as
+begin
+	begin try
+		begin transaction
+
+		Select UU.id, U.nombre from Usuario U
+		inner join Rol R on U.FKRol = R.id
+		inner join Usuario_Proyecto UP on U.id = UP.FKUsuario
+		inner join User_Usuario UU on UP.id = UU.FKUsuarioP
+		Where R.id = 4 or R.id = 5
+		AND UU.FKUserStory = @idUserStory
+		commit transaction
+	end try
+	begin catch
+		select ERROR_NUMBER() as ErrorNumber;
+		return -1;
+		rollback transaction
+	end catch
+end
+
+
+Create Procedure obtenerDevelopersAsociadosProyecto
+@idProyecto int
+As
+Begin
+Begin try
+Begin transaction
+
+Select UP.id, U.nombre From Usuario U
+inner join Usuario_Proyecto UP on UP.FKProyecto  = @idProyecto
+inner join Rol R on U.FKRol = R.id
+Where U.id = UP.FKUsuario AND
+      R.id = 4
+
+commit transaction
+end try
+begin catch
+select ERROR_NUMBER() as ErrorNumber;
+return -1;
+rollback transaction
+end catch
+end
+
+
+Create Procedure obtenerTestersAsociadosProyecto
+@idProyecto int
+As
+Begin
+Begin try
+Begin transaction
+
+Select UP.id, U.nombre From Usuario U
+inner join Usuario_Proyecto UP on UP.FKProyecto = @idProyecto
+inner join Rol R on U.FKRol = R.id
+Where U.id = UP.FKUsuario AND
+      R.id = 5
+
+commit transaction
+end try
+begin catch
+select ERROR_NUMBER() as ErrorNumber;
+return -1;
+rollback transaction
+end catch
+end
+
+create procedure insertarAsociacionUserUserStory
+@idUserStory  int,
+@idUsuarioProyecto  int
+as
+begin
+	begin try
+		begin transaction
+			insert User_Usuario(FKUserStory,FKUsuarioP)
+			values(@idUserStory,@idUsuarioProyecto)
+
+		commit transaction
+	end try
+	begin catch
+		select ERROR_NUMBER() as ErrorNumber;
+		return -1;
+		rollback transaction
+	end catch
+end
+
+CREATE PROCEDURE eliminarAsociacionUserUserStory
+@id_user_userStory INT
+AS
+BEGIN
+BEGIN TRY
+	BEGIN TRANSACTION
+	
+	SET NOCOUNT ON;
+	
+		Delete from User_Usuario
+		where id = @id_user_userStory
+
+	COMMIT TRANSACTION
+END TRY
+BEGIN CATCH
+	SELECT ERROR_NUMBER() AS ErrorNumber;
+	RETURN -1;
+	ROLLBACK TRANSACTION
+END CATCH
+END
