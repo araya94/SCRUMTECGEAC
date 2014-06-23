@@ -90,7 +90,7 @@
             this.Controls.Add(this.label1);
             this.Name = "NuevoRelease";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "80***";
+            this.Text = "Nuevo Release";
             this.ResumeLayout(false);
             this.PerformLayout();
 
