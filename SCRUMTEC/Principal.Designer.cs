@@ -42,6 +42,8 @@
             this.nuevoReleaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userStoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aministrarUserStoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sprintToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.definirDuraciónSprintToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.BotonCerrarSesion = new System.Windows.Forms.Button();
             this.BotonAtras = new System.Windows.Forms.Button();
@@ -53,16 +55,16 @@
             this.menuStrip4 = new System.Windows.Forms.MenuStrip();
             this.sprintToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.actualizarSprintToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.asociarUserStoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.burndownChartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.crearBurndownChartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel5 = new System.Windows.Forms.Panel();
             this.menuStrip5 = new System.Windows.Forms.MenuStrip();
             this.tareasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevaTareaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.definirDuraciónSprintToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sprintToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.asociarUserStoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.actualizarEsfuerzoTareaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userStoryToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.definirCriteriosDeAceptaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.actualizarEsfuerzoTareaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actualizarAsociaciónAUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
@@ -211,6 +213,21 @@
             this.aministrarUserStoryToolStripMenuItem.Text = "Aministrar User Story";
             this.aministrarUserStoryToolStripMenuItem.Click += new System.EventHandler(this.aministrarUserStoryToolStripMenuItem_Click);
             // 
+            // sprintToolStripMenuItem2
+            // 
+            this.sprintToolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.definirDuraciónSprintToolStripMenuItem});
+            this.sprintToolStripMenuItem2.Name = "sprintToolStripMenuItem2";
+            this.sprintToolStripMenuItem2.Size = new System.Drawing.Size(50, 20);
+            this.sprintToolStripMenuItem2.Text = "Sprint";
+            // 
+            // definirDuraciónSprintToolStripMenuItem
+            // 
+            this.definirDuraciónSprintToolStripMenuItem.Name = "definirDuraciónSprintToolStripMenuItem";
+            this.definirDuraciónSprintToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.definirDuraciónSprintToolStripMenuItem.Text = "Definir Duración Sprint";
+            this.definirDuraciónSprintToolStripMenuItem.Click += new System.EventHandler(this.definirDuraciónSprintToolStripMenuItem_Click_1);
+            // 
             // panel2
             // 
             this.panel2.AutoScroll = true;
@@ -280,7 +297,7 @@
             // nuevoSprintToolStripMenuItem
             // 
             this.nuevoSprintToolStripMenuItem.Name = "nuevoSprintToolStripMenuItem";
-            this.nuevoSprintToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nuevoSprintToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.nuevoSprintToolStripMenuItem.Text = "Nuevo Sprint";
             this.nuevoSprintToolStripMenuItem.Click += new System.EventHandler(this.nuevoSprintToolStripMenuItem_Click);
             // 
@@ -298,7 +315,8 @@
             // 
             this.menuStrip4.BackColor = System.Drawing.Color.LightGray;
             this.menuStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sprintToolStripMenuItem1});
+            this.sprintToolStripMenuItem1,
+            this.burndownChartToolStripMenuItem});
             this.menuStrip4.Location = new System.Drawing.Point(0, 0);
             this.menuStrip4.Name = "menuStrip4";
             this.menuStrip4.Size = new System.Drawing.Size(753, 24);
@@ -320,6 +338,27 @@
             this.actualizarSprintToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             this.actualizarSprintToolStripMenuItem.Text = "Actualizar Sprint Review";
             this.actualizarSprintToolStripMenuItem.Click += new System.EventHandler(this.actualizarSprintToolStripMenuItem_Click);
+            // 
+            // asociarUserStoriesToolStripMenuItem
+            // 
+            this.asociarUserStoriesToolStripMenuItem.Name = "asociarUserStoriesToolStripMenuItem";
+            this.asociarUserStoriesToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.asociarUserStoriesToolStripMenuItem.Text = "Asociar User Stories";
+            this.asociarUserStoriesToolStripMenuItem.Click += new System.EventHandler(this.asociarUserStoriesToolStripMenuItem_Click);
+            // 
+            // burndownChartToolStripMenuItem
+            // 
+            this.burndownChartToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.crearBurndownChartToolStripMenuItem});
+            this.burndownChartToolStripMenuItem.Name = "burndownChartToolStripMenuItem";
+            this.burndownChartToolStripMenuItem.Size = new System.Drawing.Size(106, 20);
+            this.burndownChartToolStripMenuItem.Text = "Burndown Chart";
+            // 
+            // crearBurndownChartToolStripMenuItem
+            // 
+            this.crearBurndownChartToolStripMenuItem.Name = "crearBurndownChartToolStripMenuItem";
+            this.crearBurndownChartToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.crearBurndownChartToolStripMenuItem.Text = "Crear Burndown Chart";
             // 
             // panel5
             // 
@@ -355,31 +394,17 @@
             // nuevaTareaToolStripMenuItem
             // 
             this.nuevaTareaToolStripMenuItem.Name = "nuevaTareaToolStripMenuItem";
-            this.nuevaTareaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nuevaTareaToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.nuevaTareaToolStripMenuItem.Text = "Nueva Tarea";
             this.nuevaTareaToolStripMenuItem.Click += new System.EventHandler(this.nuevaTareaToolStripMenuItem_Click);
             // 
-            // definirDuraciónSprintToolStripMenuItem
+            // actualizarEsfuerzoTareaToolStripMenuItem
             // 
-            this.definirDuraciónSprintToolStripMenuItem.Name = "definirDuraciónSprintToolStripMenuItem";
-            this.definirDuraciónSprintToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.definirDuraciónSprintToolStripMenuItem.Text = "Definir Duración Sprint";
-            this.definirDuraciónSprintToolStripMenuItem.Click += new System.EventHandler(this.definirDuraciónSprintToolStripMenuItem_Click_1);
-            // 
-            // sprintToolStripMenuItem2
-            // 
-            this.sprintToolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.definirDuraciónSprintToolStripMenuItem});
-            this.sprintToolStripMenuItem2.Name = "sprintToolStripMenuItem2";
-            this.sprintToolStripMenuItem2.Size = new System.Drawing.Size(50, 20);
-            this.sprintToolStripMenuItem2.Text = "Sprint";
-            // 
-            // asociarUserStoriesToolStripMenuItem
-            // 
-            this.asociarUserStoriesToolStripMenuItem.Name = "asociarUserStoriesToolStripMenuItem";
-            this.asociarUserStoriesToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.asociarUserStoriesToolStripMenuItem.Text = "Asociar User Stories";
-            this.asociarUserStoriesToolStripMenuItem.Click += new System.EventHandler(this.asociarUserStoriesToolStripMenuItem_Click);
+            this.actualizarEsfuerzoTareaToolStripMenuItem.Enabled = false;
+            this.actualizarEsfuerzoTareaToolStripMenuItem.Name = "actualizarEsfuerzoTareaToolStripMenuItem";
+            this.actualizarEsfuerzoTareaToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.actualizarEsfuerzoTareaToolStripMenuItem.Text = "Actualizar Esfuerzo Tarea";
+            this.actualizarEsfuerzoTareaToolStripMenuItem.Click += new System.EventHandler(this.actualizarEsfuerzoTareaToolStripMenuItem_Click);
             // 
             // userStoryToolStripMenuItem1
             // 
@@ -393,23 +418,16 @@
             // definirCriteriosDeAceptaciónToolStripMenuItem
             // 
             this.definirCriteriosDeAceptaciónToolStripMenuItem.Name = "definirCriteriosDeAceptaciónToolStripMenuItem";
-            this.definirCriteriosDeAceptaciónToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.definirCriteriosDeAceptaciónToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
             this.definirCriteriosDeAceptaciónToolStripMenuItem.Text = "Definir Criterios de aceptación";
             this.definirCriteriosDeAceptaciónToolStripMenuItem.Click += new System.EventHandler(this.definirCriteriosDeAceptaciónToolStripMenuItem_Click);
-            // 
-            // actualizarEsfuerzoTareaToolStripMenuItem
-            // 
-            this.actualizarEsfuerzoTareaToolStripMenuItem.Enabled = false;
-            this.actualizarEsfuerzoTareaToolStripMenuItem.Name = "actualizarEsfuerzoTareaToolStripMenuItem";
-            this.actualizarEsfuerzoTareaToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
-            this.actualizarEsfuerzoTareaToolStripMenuItem.Text = "Actualizar Esfuerzo Tarea";
-            this.actualizarEsfuerzoTareaToolStripMenuItem.Click += new System.EventHandler(this.actualizarEsfuerzoTareaToolStripMenuItem_Click);
             // 
             // actualizarAsociaciónAUsuarioToolStripMenuItem
             // 
             this.actualizarAsociaciónAUsuarioToolStripMenuItem.Name = "actualizarAsociaciónAUsuarioToolStripMenuItem";
             this.actualizarAsociaciónAUsuarioToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
             this.actualizarAsociaciónAUsuarioToolStripMenuItem.Text = "Actualizar Asociación a Usuario";
+            this.actualizarAsociaciónAUsuarioToolStripMenuItem.Click += new System.EventHandler(this.actualizarAsociaciónAUsuarioToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -497,5 +515,7 @@
         private System.Windows.Forms.ToolStripMenuItem definirCriteriosDeAceptaciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem actualizarEsfuerzoTareaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem actualizarAsociaciónAUsuarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem burndownChartToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem crearBurndownChartToolStripMenuItem;
     }
 }

@@ -21,7 +21,10 @@ namespace SCRUMTEC
         int idUserStory;
         int idTarea;
 
+        string nameUserStory;
+
         Button BotonProyecto;
+
         DataSet Proyectos;
         DataSet Releases;
         DataSet Sprints;
@@ -271,6 +274,7 @@ namespace SCRUMTEC
 
             DataRow ID_UserStory = Sprints.Tables[0].Rows[ID_Boton];
             idUserStory = Convert.ToInt32(ID_UserStory["id"].ToString());
+            nameUserStory = ID_UserStory["Nombre"].ToString();
 
             Tareas = ConexionMetodos.CargarTareas(idUserStory);
             CrearBotones(panel5, Tareas);
@@ -451,6 +455,13 @@ namespace SCRUMTEC
         {
             ActualizarEsfuerzoTarea ActualizaTarea = new ActualizarEsfuerzoTarea(idTarea);
             ActualizaTarea.Show();
+        }
+
+        private void actualizarAsociaciónAUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            EditarAsociacionUserUserStory NuevaAsociacion = new EditarAsociacionUserUserStory(idProyecto, idUserStory, nameUserStory);
+            NuevaAsociacion.Show();
         }
 
     }
