@@ -16,7 +16,7 @@ namespace ScrumTEC
         int id_proyecto;
         int id_sprint;
 
-        
+
 
         public CrearUserStory(int id_proyectoP, int id_sprintP)
         {
@@ -24,13 +24,13 @@ namespace ScrumTEC
             this.id_sprint = id_sprintP;
             InitializeComponent();
             this.radioButton.Checked = true;
-            
+
         }
 
         public CrearUserStory(int id_proyectoP)
         {
             this.id_proyecto = id_proyectoP;
-            
+
             InitializeComponent();
             this.radioButton.Checked = true;
         }
@@ -52,7 +52,7 @@ namespace ScrumTEC
         private void button2_Click(object sender, EventArgs e)
         {
 
-            String nombre_user_story = this.textBox1.Text.Trim(); 
+            String nombre_user_story = this.textBox1.Text.Trim();
             String descripcion_user_story = this.textBox2.Text.Trim();
             String prioridad = getPrioridadSeleccionada();
 
@@ -79,7 +79,7 @@ namespace ScrumTEC
         }
 
 
-        private String getPrioridadSeleccionada() 
+        private String getPrioridadSeleccionada()
         {
 
             string prioridad = "";
@@ -87,9 +87,9 @@ namespace ScrumTEC
             if (this.radioButton.Checked) { prioridad = radioButton.Text; }
             else if (this.radioButton2.Checked) { prioridad = radioButton2.Text; }
             else { prioridad = radioButton3.Text; }
-  
+
             return prioridad;
-        
+
         }
 
 
